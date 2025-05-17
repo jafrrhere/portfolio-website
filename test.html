@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Background Test</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-image: url('images/background.png');
+            background-attachment: fixed;
+            background-position: center top;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: #000000;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        
+        .content {
+            min-height: 200vh; /* Make content taller than viewport to enable scrolling */
+            padding: 20px;
+        }
+        
+        h1 {
+            margin-top: 0;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Fixed Background Test</h1>
+        <p>Scroll down to see if the background remains fixed.</p>
+        
+        <!-- Add enough content to make page scrollable -->
+        <div style="margin-top: 100vh;">
+            <h2>Scrolled Content</h2>
+            <p>The background should remain fixed as you scroll down to this point.</p>
+        </div>
+        
+        <div style="margin-top: 100vh;">
+            <h2>More Scrolled Content</h2>
+            <p>The background should still be fixed at this point too.</p>
+        </div>
+    </div>
+</body>
+</html> 

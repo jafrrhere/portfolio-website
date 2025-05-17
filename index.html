@@ -8,10 +8,77 @@
     <!-- Supabase JS client -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: #000000;
+        }
+        
+        .content-wrapper {
+  position: relative;
+            z-index: 1;
+            min-height: 100vh;
+        }
+        
+        /* Navigation Menu Styles */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 30px;
+            z-index: 100;
+            display: flex;
+            gap: 65px;
+        }
+        
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            letter-spacing: 1px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .navbar a:hover {
+            color: #00fff7;
+        }
+        
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #00ff7f;
+            transition: width 0.3s ease;
+        }
+        
+        .navbar a:hover::after {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
+    <!-- Background is now solid black -->
+    <div class="content-wrapper">
+        <!-- Navigation Menu -->
+        <nav class="navbar">
+            <a href="#index">Index</a>
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        
     <div class="center">
-        <h2 class="center-text" id="nameText"></h2>
+            <h2 class="center-text" id="nameText"></h2>
       </div>
         <div class="profile-card">
             <div><span class="security">Profile</span> <span class="id">person!!</span></div>
@@ -119,6 +186,7 @@
             </div>
         </div>
     </section>
+    </div>
     
     <script>
     // Supabase initialization
@@ -725,54 +793,15 @@
         document.addEventListener('DOMContentLoaded', function() {
             const nameElement = document.getElementById('nameText');
             const fullName = "Jafar Tamboli.";
-            let charIndex = 0;
             
-            // Add cursor blink animation if not already defined
-            if (!document.querySelector('style#cursor-style')) {
-                const style = document.createElement('style');
-                style.id = 'cursor-style';
-                style.textContent = `
-                    @keyframes cursor-blink {
-                        0%, 100% { opacity: 1; }
-                        50% { opacity: 0; }
-                    }
-                    .cursor {
-                        display: inline-block;
-                        margin-left: 2px;
-                        animation: cursor-blink 0.7s infinite;
-                        color: white;
-                        font-weight: 100;
-                        transform: scaleX(0.5);
-                        position: relative;
-                        top: -2px;
-                    }
-                `;
-                document.head.appendChild(style);
-            }
+            // Display the name immediately without typing animation
+            nameElement.textContent = fullName;
             
-            // Create cursor element
+            // Add a static cursor without animation
             const cursor = document.createElement('span');
             cursor.className = 'cursor';
             cursor.textContent = '|';
-            
-            function typeCharacter() {
-                if (charIndex < fullName.length) {
-                    // Add next character
-                    const currentText = fullName.substring(0, charIndex + 1);
-                    nameElement.textContent = currentText;
-                    
-                    // Schedule next character
-                    charIndex++;
-                    setTimeout(typeCharacter, Math.random() * 50 + 100); // Random typing speed between 100-150ms
-                } else {
-                    // Typing complete, add the permanent flickering pipe
-                    nameElement.textContent = fullName;
-                    nameElement.appendChild(cursor);
-                }
-            }
-            
-            // Start typing after a short delay
-            setTimeout(typeCharacter, 1000);
+            nameElement.appendChild(cursor);
         });
     </script>
 </body>

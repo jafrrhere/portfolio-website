@@ -11,58 +11,47 @@ html, body {
     padding: 0;
 }
 
+/* Content wrapper for proper scrolling */
+.content-wrapper {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* Plain black background */
 body {
     min-height: 100vh;
-    background: #0a0a0a;
+    background-color: #000000;
     color: #fff;
     font-family: 'Roboto', Arial, sans-serif;
     position: relative;
     overflow-x: hidden;
-}
-
-/* Grid background */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image: 
-        linear-gradient(rgba(255,255,255,0.08) 0.5px, transparent 0.5px), 
-        linear-gradient(90deg, rgba(255,255,255,0.08) 0.5px, transparent 0.5px),
-        linear-gradient(rgba(255,255,255,0.05) 5px, transparent 5px), 
-        linear-gradient(90deg, rgba(255,255,255,0.04) 5px, transparent 5px);
-    background-size: 40px 40px, 40px 40px, 200px 200px, 200px 200px;
-    z-index: 0;
-    pointer-events: none;
-    animation: gridPulse 8s infinite linear;
-}
-
-@keyframes gridPulse {
-    0% {
-        opacity: 0.8;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0.8;
-    }
+    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FFF" stroke="%23000" stroke-width="2" d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.85a.5.5 0 0 0-.85.35Z"></path></svg>'), auto;
 }
 
 .center {
   display: flex;
   width: 100vw;
   height: 100vh;
-  background-color: black;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url(https://s32.postimg.org/jp6u2kyf9/image.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-color: transparent;
+  background-image: none;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Add subtle animated accent effect */
+.center::after {
+  display: none;
 }
 
 .center-text {
   margin: 30vh auto auto auto;
   font-family: 'JetBrains Mono', monospace;
   font-size: 80px;
+  position: relative;
+  z-index: 10;
 }
 
 .glitch {
@@ -271,8 +260,8 @@ body::before {
     box-shadow: 0 2px 16px rgba(0,0,0,0.4);
     padding: 16px 12px;
     position: absolute;
-    right: 1vw;
-    top: 2vh;
+    right: 25px;
+    top: 20px;
     z-index: 2;
     color: #fff;
 }
@@ -413,8 +402,8 @@ body::before {
 
 .terminal-window {
     position: fixed;
-    bottom: 40px;
-    left: 40px;
+    bottom: 25px;
+    left: 25px;
     width: 650px;
     min-width: 650px;
     max-width: 650px;
@@ -536,8 +525,8 @@ body::before {
 /* Simple static terminal in bottom left */
 #new-terminal {
     position: fixed;
-    left: 40px;
-    bottom: 40px;
+    left: 25px;
+    bottom: 25px;
     width: 650px;
     background: #18191c;
     border-radius: 6px;
@@ -649,8 +638,8 @@ body::before {
 .image-card-section {
     display: flex;
     min-height: 100vh;
-    background: #111;
-    padding: 6rem 4rem;
+    background: #000000;
+    padding: 3rem 2rem;
     position: relative;
     overflow: hidden;
 }
@@ -665,11 +654,12 @@ body::before {
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     transition: transform 0.3s ease;
     max-height: 80vh;
-    margin-right: 4rem;
+    margin-right: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 3; /* Ensure it's above any background elements */
+    max-width: 45%;
 }
 
 .image-container:hover {
@@ -712,8 +702,9 @@ body::before {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2rem;
+    padding: 1rem;
     z-index: 2;
+    max-width: 50%;
 }
 
 .image-description h2 {
@@ -820,8 +811,8 @@ body::before {
 /* Custom Terminal Scrollbars */
 .terminal-body::-webkit-scrollbar,
 #new-terminal-body::-webkit-scrollbar {
-    width: 0.3px;
-    height: 0.3px;
+    width: 1px;
+    height: 1px;
     background-color: #18191C;
 }
 
@@ -858,8 +849,8 @@ body::before {
 /* Whole page scrollbar styling */
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
-    width: 0.3px;
-    height: 0.3px;
+    width: 1px;
+    height: 1px;
     background-color: #000000;
 }
 
@@ -891,4 +882,57 @@ html,
 body {
     scrollbar-width: thin;
     scrollbar-color: #18191C #000000;
+}
+
+/* Add custom cursor to all clickable elements */
+a, 
+button, 
+.action-btn, 
+.deadlines-btn, 
+.tech-tag,
+.down-arrow,
+.profile-img,
+#terminalCloseBtn,
+#new-terminal-close {
+    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FFF" stroke="%23000" stroke-width="2" d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.85a.5.5 0 0 0-.85.35Z"></path></svg>'), pointer;
+}
+
+/* Navigation Menu Styles */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 30px;
+    z-index: 100;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 1px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #00fff7;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #00ff7f;
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+    width: 100%;
 } 
