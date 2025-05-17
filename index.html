@@ -12,35 +12,35 @@
 <body>
     <div class="center">
         <h2 class="center-text" id="nameText"></h2>
-    </div>
-    <div class="profile-card">
-        <div><span class="security">SECURITY CLEARANCE</span> <span class="id">ID-0427</span></div>
-        <img class="profile-img" id="profileImage" src="https://i.imgur.com/0y0y0y0.png" alt="Profile">
-        <div class="name" id="profileName">Jafar Tamboli</div>
-        <div class="role" id="profileRole">PROFESSIONAL EXCUSE-MAKER</div>
-        <div class="badges">
-            <span class="badge" id="profileLevel">LVL 27</span>
-            <span class="badge verified">VERIFIED</span>
+      </div>
+        <div class="profile-card">
+            <div><span class="security">Profile</span> <span class="id">person!!</span></div>
+            <img class="profile-img" id="profileImage" src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//Profile%20pic.jpg" alt="Profile">
+            <div class="name" id="profileName">Jafar Tamboli</div>
+            <div class="role" id="profileRole">PROFESSIONAL EXCUSE-MAKER</div>
+            <div class="badges">
+                <span class="badge" id="profileLevel">LVL 27</span>
+                <span class="badge verified">VERIFIED</span>
+            </div>
+            <div class="skills">
+                <div class="skill-row">
+                    <span class="skill-label">Excuse Making</span>
+                    <div class="skill-bar excuse"><div class="skill-bar-inner" id="excuseSkill" style="width:98%"></div></div>
+                    <span id="excuseSkillValue">98%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-label">Procrastination</span>
+                    <div class="skill-bar procrastination"><div class="skill-bar-inner" id="procrastinationSkill" style="width:95%"></div></div>
+                    <span id="procrastinationSkillValue">95%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-label">Music Production</span>
+                    <div class="skill-bar music"><div class="skill-bar-inner" id="musicSkill" style="width:82%"></div></div>
+                    <span id="musicSkillValue">82%</span>
+                </div>
+            </div>
+            <div class="active-projects" id="activeProjects">&#x1F4BB; ACTIVE PROJECTS</div>
         </div>
-        <div class="skills">
-            <div class="skill-row">
-                <span class="skill-label">Excuse Making</span>
-                <div class="skill-bar excuse"><div class="skill-bar-inner" id="excuseSkill" style="width:98%"></div></div>
-                <span id="excuseSkillValue">98%</span>
-            </div>
-            <div class="skill-row">
-                <span class="skill-label">Procrastination</span>
-                <div class="skill-bar procrastination"><div class="skill-bar-inner" id="procrastinationSkill" style="width:95%"></div></div>
-                <span id="procrastinationSkillValue">95%</span>
-            </div>
-            <div class="skill-row">
-                <span class="skill-label">Music Production</span>
-                <div class="skill-bar music"><div class="skill-bar-inner" id="musicSkill" style="width:82%"></div></div>
-                <span id="musicSkillValue">82%</span>
-            </div>
-        </div>
-        <div class="active-projects" id="activeProjects">&#x1F4BB; ACTIVE PROJECTS</div>
-    </div>
 
     <div class="terminal-window" id="terminalWindow">
         <div class="terminal-header">
@@ -358,6 +358,7 @@
         terminalWindow.style.position = 'fixed';
         
 
+        
         // Log success
         console.log('Terminal drag handlers attached successfully');
         

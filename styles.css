@@ -60,8 +60,8 @@ body::before {
 }
 
 .center-text {
-  margin: auto;
-  font-family: 'Source Sans Pro', sans-serif;
+  margin: 30vh auto auto auto;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 80px;
 }
 
@@ -265,11 +265,11 @@ body::before {
 /* Profile Card */
 .profile-card {
     max-width: 500px;
-    width: 170px;  /* Half of original 340px */
+    width: 170px;
     background: #18191c;
-    border-radius: 3px;  /* Half of original 6px */
-    box-shadow: 0 2px 16px rgba(0,0,0,0.4);  /* Half shadow size */
-    padding: 16px 12px;  /* Half of original 32px 24px */
+    border-radius: 3px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.4);
+    padding: 16px 12px;
     position: absolute;
     right: 1vw;
     top: 2vh;
@@ -279,86 +279,86 @@ body::before {
 
 .profile-card .security {
     color: #00ff7f;
-    font-size: 0.6em;  /* Reduced from 0.75em */
+    font-size: 0.9em;
     font-weight: 500;
-    letter-spacing: 0.25px;  /* Half of original 0.5px */
+    letter-spacing: 0.25px;
 }
 
 .profile-card .id {
     float: right;
     color: #b0b3b8;
-    font-size: 0.7em;  /* Reduced from 0.9em */
+    font-size: 0.7em;
 }
 
 .profile-img {
-    width: 45px;  /* Half of original 90px */
-    height: 45px;  /* Half of original 90px */
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 1px auto 1px auto;  /* Half of original 2px */
+    margin: 1px auto 1px auto;
     display: block;
-    border: 1.5px solid #00fff7;  /* Half of original 3px */
+    border: 1.5px solid #00fff7;
 }
 
 .profile-card .name {
     font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 0.8em;  /* Reduced from 1.0em */
+    font-size: 0.8em;
     font-weight: 900;
     text-align: center;
-    margin: 5px 0 0 0;  /* Half of original 10px */
+    margin: 5px 0 0 0;
 }
 
 .profile-card .role {
     text-align: center;
-    font-size: 0.5em;  /* Reduced from 0.7em */
+    font-size: 0.55em;
     color: #b0b3b8;
-    margin-bottom: 5px;  /* Half of original 10px */
+    margin-bottom: 5px;
 }
 
 .profile-card .badges {
     display: flex;
     justify-content: center;
-    gap: 5px;  /* Half of original 10px */
-    margin-bottom: 0.25px;  /* Half of original 0.5px */
+    gap: 5px;
+    margin-bottom: 0.25px;
 }
 
 .badge {
-    padding: 0.5px 0.5px;  /* Half of original 1px */
-    border-radius: 4px;  /* Half of original 8px */
-    font-size: 0.7em;  /* Reduced from 0.9em */
+    padding: 0.5px 0.5px;
+    border-radius: 4px;
+    font-size: 0.65em;
     font-weight: 100;
     background: #222;
     color: #00ff7f;
 }
 
 .badge.verified {
-    border-radius: 3px;
+    border-radius: 1.5px;
     background: #aa9100;
     color: #222;
 }
 
 .skills {
-    margin: 9px 0 0 0;  /* Half of original 18px */
+    margin: 9px 0 0 0;
 }
 
 .skill-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 4px;  /* Half of original 8px */
+    margin-bottom: 4px;
 }
 
 .skill-label {
-    font-size: 0.6em;  /* Reduced from 0.8em */
+    font-size: 0.6em;
     color: #b0b3b8;
 }
 
 .skill-bar {
     flex: 1;
-    height: 1.5px;  /* Half of original 3px */
+    height: 1.5px;
     background: #222;
-    border-radius: 2px;  /* Half of original 4px */
-    margin: 0 2.5px;  /* Half of original 5px */
+    border-radius: 2px;
+    margin: 0 2.5px;
     overflow: hidden;
 }
 
@@ -372,8 +372,8 @@ body::before {
 .skill-bar.music { background: linear-gradient(90deg, #00aaff, #0055ff); }
 
 .profile-card .active-projects {
-    margin-top: 9px;  /* Half of original 18px */
-    font-size: 0.7em;  /* Reduced from 0.95em */
+    margin-top: 9px;
+    font-size: 0.7em;
     color: #b0b3b8;
     text-align: center;
 }
@@ -384,9 +384,9 @@ body::before {
     }
     .profile-card {
         position: static;
-        margin: 40px auto 0 auto;
-        width: 90vw;
-        max-width: 340px;
+        margin: 20px auto 0 auto;
+        width: 45vw;
+        max-width: 170px;
     }
 }
 
@@ -815,4 +815,80 @@ body::before {
 @keyframes cursor-blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+}
+
+/* Custom Terminal Scrollbars */
+.terminal-body::-webkit-scrollbar,
+#new-terminal-body::-webkit-scrollbar {
+    width: 0.3px;
+    height: 0.3px;
+    background-color: #18191C;
+}
+
+.terminal-body::-webkit-scrollbar-track,
+#new-terminal-body::-webkit-scrollbar-track {
+    background: #18191C;
+    border-radius: 0.3px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb,
+#new-terminal-body::-webkit-scrollbar-thumb {
+    background: #000000;
+    border-radius: 0.3px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover,
+#new-terminal-body::-webkit-scrollbar-thumb:hover {
+    background: #111111;
+}
+
+/* Remove scrollbar buttons (arrows) */
+.terminal-body::-webkit-scrollbar-button,
+#new-terminal-body::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* Firefox scrollbar styling */
+.terminal-body,
+#new-terminal-body {
+    scrollbar-width: thin;
+    scrollbar-color: #000000 #18191C;
+}
+
+/* Whole page scrollbar styling */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 0.3px;
+    height: 0.3px;
+    background-color: #000000;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+    background: #000000;
+    border-radius: 0.3px;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    background: #18191C;
+    border-radius: 0.3px;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+    background: #222;
+}
+
+/* Remove scrollbar buttons (arrows) */
+html::-webkit-scrollbar-button,
+body::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* Firefox scrollbar styling */
+html,
+body {
+    scrollbar-width: thin;
+    scrollbar-color: #18191C #000000;
 } 
