@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jafar Tamboli - Professional Excuse-Maker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900;400&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Supabase JS client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="center">
+        <h2 class="center-text" id="nameText"></h2>
+    </div>
+    <div class="profile-card">
+        <div><span class="security">SECURITY CLEARANCE</span> <span class="id">ID-0427</span></div>
+        <img class="profile-img" id="profileImage" src="https://i.imgur.com/0y0y0y0.png" alt="Profile">
+        <div class="name" id="profileName">Jafar Tamboli</div>
+        <div class="role" id="profileRole">PROFESSIONAL EXCUSE-MAKER</div>
+        <div class="badges">
+            <span class="badge" id="profileLevel">LVL 27</span>
+            <span class="badge verified">VERIFIED</span>
+        </div>
+        <div class="skills">
+            <div class="skill-row">
+                <span class="skill-label">Excuse Making</span>
+                <div class="skill-bar excuse"><div class="skill-bar-inner" id="excuseSkill" style="width:98%"></div></div>
+                <span id="excuseSkillValue">98%</span>
+            </div>
+            <div class="skill-row">
+                <span class="skill-label">Procrastination</span>
+                <div class="skill-bar procrastination"><div class="skill-bar-inner" id="procrastinationSkill" style="width:95%"></div></div>
+                <span id="procrastinationSkillValue">95%</span>
+            </div>
+            <div class="skill-row">
+                <span class="skill-label">Music Production</span>
+                <div class="skill-bar music"><div class="skill-bar-inner" id="musicSkill" style="width:82%"></div></div>
+                <span id="musicSkillValue">82%</span>
+            </div>
+        </div>
+        <div class="active-projects" id="activeProjects">&#x1F4BB; ACTIVE PROJECTS</div>
+    </div>
+
+    <div class="terminal-window" id="terminalWindow">
+        <div class="terminal-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">jafar@portfolio:~</span>
+            <span class="terminal-status">
+                <span class="battery">🔋 77%</span>
+                <span class="wifi">📶 51%</span>
+                <span class="clock" id="terminalClock"></span>
+            </span>
+            <button class="terminal-close" id="terminalCloseBtn">&times;</button>
+        </div>
+        <div class="terminal-body" id="terminalBody">
+            <!-- Default terminal content in case JS fails -->
+            <div class="terminal-line"><span class='terminal-time'>[21:35:54]</span> <span class='terminal-prompt'>$</span> <span class='terminal-cmd'>ssh jafar@portfolio.com</span></div>
+            <div class="terminal-line"><span class='terminal-output'>Password: ********</span></div>
+            <div class="terminal-line"><span class='terminal-output'>Access granted. Initializing system...</span></div>
+            <div class="terminal-line"><span class='terminal-prompt'>$</span> <span class='terminal-cmd'>cd /secrets</span></div>
+            <div class="terminal-line"><span class='terminal-prompt'>$</span> <span class='terminal-cmd'>ls -la</span></div>
+            <div class="terminal-line"><span class='terminal-output'>total 4</span></div>
+            <div class="terminal-line"><span class='terminal-output'>drwxr-xr-x 2 Jafar Jafar 4096 Apr 4 2025 .</span></div>
+            <div class="terminal-line"><span class='terminal-output'>drwxr-xr-x 22 Jafar Jafar 4096 Apr 4 2025 ..</span></div>
+            <div class="terminal-line"><span class='terminal-output terminal-file'>-rw-r--r-- 1 Jafar Jafar 0 Apr 4 2025 real_achievements.txt</span></div>
+            <div class="terminal-line"><span class='terminal-output terminal-file'>-rw-r--r-- 1 Jafar Jafar 10 Apr 4 2025 bank_account.txt</span></div>
+            <div class="terminal-line"><span class='terminal-output terminal-file'>-rw-r--r-- 1 Jafar Jafar 120 Apr 4 2025 future_plans.txt</span></div>
+            <div class="terminal-line"><span class='terminal-output terminal-file'>-rw-r--r-- 1 Jafar Jafar 156 Apr 4 2025 skills.txt</span></div>
+            <div class="terminal-line"><span class='terminal-prompt'>/home/Jafar ></span></div>
+        </div>
+    </div>
+    
+    <!-- New Simple Terminal - Fixed Position -->
+    <div id="new-terminal">
+        <div id="new-terminal-header">
+            <span class="new-dot red"></span>
+            <span class="new-dot yellow"></span>
+            <span class="new-dot green"></span>
+            <span class="new-terminal-title">jafar@portfolio:~</span>
+            <button id="new-terminal-close">-</button>
+        </div>
+        <div id="new-terminal-body">
+            <!-- Terminal content will be added via JS typing animation -->
+        </div>
+    </div>
+    
+    <!-- New Image Card Section -->
+    <section class="image-card-section">
+        <div class="image-container">
+            <img id="supabaseImage" src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//Organic%20Farming%20(2).png" alt="Project Image">
+            <div class="image-overlay">
+                <span class="image-label">Featured Project</span>
+            </div>
+        </div>
+        <div class="image-description">
+            <h2>Innovative Sound Design</h2>
+            <p class="description-text">
+                This project explores the intersection of music production and technological innovation. 
+                Using custom-built synthesizers and advanced sound design techniques, I've created 
+                immersive audio landscapes that challenge traditional concepts of musical structure.
+            </p>
+            <p class="description-text">
+                The core of this work focuses on generative compositions that evolve based on 
+                environmental inputs and algorithmic decision-making. Each piece creates a unique 
+                sonic experience that never repeats exactly the same way twice.
+            </p>
+            <div class="tech-stack">
+                <span class="tech-tag">Ableton Live</span>
+                <span class="tech-tag">Max/MSP</span>
+                <span class="tech-tag">Custom Synths</span>
+                <span class="tech-tag">Field Recordings</span>
+            </div>
+            <div class="project-actions">
+                <button class="action-btn">Listen Now</button>
+                <button class="action-btn secondary">View Process</button>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+    // Supabase initialization
+    const SUPABASE_URL = 'https://hdyloqcphgwfyuyvchvi.supabase.co'; // Your Supabase URL
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhkeWxvcWNwaGd3Znl1eXZjaHZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU1OTk5ODIsImV4cCI6MjA2MTE3NTk4Mn0.hc9XDHufCx0kp6RxPAMin-_XnBwI6CyotKTg1kRMU9M'; // Your Supabase anon key
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    
+    // Function to fetch profile data from Supabase
+    async function fetchProfileData() {
+        try {
+            // Fetch profile data from Supabase
+            const { data, error } = await supabase
+                .from('profiles')
+                .select('*')
+                .eq('id', 'jafar') // Replace with your unique identifier
+                .single();
+                
+            if (error) {
+                console.error('Error fetching profile:', error);
+                return;
+            }
+            
+            if (data) {
+                // Update profile data on the page
+                document.getElementById('profileImage').src = data.image_url || 'https://i.imgur.com/0y0y0y0.png';
+                document.getElementById('profileName').textContent = data.name || 'Jafar Tamboli';
+                document.getElementById('profileRole').textContent = data.role || 'PROFESSIONAL EXCUSE-MAKER';
+                document.getElementById('profileLevel').textContent = `LVL ${data.level || '27'}`;
+                
+                // Update skills
+                if (data.skills) {
+                    if (data.skills.excuse) {
+                        document.getElementById('excuseSkill').style.width = `${data.skills.excuse}%`;
+                        document.getElementById('excuseSkillValue').textContent = `${data.skills.excuse}%`;
+                    }
+                    
+                    if (data.skills.procrastination) {
+                        document.getElementById('procrastinationSkill').style.width = `${data.skills.procrastination}%`;
+                        document.getElementById('procrastinationSkillValue').textContent = `${data.skills.procrastination}%`;
+                    }
+                    
+                    if (data.skills.music) {
+                        document.getElementById('musicSkill').style.width = `${data.skills.music}%`;
+                        document.getElementById('musicSkillValue').textContent = `${data.skills.music}%`;
+                    }
+                }
+                
+                // Update active projects
+                if (data.projects) {
+                    document.getElementById('activeProjects').textContent = `&#x1F4BB; ${data.projects}`;
+                }
+            }
+        } catch (err) {
+            console.error('Error processing profile data:', err);
+        }
+    }
+    
+    // Function to upload profile image to Supabase Storage
+    async function uploadProfileImage(file) {
+        try {
+            const fileExt = file.name.split('.').pop();
+            const fileName = `profile-${Date.now()}.${fileExt}`;
+            const filePath = `profiles/${fileName}`;
+            
+            // Upload file to Supabase Storage
+            const { data, error } = await supabase.storage
+                .from('profile-images')
+                .upload(filePath, file);
+                
+            if (error) {
+                console.error('Error uploading profile image:', error);
+                return null;
+            }
+            
+            // Get public URL for the uploaded image
+            const { data: urlData } = supabase.storage
+                .from('profile-images')
+                .getPublicUrl(filePath);
+                
+            return urlData.publicUrl;
+        } catch (err) {
+            console.error('Error processing image upload:', err);
+            return null;
+        }
+    }
+    
+    // Function to update profile data in Supabase
+    async function updateProfileData(profileData) {
+        try {
+            const { error } = await supabase
+                .from('profiles')
+                .upsert({ 
+                    id: 'jafar', // Replace with your unique identifier
+                    ...profileData,
+                    updated_at: new Date()
+                });
+                
+            if (error) {
+                console.error('Error updating profile:', error);
+                return false;
+            }
+            
+            return true;
+        } catch (err) {
+            console.error('Error processing profile update:', err);
+            return false;
+        }
+    }
+    
+    // Example function to handle profile image upload via file input
+    function setupProfileImageUpload() {
+        // Create a hidden file input for profile image uploads
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = 'image/*';
+        fileInput.style.display = 'none';
+        document.body.appendChild(fileInput);
+        
+        // Make profile image clickable to trigger file upload
+        const profileImg = document.getElementById('profileImage');
+        profileImg.style.cursor = 'pointer';
+        profileImg.title = 'Click to upload new profile image';
+        
+        profileImg.addEventListener('click', () => {
+            fileInput.click();
+        });
+        
+        fileInput.addEventListener('change', async (e) => {
+            if (e.target.files && e.target.files[0]) {
+                const file = e.target.files[0];
+                
+                // Upload the file to Supabase Storage
+                const imageUrl = await uploadProfileImage(file);
+                
+                if (imageUrl) {
+                    // Update profile with new image URL
+                    const success = await updateProfileData({ image_url: imageUrl });
+                    
+                    if (success) {
+                        // Update image on the page
+                        profileImg.src = imageUrl;
+                    }
+                }
+            }
+        });
+    }
+    
+    // Initialize Supabase features when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        // Fetch profile data from Supabase
+        fetchProfileData();
+        
+        // Setup profile image upload
+        setupProfileImageUpload();
+    });
+    
+    // Terminal typing effect
+    const terminalLines = [
+        { time: '21:35:54', prompt: '$', cmd: 'ssh jafar@portfolio.com' },
+        { time: '21:35:55', output: 'Password: ********' },
+        { time: '21:35:57', output: 'Access granted. Initializing system...' },
+        { time: '21:35:58', prompt: '$', cmd: 'cd /secrets' },
+        { time: '21:35:59', prompt: '$', cmd: 'ls -la' },
+        { time: '21:36:00', output: 'total 4' },
+        { time: '21:36:04', output: 'drwxr-xr-x 2 Jafar Jafar 4096 Apr 4 2025 .' },
+        { time: '21:36:06', output: 'drwxr-xr-x 22 Jafar Jafar 4096 Apr 4 2025 ..' },
+        { time: '21:36:07', output: '-rw-r--r-- 1 Jafar Jafar 0 Apr 4 2025 real_achievements.txt', file: true },
+        { time: '21:36:09', output: '-rw-r--r-- 1 Jafar Jafar 10 Apr 4 2025 bank_account.txt', file: true },
+        { time: '21:36:11', output: '-rw-r--r-- 1 Jafar Jafar 120 Apr 4 2025 future_plans.txt', file: true },
+        { time: '21:36:14', output: '-rw-r--r-- 1 Jafar Jafar 156 Apr 4 2025 skills.txt', file: true },
+        { time: '21:40:40', prompt: '/home/Jafar >', cmd: '' },
+        { time: '21:40:40', prompt: '$', cmd: '' },
+    ];
+    
+    // Terminal typing functionality disabled for now
+    // Using static content for reliable display
+    function typeTerminalLine() {
+        console.log('Terminal typing disabled - using static content');
+        // Function disabled - using static HTML content
+    }
+    
+    // Comment out dynamic terminal animation for now
+    // We've added static content directly in the HTML
+    /*
+    let terminalIndex = 0;
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM loaded, starting terminal animation');
+        terminalIndex = 0;
+        typeTerminalLine();
+    });
+    
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        console.log('DOM already loaded, starting terminal animation now');
+        terminalIndex = 0;
+        setTimeout(typeTerminalLine, 100);
+    }
+    */
+    
+    // Clock update
+    function updateTerminalClock() {
+        const now = new Date();
+        const h = String(now.getHours()).padStart(2, '0');
+        const m = String(now.getMinutes()).padStart(2, '0');
+        const s = String(now.getSeconds()).padStart(2, '0');
+        document.getElementById('terminalClock').textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateTerminalClock, 1000);
+    updateTerminalClock();
+    
+    // Terminal close button functionality
+    document.getElementById('terminalCloseBtn').onclick = function() {
+        document.getElementById('terminalWindow').style.opacity = '0';
+        document.getElementById('terminalWindow').style.visibility = 'hidden';
+    };
+    
+    // DIRECT FIX FOR TERMINAL DRAGGING
+    // Run this code immediately after DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Setting up terminal drag functionality');
+        
+        var terminalWindow = document.getElementById('terminalWindow');
+        var terminalHeader = document.querySelector('#terminalWindow .terminal-header');
+        
+        if (!terminalWindow) {
+            console.error('Terminal window element not found!');
+            return;
+        }
+        
+        if (!terminalHeader) {
+            console.error('Terminal header element not found!');
+            return;
+        }
+        
+        console.log('Terminal elements found, attaching drag handlers');
+        
+        // Make sure terminal is properly positioned
+        terminalWindow.style.position = 'fixed';
+        
+
+        // Log success
+        console.log('Terminal drag handlers attached successfully');
+        
+        // Set initial position if not already set
+        var rect = terminalWindow.getBoundingClientRect();
+        if (terminalWindow.style.left === '') {
+            var xOffset = rect.left;
+            var yOffset = rect.top;
+            terminalWindow.style.left = xOffset + 'px';
+            terminalWindow.style.top = yOffset + 'px';
+            terminalWindow.style.right = 'auto';
+            terminalWindow.style.bottom = 'auto';
+            console.log('Set initial position:', xOffset, yOffset);
+        }
+    });
+    
+    // New Terminal Management
+    document.addEventListener('DOMContentLoaded', function() {
+        // Hide the old terminal
+        const oldTerminal = document.getElementById('terminalWindow');
+        if (oldTerminal) {
+            oldTerminal.style.display = 'none';
+        }
+        
+        // New terminal close button
+        const newCloseBtn = document.getElementById('new-terminal-close');
+        if (newCloseBtn) {
+            newCloseBtn.addEventListener('click', function() {
+                const newTerminal = document.getElementById('new-terminal');
+                if (newTerminal) {
+                    newTerminal.style.display = 'none';
+                }
+            });
+        }
+        
+        console.log('New terminal setup complete');
+    });
+    
+    // Enhanced glitch effect with random intensity
+    function enhanceGlitch() {
+        const glitchElement = document.querySelector('.glitch');
+        
+        setInterval(() => {
+            // Random intensity for glitch effect
+            const intensity = Math.random() * 2 + 1;
+            glitchElement.style.setProperty('--glitch-intensity', intensity);
+            
+            // Random chance for more dramatic glitch
+            if (Math.random() < 0.1) {
+                glitchElement.classList.add('intense-glitch');
+                setTimeout(() => {
+                    glitchElement.classList.remove('intense-glitch');
+                }, 150);
+            }
+        }, 2000);
+    }
+    
+    // Initialize enhanced glitch effect on page load
+    window.addEventListener('load', enhanceGlitch);
+    
+    // Supabase connection testing removed
+    </script>
+    
+    <script>
+        // Load project image from Supabase
+        async function loadProjectImage() {
+            try {
+                console.log('Fetching project data from Supabase...');
+                
+                // Fetch project data from Supabase
+                const { data, error } = await supabase
+                    .from('projects')
+                    .select('image_url, title, description')
+                    .eq('featured', true)
+                    .limit(1)
+                    .single();
+                
+                if (error) {
+                    console.error('Error fetching project data:', error);
+                    return;
+                }
+                
+                console.log('Project data received:', data);
+                
+                if (data) {
+                    // Update the image
+                    const imageElement = document.getElementById('supabaseImage');
+                    if (data.image_url) {
+                        console.log('Setting image URL to:', data.image_url);
+                        imageElement.src = data.image_url;
+                        
+                        // Add error handler to image
+                        imageElement.onerror = function() {
+                            console.error('Failed to load image from URL:', data.image_url);
+                            // Try fallback image
+                            this.src = 'https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images/default-image.jpg';
+                        };
+                        
+                        // Add load handler to image
+                        imageElement.onload = function() {
+                            console.log('Image loaded successfully');
+                        };
+                    } else {
+                        console.warn('No image_url found in project data');
+                    }
+                    
+                    // Update title and description if available
+                    if (data.title) {
+                        const titleElement = document.querySelector('.image-description h2');
+                        if (titleElement) {
+                            titleElement.textContent = data.title;
+                        }
+                    }
+                    
+                    if (data.description) {
+                        const descElements = document.querySelectorAll('.description-text');
+                        if (descElements.length > 0) {
+                            // Split description into paragraphs if there are multiple description elements
+                            const paragraphs = data.description.split('\n\n');
+                            descElements.forEach((element, index) => {
+                                if (paragraphs[index]) {
+                                    element.textContent = paragraphs[index];
+                                }
+                            });
+                        }
+                    }
+                } else {
+                    console.warn('No project data found with featured=true');
+                }
+            } catch (err) {
+                console.error('Error processing project data:', err);
+            }
+        }
+        
+        // No admin upload interface - images are managed directly in Supabase
+        
+        // Test Supabase connection and storage access
+        async function testSupabaseAccess() {
+            console.log('Testing Supabase connection...');
+            
+            try {
+                // Test database access
+                const { data: projectsData, error: projectsError } = await supabase
+                    .from('projects')
+                    .select('count(*)', { count: 'exact' });
+                
+                if (projectsError) {
+                    console.error('Error accessing projects table:', projectsError);
+                } else {
+                    console.log('Successfully accessed projects table, count:', projectsData);
+                }
+                
+                // Test storage access
+                const { data: bucketData, error: bucketError } = await supabase
+                    .storage
+                    .getBucket('project-images');
+                
+                if (bucketError) {
+                    console.error('Error accessing project-images bucket:', bucketError);
+                    
+                    // Check if bucket exists
+                    const { data: bucketsData, error: bucketsError } = await supabase
+                        .storage
+                        .listBuckets();
+                    
+                    if (bucketsError) {
+                        console.error('Error listing buckets:', bucketsError);
+                    } else {
+                        console.log('Available buckets:', bucketsData);
+                    }
+                } else {
+                    console.log('Successfully accessed project-images bucket:', bucketData);
+                    
+                    // List files in bucket
+                    const { data: filesData, error: filesError } = await supabase
+                        .storage
+                        .from('project-images')
+                        .list();
+                    
+                    if (filesError) {
+                        console.error('Error listing files in bucket:', filesError);
+                    } else {
+                        console.log('Files in project-images bucket:', filesData);
+                    }
+                }
+            } catch (err) {
+                console.error('Error testing Supabase access:', err);
+            }
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Test Supabase connection first
+            testSupabaseAccess();
+            
+            // Load project image when the page loads
+            loadProjectImage();
+            
+            // Add scroll reveal animation for image card section
+            const imageSection = document.querySelector('.image-card-section');
+            if (imageSection) {
+                // Simple scroll-triggered animation
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = 1;
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, { threshold: 0.2 });
+                
+                // Set initial state
+                imageSection.style.opacity = 0;
+                imageSection.style.transform = 'translateY(50px)';
+                imageSection.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                
+                // Observe the section
+                observer.observe(imageSection);
+            }
+        });
+    </script>
+    
+    <!-- Load Supabase from CDN for direct browser testing -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- Add jQuery for reliable dragging -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    
+    <script>
+        // Simple script to handle the new terminal only
+        $(document).ready(function() {
+            console.log('Setting up new terminal');
+            
+            // Initialize the new terminal and hide the old one
+            $('#terminalWindow').hide();
+            $('#new-terminal').show();
+            
+            // Terminal typing animation
+            const terminalContent = [
+                { type: 'command', text: '<span class="new-time">[21:35:54]</span> <span class="new-prompt">$</span> <span class="new-cmd">ssh jafar@portfolio.com</span>', delay: 300 },
+                { type: 'output', text: '<span class="new-output">Password: ********</span>', delay: 800 },
+                { type: 'output', text: '<span class="new-output">Access granted. Initializing system...</span>', delay: 1000 },
+                { type: 'command', text: '<span class="new-prompt">$</span> <span class="new-cmd">cd /secrets</span>', delay: 300 },
+                { type: 'command', text: '<span class="new-prompt">$</span> <span class="new-cmd">ls -la</span>', delay: 300 },
+                { type: 'output', text: '<span class="new-output">total 4</span>', delay: 100 },
+                { type: 'output', text: '<span class="new-output">drwxr-xr-x 2 Jafar Jafar 4096 Apr 4 2025 .</span>', delay: 50 },
+                { type: 'output', text: '<span class="new-output">drwxr-xr-x 22 Jafar Jafar 4096 Apr 4 2025 ..</span>', delay: 50 },
+                { type: 'output', text: '<span class="new-output new-file">-rw-r--r-- 1 Jafar Jafar 0 Apr 4 2025 real_achievements.txt</span>', delay: 150 },
+                { type: 'output', text: '<span class="new-output new-file">-rw-r--r-- 1 Jafar Jafar 10 Apr 4 2025 bank_account.txt</span>', delay: 150 },
+                { type: 'output', text: '<span class="new-output new-file">-rw-r--r-- 1 Jafar Jafar 120 Apr 4 2025 future_plans.txt</span>', delay: 150 },
+                { type: 'output', text: '<span class="new-output new-file">-rw-r--r-- 1 Jafar Jafar 156 Apr 4 2025 skills.txt</span>', delay: 150 },
+                { type: 'command', text: '<span class="new-prompt">/home/Jafar ></span>', delay: 400 }
+            ];
+            
+            const terminalBody = document.getElementById('new-terminal-body');
+            let currentLine = 0;
+            
+            // Type character by character for commands, instant for outputs
+            function typeTerminalContent() {
+                if (currentLine >= terminalContent.length) return;
+                
+                const lineData = terminalContent[currentLine];
+                const lineElement = document.createElement('div');
+                lineElement.className = 'new-terminal-line';
+                terminalBody.appendChild(lineElement);
+                
+                if (lineData.type === 'command') {
+                    // For commands, type character by character
+                    typeCommandCharByChar(lineElement, lineData.text, 0, lineData.delay);
+                } else {
+                    // For outputs, show immediately after a short delay
+                    setTimeout(() => {
+                        lineElement.innerHTML = lineData.text;
+                        currentLine++;
+                        terminalBody.scrollTop = terminalBody.scrollHeight;
+                        typeTerminalContent();
+                    }, lineData.delay);
+                }
+            }
+            
+            // Type command character by character
+            function typeCommandCharByChar(element, text, charIndex, delay) {
+                const typingSpeed = 60; // ms per character
+                
+                // Extract HTML tags and text content
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = text;
+                const plainText = tempDiv.textContent;
+                
+                // Find position of text content in the original HTML
+                let tagIndices = [];
+                let insideTag = false;
+                let textCount = 0;
+                
+                for (let i = 0; i < text.length; i++) {
+                    if (text[i] === '<') {
+                        insideTag = true;
+                    } else if (text[i] === '>') {
+                        insideTag = false;
+                    } else if (!insideTag) {
+                        tagIndices.push({ htmlIndex: i, textIndex: textCount });
+                        textCount++;
+                    }
+                }
+                
+                // If we're at the end of the string, move to next line
+                if (charIndex >= plainText.length) {
+                    currentLine++;
+                    terminalBody.scrollTop = terminalBody.scrollHeight;
+                    setTimeout(typeTerminalContent, delay);
+                    return;
+                }
+                
+                // Type just this character
+                const currentTextIndex = charIndex;
+                
+                // Find corresponding position in the HTML
+                let htmlIndex = text.indexOf(plainText[currentTextIndex]);
+                
+                for (const index of tagIndices) {
+                    if (index.textIndex === currentTextIndex) {
+                        htmlIndex = index.htmlIndex;
+                        break;
+                    }
+                }
+                
+                // Extract the portion of HTML up to this character
+                element.innerHTML = text.substring(0, htmlIndex + 1);
+                
+                // Add cursor effect
+                element.innerHTML += '<span class="cursor">|</span>';
+                
+                // Schedule the next character
+                setTimeout(() => {
+                    typeCommandCharByChar(element, text, charIndex + 1, delay);
+                }, typingSpeed);
+            }
+            
+            // Start typing animation
+            setTimeout(() => {
+                typeTerminalContent();
+            }, 500);
+            
+            // Close button for new terminal
+            $('#new-terminal-close').on('click', function() {
+                $('#new-terminal').toggleClass('minimized');
+                
+                // Change button text based on state
+                if ($('#new-terminal').hasClass('minimized')) {
+                    $(this).html('+');
+                } else {
+                    $(this).html('-');
+                }
+            });
+            
+            console.log('New terminal ready with typing animation');
+        });
+    </script>
+    
+    <!-- Name typing effect script -->
+    <script>
+        // Name typing effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const nameElement = document.getElementById('nameText');
+            const fullName = "Jafar Tamboli.";
+            let charIndex = 0;
+            
+            // Add cursor blink animation if not already defined
+            if (!document.querySelector('style#cursor-style')) {
+                const style = document.createElement('style');
+                style.id = 'cursor-style';
+                style.textContent = `
+                    @keyframes cursor-blink {
+                        0%, 100% { opacity: 1; }
+                        50% { opacity: 0; }
+                    }
+                    .cursor {
+                        display: inline-block;
+                        margin-left: 2px;
+                        animation: cursor-blink 0.7s infinite;
+                        color: white;
+                        font-weight: 100;
+                        transform: scaleX(0.5);
+                        position: relative;
+                        top: -2px;
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            // Create cursor element
+            const cursor = document.createElement('span');
+            cursor.className = 'cursor';
+            cursor.textContent = '|';
+            
+            function typeCharacter() {
+                if (charIndex < fullName.length) {
+                    // Add next character
+                    const currentText = fullName.substring(0, charIndex + 1);
+                    nameElement.textContent = currentText;
+                    
+                    // Schedule next character
+                    charIndex++;
+                    setTimeout(typeCharacter, Math.random() * 50 + 100); // Random typing speed between 100-150ms
+                } else {
+                    // Typing complete, add the permanent flickering pipe
+                    nameElement.textContent = fullName;
+                    nameElement.appendChild(cursor);
+                }
+            }
+            
+            // Start typing after a short delay
+            setTimeout(typeCharacter, 1000);
+        });
+    </script>
+</body>
+</html> 
