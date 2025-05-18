@@ -261,7 +261,7 @@ body {
     padding: 16px 12px;
     position: absolute;
     right: 25px;
-    top: 20px;
+    top: 25px;
     z-index: 2;
     color: #fff;
 }
@@ -703,6 +703,9 @@ body {
     flex-direction: column;
     justify-content: center;
     padding: 1rem;
+    position: relative;
+    margin-top: -85px;
+    transform: translateY(-85px);
     z-index: 2;
     max-width: 50%;
 }
@@ -935,4 +938,55 @@ button,
 
 .navbar a:hover::after {
     width: 100%;
+}
+
+/* Background Code Animation */
+.background-code {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    color: rgba(0, 255, 127, 0.15);
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    overflow: hidden;
+    pointer-events: none;
+    white-space: pre;
+    line-height: 1.4;
+    padding: 20px;
+}
+
+.code-line {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    margin-bottom: 4px;
+    font-size: 12px;
+    text-shadow: 0 0 5px rgba(0, 255, 127, 0.5);
+    letter-spacing: 1px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.6; }
+}
+
+/* Add typing animation for code */
+.typing {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
+    border-right: 2px solid rgba(0, 255, 127, 0.7);
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: rgba(0, 255, 127, 0.7) }
 } 
