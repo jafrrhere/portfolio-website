@@ -74,6 +74,9 @@
             margin: 2rem 0;
             background: rgba(0, 0, 0, 0.3);
             border-radius: 15px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .image-card-section.reversed {
@@ -85,11 +88,14 @@
             position: relative;
             overflow: hidden;
             border-radius: 10px;
+            aspect-ratio: 4/5;
+            max-width: 400px;
         }
 
         .image-container img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
             transition: transform 0.3s ease;
         }
@@ -127,6 +133,7 @@
         .image-description {
             flex: 1;
             padding: 2rem;
+            max-width: 600px;
         }
 
         .image-description h2 {
@@ -186,6 +193,86 @@
 
         .action-btn.secondary:hover {
             background: rgba(0, 255, 247, 0.1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .image-card-section {
+                flex-direction: column;
+                padding: 2rem 1rem;
+            }
+
+            .image-container {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .image-description {
+                width: 100%;
+                max-width: 100%;
+                padding: 1rem 0;
+            }
+        }
+
+        .terminal-window, #new-terminal {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            width: 650px;
+            background: rgba(24, 25, 28, 0.95);
+            border-radius: 6px;
+            border: 1px solid #222;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+            z-index: 9999;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        #new-terminal.minimized {
+            height: 34px !important;
+            overflow: hidden;
+        }
+
+        #new-terminal-body {
+            padding: 18px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #d0ffd0;
+            height: 160px;
+            overflow-y: auto;
+            transition: height 0.3s ease;
+            background: rgba(24, 25, 28, 0.95);
+        }
+
+        /* Ensure buttons stay below terminal */
+        .action-btn {
+            z-index: 1;
+        }
+
+        /* Terminal header styles */
+        #new-terminal-header {
+            background: rgba(35, 36, 40, 0.95);
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 9999;
+        }
+
+        #new-terminal-close {
+            position: relative;
+            z-index: 9999;
+            background: transparent;
+            border: none;
+            color: #b0b3b8;
+            font-size: 1.5em;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            line-height: 14px;
+            text-align: center;
+            padding: 0;
         }
     </style>
 </head>
@@ -309,41 +396,43 @@
             </div>
         </div>
     </section>
-    
-    <!-- New Image Card Section with Reversed Layout -->
-    <section class="image-card-section reversed">
-        <div class="image-description">
-            <h2>Creative Development</h2>
-            <p class="description-text">
-                Exploring the boundaries of digital creativity through innovative web development 
-                and interactive design. This project showcases the fusion of modern technologies 
-                with artistic expression.
-            </p>
-            <p class="description-text">
-                Built with cutting-edge frameworks and tools, this work demonstrates the power 
-                of combining technical expertise with creative vision to create engaging digital 
-                experiences.
-            </p>
-            <div class="tech-stack">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Node.js</span>
-                <span class="tech-tag">Three.js</span>
-                <span class="tech-tag">WebGL</span>
-            </div>
-            <div class="project-actions">
-                <button class="action-btn">View Project</button>
-                <button class="action-btn secondary">Learn More</button>
-            </div>
-        </div>
-        <div class="image-container">
-            <img id="supabaseImage2" src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//Organic%20Farming%20(2).png" alt="Project Image">
-            <div class="image-overlay">
-                <span class="image-label">Featured Project</span>
-            </div>
-        </div>
-    </section>
     </div>
     
+        <!-- 2nd Image Card Section -->
+        <section class="image-card-section">
+            <div class="image-description">
+                <h2>Innovative Sound Design</h2>
+                <p class="description-text">
+                    This project explores the intersection of music production and technological innovation. 
+                    Using custom-built synthesizers and advanced sound design techniques, I've created 
+                    immersive audio landscapes that challenge traditional concepts of musical structure.
+                </p>
+                <p class="description-text">
+                    The core of this work focuses on generative compositions that evolve based on 
+                    environmental inputs and algorithmic decision-making. Each piece creates a unique 
+                    sonic experience that never repeats exactly the same way twice.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Ableton Live</span>
+                    <span class="tech-tag">Max/MSP</span>
+                    <span class="tech-tag">Custom Synths</span>
+                    <span class="tech-tag">Field Recordings</span>
+                </div>
+                <div class="project-actions">
+                    <button class="action-btn">Listen Now</button>
+                    <button class="action-btn secondary">View Process</button>
+                </div>
+            </div>
+            <div class="image-container">
+                <img id="supabaseImage" src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//Organic%20Farming%20(2).png" alt="Project Image">
+                <div class="image-overlay">
+                    <span class="image-label">Featured Project</span>
+                </div>
+            </div>
+            
+        </section>
+        </div>
+        
     <script>
     // Supabase initialization
     const SUPABASE_URL = 'https://hdyloqcphgwfyuyvchvi.supabase.co'; // Your Supabase URL
@@ -613,9 +702,32 @@
             newCloseBtn.addEventListener('click', function() {
                 const newTerminal = document.getElementById('new-terminal');
                 if (newTerminal) {
-                    newTerminal.style.display = 'none';
+                    newTerminal.classList.toggle('minimized');
+                    // Change button text based on state
+                    if (newTerminal.classList.contains('minimized')) {
+                        this.textContent = '+';
+                    } else {
+                        this.textContent = '-';
+                    }
                 }
             });
+        }
+
+        // Ensure terminal stays on top and works properly
+        const newTerminal = document.getElementById('new-terminal');
+        if (newTerminal) {
+            // Set initial position and styles
+            newTerminal.style.position = 'fixed';
+            newTerminal.style.zIndex = '9999';
+            newTerminal.style.bottom = '25px';
+            newTerminal.style.left = '25px';
+            
+            // Make sure terminal content is properly initialized
+            const terminalBody = document.getElementById('new-terminal-body');
+            if (terminalBody) {
+                terminalBody.style.height = '160px';
+                terminalBody.style.overflowY = 'auto';
+            }
         }
         
         console.log('New terminal setup complete');

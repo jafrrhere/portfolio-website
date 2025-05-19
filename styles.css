@@ -658,7 +658,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 3; /* Ensure it's above any background elements */
+    z-index: -3; /* Ensure it's above any background elements */
     max-width: 45%;
 }
 
@@ -704,8 +704,8 @@ body {
     justify-content: center;
     padding: 1rem;
     position: relative;
-    margin-top: -85px;
-    transform: translateY(-85px);
+    margin-top: -8px;
+    transform: translateY(-8px);
     z-index: 2;
     max-width: 50%;
 }
