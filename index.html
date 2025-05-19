@@ -64,6 +64,129 @@
         .navbar a:hover::after {
             width: 100%;
         }
+
+        /* Image Card Section Styles */
+        .image-card-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 4rem 2rem;
+            margin: 2rem 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+        }
+
+        .image-card-section.reversed {
+            flex-direction: row-reverse;
+        }
+
+        .image-container {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .image-label {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .image-description {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .image-description h2 {
+            color: #00fff7;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .description-text {
+            color: #fff;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .tech-tag {
+            background: rgba(0, 255, 247, 0.1);
+            color: #00fff7;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .action-btn {
+            background: #00fff7;
+            color: #000;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: #01e875;
+            transform: translateY(-2px);
+        }
+
+        .action-btn.secondary {
+            background: transparent;
+            border: 2px solid #00fff7;
+            color: #00fff7;
+        }
+
+        .action-btn.secondary:hover {
+            background: rgba(0, 255, 247, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -183,6 +306,39 @@
             <div class="project-actions">
                 <button class="action-btn">Listen Now</button>
                 <button class="action-btn secondary">View Process</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- New Image Card Section with Reversed Layout -->
+    <section class="image-card-section reversed">
+        <div class="image-description">
+            <h2>Creative Development</h2>
+            <p class="description-text">
+                Exploring the boundaries of digital creativity through innovative web development 
+                and interactive design. This project showcases the fusion of modern technologies 
+                with artistic expression.
+            </p>
+            <p class="description-text">
+                Built with cutting-edge frameworks and tools, this work demonstrates the power 
+                of combining technical expertise with creative vision to create engaging digital 
+                experiences.
+            </p>
+            <div class="tech-stack">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Three.js</span>
+                <span class="tech-tag">WebGL</span>
+            </div>
+            <div class="project-actions">
+                <button class="action-btn">View Project</button>
+                <button class="action-btn secondary">Learn More</button>
+            </div>
+        </div>
+        <div class="image-container">
+            <img id="supabaseImage2" src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//Organic%20Farming%20(2).png" alt="Project Image">
+            <div class="image-overlay">
+                <span class="image-label">Featured Project</span>
             </div>
         </div>
     </section>
