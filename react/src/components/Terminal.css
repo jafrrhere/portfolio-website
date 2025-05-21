@@ -1,0 +1,96 @@
+#new-terminal {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 650px;
+    background: rgba(24, 25, 28, 0.95);
+    border-radius: 6px;
+    border: 1px solid #222;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+    z-index: 9999;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+#new-terminal.minimized {
+    height: 34px !important;
+    overflow: hidden;
+}
+
+#new-terminal-header {
+    background: rgba(35, 36, 40, 0.95);
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 9999;
+}
+
+.new-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.new-dot.red { background: #ff5f56; }
+.new-dot.yellow { background: #ffbd2e; }
+.new-dot.green { background: #27c93f; }
+
+.new-terminal-title {
+    color: #b0b3b8;
+    margin-left: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+}
+
+#new-terminal-close {
+    position: absolute;
+    right: 16px;
+    background: transparent;
+    border: none;
+    color: #b0b3b8;
+    font-size: 1.5em;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    line-height: 14px;
+    text-align: center;
+    padding: 0;
+}
+
+#new-terminal-body {
+    padding: 18px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #d0ffd0;
+    height: 160px;
+    overflow-y: auto;
+    transition: height 0.3s ease;
+    background: rgba(24, 25, 28, 0.95);
+}
+
+.new-terminal-line {
+    margin: 4px 0;
+}
+
+.new-time {
+    color: #b0b3b8;
+}
+
+.new-prompt {
+    color: #00fff7;
+}
+
+.new-cmd {
+    color: #fff;
+}
+
+.new-output {
+    color: #d0ffd0;
+}
+
+.new-file {
+    color: #01e875;
+} 

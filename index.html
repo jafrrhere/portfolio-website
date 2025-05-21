@@ -1072,15 +1072,25 @@
         document.addEventListener('DOMContentLoaded', function() {
             const nameElement = document.getElementById('nameText');
             const fullName = "Jafar Tamboli.";
+            let currentIndex = 0;
             
-            // Display the name immediately without typing animation
-            nameElement.textContent = fullName;
+            function typeWriter() {
+                if (currentIndex < fullName.length) {
+                    nameElement.textContent += fullName.charAt(currentIndex);
+                    currentIndex++;
+                    setTimeout(typeWriter, 100); // Adjust typing speed here (100ms between each character)
+                } else {
+                    // Add cursor after typing is complete
+                    const cursor = document.createElement('span');
+                    cursor.className = 'cursor';
+                    cursor.textContent = '|';
+                    nameElement.appendChild(cursor);
+                }
+            }
             
-            // Add a static cursor without animation
-            const cursor = document.createElement('span');
-            cursor.className = 'cursor';
-            cursor.textContent = '|';
-            nameElement.appendChild(cursor);
+            // Clear any existing text and start typing
+            nameElement.textContent = '';
+            typeWriter();
         });
     </script>
 </body>

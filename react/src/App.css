@@ -1,0 +1,49 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #000000;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+/* Text selection color */
+::selection {
+  background: #e0e0e0;
+  color: #000;
+}
+
+::-moz-selection {
+  background: #e0e0e0;
+  color: #000;
+}
+
+/* Center text styles */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.center-text {
+  color: #00fff7;
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Import component-specific styles */
+@import './components/Navbar.css';
+@import './components/ProfileCard.css';
+@import './components/Terminal.css';
+@import './components/ProjectSection.css'; 

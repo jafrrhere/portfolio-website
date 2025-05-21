@@ -1,0 +1,91 @@
+.profile-card {
+    background: rgba(24, 25, 28, 0.95);
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 400px;
+    margin: 2rem auto;
+    color: #fff;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 1rem auto;
+    display: block;
+    border: 3px solid #00fff7;
+}
+
+.name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 1rem 0;
+    color: #00fff7;
+}
+
+.role {
+    text-align: center;
+    color: #01e875;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.badges {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.badge {
+    background: rgba(0, 255, 247, 0.1);
+    color: #00fff7;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.badge.verified {
+    background: rgba(1, 232, 117, 0.1);
+    color: #01e875;
+}
+
+.skills {
+    margin: 2rem 0;
+}
+
+.skill-row {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    gap: 1rem;
+}
+
+.skill-label {
+    width: 120px;
+    font-size: 0.9rem;
+}
+
+.skill-bar {
+    flex: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-bar-inner {
+    height: 100%;
+    background: #00fff7;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.active-projects {
+    text-align: center;
+    color: #00fff7;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+} 
