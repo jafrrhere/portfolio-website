@@ -366,10 +366,51 @@
             .carousel-item img { height: 80px; }
             .carousel-section { max-width: 100vw; }
         }
+        .github-streak-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 230px;
+            background: url('https://github-readme-streak-stats.herokuapp.com?user=jafrrhere&theme=black-ice&hide_border=true&background=00000000') center/cover no-repeat;
+            z-index: 0;
+        }
+        .github-streak-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 230px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 60%, rgba(0,0,0,1) 100%);
+            z-index: 1;
+        }
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+        .profile-card {
+            position: absolute;
+            right: 25px;
+            top: 60px;
+            z-index: 3;
+        }
+        @media (max-width: 700px) {
+            .github-streak-bg, .github-streak-overlay {
+                height: 120px;
+            }
+            .profile-card {
+                top: 90px;
+                right: 10px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Background is now solid black -->
+    <!-- GitHub Streak Background at Top -->
+    <div class="github-streak-bg">
+        <!-- Overlay for readability -->
+        <div class="github-streak-overlay"></div>
+    </div>
     <div class="content-wrapper">
         <!-- Navigation Menu -->
         <nav class="navbar">
@@ -519,56 +560,6 @@
             <div class="project-actions">
                 <button class="action-btn">Listen Now</button>
                 <button class="action-btn secondary">View Process</button>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Horizontal Auto-Scrolling Image Carousel -->
-    <section class="carousel-section">
-        <h2 class="carousel-title">Continue Watching</h2>
-        <div class="carousel-container">
-            <div class="carousel-track" id="carouselTrack">
-                <div class="carousel-item" data-desc="A high school chemistry teacher turned meth producer.">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/6/61/Breaking_Bad_title_card.png" alt="Breaking Bad">
-                    <div class="carousel-desc">Breaking Bad</div>
-                </div>
-                <div class="carousel-item" data-desc="A boy with a powerful alien watch fights evil.">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Ben_10_-_logo.png" alt="Ben 10">
-                    <div class="carousel-desc">Ben 10</div>
-                </div>
-                <div class="carousel-item" data-desc="The devil runs a nightclub in Los Angeles.">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/0/02/Lucifer_%28TV_series%29_logo.png" alt="Lucifer">
-                    <div class="carousel-desc">Lucifer</div>
-                </div>
-                <div class="carousel-item" data-desc="A documentary about the hunt for Osama Bin Laden.">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/7/7d/American_Manhunt_Osama_Bin_Laden.jpg" alt="American Manhunt">
-                    <div class="carousel-desc">American Manhunt</div>
-                </div>
-                <div class="carousel-item" data-desc="A mind-bending German sci-fi thriller.">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/5/5a/DarkNetflixPosterEnglish.jpg" alt="Dark">
-                    <div class="carousel-desc">Dark</div>
-                </div>
-                <!-- Additional images -->
-                <div class="carousel-item" data-desc="A group of friends face supernatural forces in the 1980s.">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/3/38/Stranger_Things_logo.png" alt="Stranger Things">
-                    <div class="carousel-desc">Stranger Things</div>
-                </div>
-                <div class="carousel-item" data-desc="A fantasy drama about noble families vying for the Iron Throne.">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/d/d8/Game_of_Thrones_title_card.jpg" alt="Game of Thrones">
-                    <div class="carousel-desc">Game of Thrones</div>
-                </div>
-                <div class="carousel-item" data-desc="A chemistry teacher and his former student cook meth in an RV.">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/7/74/Better_Call_Saul_title_card.png" alt="Better Call Saul">
-                    <div class="carousel-desc">Better Call Saul</div>
-                </div>
-                <div class="carousel-item" data-desc="A group of survivors navigate a zombie apocalypse.">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/1/1b/The_Walking_Dead_title_card.png" alt="The Walking Dead">
-                    <div class="carousel-desc">The Walking Dead</div>
-                </div>
-                <div class="carousel-item" data-desc="A money-laundering scheme goes wrong for a financial planner.">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Ozark_Title.png" alt="Ozark">
-                    <div class="carousel-desc">Ozark</div>
-                </div>
             </div>
         </div>
     </section>
@@ -1222,30 +1213,6 @@
             nameElement.textContent = '';
             typeWriter();
         });
-    </script>
-    
-    <script>
-    // Auto-scroll carousel
-    const carouselTrack = document.getElementById('carouselTrack');
-    let scrollPos = 0;
-    let direction = 1;
-    const itemWidth = 220 + 32; // width + gap
-    const totalItems = carouselTrack.children.length;
-    const visibleItems = Math.floor(carouselTrack.parentElement.offsetWidth / itemWidth);
-    let maxScroll = (totalItems - visibleItems) * itemWidth;
-    if (maxScroll < 0) maxScroll = 0;
-
-    function autoScrollCarousel() {
-        scrollPos += direction * 2;
-        if (scrollPos >= maxScroll) direction = -1;
-        if (scrollPos <= 0) direction = 1;
-        carouselTrack.style.transform = `translateX(${-scrollPos}px)`;
-    }
-    let carouselInterval = setInterval(autoScrollCarousel, 30);
-
-    // Pause on hover
-    carouselTrack.addEventListener('mouseenter', () => clearInterval(carouselInterval));
-    carouselTrack.addEventListener('mouseleave', () => carouselInterval = setInterval(autoScrollCarousel, 30));
     </script>
 </body>
 </html> 
