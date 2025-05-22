@@ -46,4 +46,14 @@ body {
 @import './components/Navbar.css';
 @import './components/ProfileCard.css';
 @import './components/Terminal.css';
-@import './components/ProjectSection.css'; 
+@import './components/ProjectSection.css';
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #000;
+} 
