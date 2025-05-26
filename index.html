@@ -7,15 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900;400&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- Supabase JS client -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <!-- Spline library -->
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.490/build/spline-viewer.js"></script>
     <link rel="stylesheet" href="styles.css">
     <style>
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
         }
         
         body {
@@ -37,7 +34,6 @@
             position: relative;
             z-index: 1;
             min-height: 100vh;
-            background: transparent;
         }
         
         /* Navigation Menu Styles */
@@ -385,7 +381,7 @@
         }
 
         /* Spline container styles */
-        .spline-container {
+        #spline-container {
             position: fixed;
             top: 0;
             left: 0;
@@ -394,31 +390,20 @@
             z-index: 0;
         }
 
-        .spline-container spline-viewer {
-            width: 100%;
-            height: 100%;
-            pointer-events: auto;
-        }
-
-        /* Ensure content stays above Spline scene */
         .content-wrapper {
             position: relative;
             z-index: 1;
             min-height: 100vh;
-            background: transparent;
+            pointer-events: none;
+        }
+
+        /* Re-enable pointer events for interactive elements */
+        .navbar, .profile-card, .terminal-window, #new-terminal, .image-card-section, .action-btn {
+            pointer-events: auto;
         }
     </style>
 </head>
 <body>
-    <div id="spline-container">
-        <spline-viewer 
-            url="https://prod.spline.design/EEFQBJSUz1AVsOv8/scene.splinecode"
-            events-target="global"
-            loading-anim-type="spinner"
-            loading-anim-background="#000000"
-        ></spline-viewer>
-    </div>
-
     <div class="content-wrapper">
         <!-- Navigation Menu -->
         <nav class="navbar">
@@ -428,9 +413,9 @@
             <a href="#About">About</a>
         </nav>
         
-    <div class="center">
+        <div class="center">
             <h2 class="center-text" id="nameText"></h2>
-      </div>
+        </div>
         <div class="profile-card">
             <div><span class="security">Profile</span> <span class="id">person!!</span></div>
             <img class="profile-img" id="profileImage" src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//Profile%20pic.jpg" alt="Profile">
@@ -460,117 +445,117 @@
             <div class="active-projects" id="activeProjects">&#x1F4BB; ACTIVE PROJECTS</div>
         </div>
 
-    <div class="terminal-window" id="terminalWindow">
-        <div class="terminal-header">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-            <span class="terminal-title">jafar@portfolio:~</span>
-            <span class="terminal-status">
-                <span class="battery">🔋 77%</span>
-                <span class="wifi">📶 51%</span>
-                <span class="clock" id="terminalClock"></span>
-            </span>
-            <button class="terminal-close" id="terminalCloseBtn">&times;</button>
-        </div>
-        <div class="terminal-body" id="terminalBody">
-            <!-- Default terminal content in case JS fails -->
-            <div class="terminal-line"><span class='terminal-time'>[21:35:54]</span> <span class='terminal-prompt'>$</span> <span class='terminal-cmd'>ssh jafar@portfolio.com</span></div>
-            <div class="terminal-line"><span class='terminal-output'>Password: ********</span></div>
-            <div class="terminal-line"><span class='terminal-output'>Access granted. Initializing system...</span></div>
-            <div class="terminal-line"><span class='terminal-prompt'>$</span> <span class='terminal-cmd'>cd /secrets</span></div>
-            <div class="terminal-line"><span class='terminal-prompt'>$</span> <span class='terminal-cmd'>ls -la</span></div>
-            <div class="terminal-line"><span class='terminal-output'>total 4</span></div>
-            <div class="terminal-line"><span class='terminal-output'>drwxr-xr-x 2 Jafar Jafar 4096 Apr 4 2025 .</span></div>
-            <div class="terminal-line"><span class='terminal-output'>drwxr-xr-x 22 Jafar Jafar 4096 Apr 4 2025 ..</span></div>
-            <div class="terminal-line"><span class='terminal-output terminal-file'>-rw-r--r-- 1 Jafar Jafar 0 Apr 4 2025 real_achievements.txt</span></div>
-            <div class="terminal-line"><span class='terminal-output terminal-file'>-rw-r--r-- 1 Jafar Jafar 10 Apr 4 2025 bank_account.txt</span></div>
-            <div class="terminal-line"><span class='terminal-output terminal-file'>-rw-r--r-- 1 Jafar Jafar 120 Apr 4 2025 future_plans.txt</span></div>
-            <div class="terminal-line"><span class='terminal-output terminal-file'>-rw-r--r-- 1 Jafar Jafar 156 Apr 4 2025 skills.txt</span></div>
-            <div class="terminal-line"><span class='terminal-prompt'>/home/Jafar ></span></div>
-        </div>
-    </div>
-    
-    <!-- New Simple Terminal - Fixed Position -->
-    <div id="new-terminal">
-        <div id="new-terminal-header">
-            <span class="new-dot red"></span>
-            <span class="new-dot yellow"></span>
-            <span class="new-dot green"></span>
-            <span class="new-terminal-title">jafar@portfolio:~</span>
-            <button id="new-terminal-close">-</button>
-        </div>
-        <div id="new-terminal-body">
-            <!-- Terminal content will be added via JS typing animation -->
-        </div>
-    </div>
-    
-    <!-- New Image Card Section -->
-    <section class="image-card-section">
-        <div class="image-description">
-            <h2>Organic Farming Platform</h2>
-            <p class="description-text">
-                A comprehensive digital platform connecting organic farmers with consumers, 
-                featuring real-time market data, sustainable farming practices, and direct 
-                farm-to-table delivery options. The platform aims to revolutionize how we 
-                think about food production and distribution.
-            </p>
-            <p class="description-text">
-                Built with modern web technologies and a focus on user experience, this 
-                project demonstrates the power of technology in promoting sustainable 
-                agriculture and supporting local farming communities.
-            </p>
-            <div class="tech-stack">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Node.js</span>
-                <span class="tech-tag">MongoDB</span>
-                <span class="tech-tag">Google Maps API</span>
+        <div class="terminal-window" id="terminalWindow">
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="terminal-title">jafar@portfolio:~</span>
+                <span class="terminal-status">
+                    <span class="battery">🔋 77%</span>
+                    <span class="wifi">📶 51%</span>
+                    <span class="clock" id="terminalClock"></span>
+                </span>
+                <button class="terminal-close" id="terminalCloseBtn">&times;</button>
             </div>
-            <div class="project-actions">
-                <button class="action-btn">View Project</button>
-                <button class="action-btn secondary">Learn More</button>
+            <div class="terminal-body" id="terminalBody">
+                <!-- Default terminal content in case JS fails -->
+                <div class="terminal-line"><span class='terminal-time'>[21:35:54]</span> <span class='terminal-prompt'>$</span> <span class='terminal-cmd'>ssh jafar@portfolio.com</span></div>
+                <div class="terminal-line"><span class='terminal-output'>Password: ********</span></div>
+                <div class="terminal-line"><span class='terminal-output'>Access granted. Initializing system...</span></div>
+                <div class="terminal-line"><span class='terminal-prompt'>$</span> <span class='terminal-cmd'>cd /secrets</span></div>
+                <div class="terminal-line"><span class='terminal-prompt'>$</span> <span class='terminal-cmd'>ls -la</span></div>
+                <div class="terminal-line"><span class='terminal-output'>total 4</span></div>
+                <div class="terminal-line"><span class='terminal-output'>drwxr-xr-x 2 Jafar Jafar 4096 Apr 4 2025 .</span></div>
+                <div class="terminal-line"><span class='terminal-output'>drwxr-xr-x 22 Jafar Jafar 4096 Apr 4 2025 ..</span></div>
+                <div class="terminal-line"><span class='terminal-output terminal-file'>-rw-r--r-- 1 Jafar Jafar 0 Apr 4 2025 real_achievements.txt</span></div>
+                <div class="terminal-line"><span class='terminal-output terminal-file'>-rw-r--r-- 1 Jafar Jafar 10 Apr 4 2025 bank_account.txt</span></div>
+                <div class="terminal-line"><span class='terminal-output terminal-file'>-rw-r--r-- 1 Jafar Jafar 120 Apr 4 2025 future_plans.txt</span></div>
+                <div class="terminal-line"><span class='terminal-output terminal-file'>-rw-r--r-- 1 Jafar Jafar 156 Apr 4 2025 skills.txt</span></div>
+                <div class="terminal-line"><span class='terminal-prompt'>/home/Jafar ></span></div>
             </div>
         </div>
-        <div class="image-container">
-            <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//Organic%20Farming%20(2).png" alt="Organic Farming Platform">
-            <div class="image-overlay">
-                <span class="image-label">Featured Project</span>
+        
+        <!-- New Simple Terminal - Fixed Position -->
+        <div id="new-terminal">
+            <div id="new-terminal-header">
+                <span class="new-dot red"></span>
+                <span class="new-dot yellow"></span>
+                <span class="new-dot green"></span>
+                <span class="new-terminal-title">jafar@portfolio:~</span>
+                <button id="new-terminal-close">-</button>
+            </div>
+            <div id="new-terminal-body">
+                <!-- Terminal content will be added via JS typing animation -->
             </div>
         </div>
-    </section>
-    
-    <!-- New Image Card Section -->
-    <section class="image-card-section">
-        <div class="image-container">
-            <img id="supabaseImage" src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//Organic%20Farming%20(2).png" alt="Project Image">
-            <div class="image-overlay">
-                <span class="image-label">Featured Project</span>
+        
+        <!-- New Image Card Section -->
+        <section class="image-card-section">
+            <div class="image-description">
+                <h2>Organic Farming Platform</h2>
+                <p class="description-text">
+                    A comprehensive digital platform connecting organic farmers with consumers, 
+                    featuring real-time market data, sustainable farming practices, and direct 
+                    farm-to-table delivery options. The platform aims to revolutionize how we 
+                    think about food production and distribution.
+                </p>
+                <p class="description-text">
+                    Built with modern web technologies and a focus on user experience, this 
+                    project demonstrates the power of technology in promoting sustainable 
+                    agriculture and supporting local farming communities.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">Google Maps API</span>
+                </div>
+                <div class="project-actions">
+                    <button class="action-btn">View Project</button>
+                    <button class="action-btn secondary">Learn More</button>
+                </div>
             </div>
-        </div>
-        <div class="image-description">
-            <h2>Innovative Sound Design</h2>
-            <p class="description-text">
-                This project explores the intersection of music production and technological innovation. 
-                Using custom-built synthesizers and advanced sound design techniques, I've created 
-                immersive audio landscapes that challenge traditional concepts of musical structure.
-            </p>
-            <p class="description-text">
-                The core of this work focuses on generative compositions that evolve based on 
-                environmental inputs and algorithmic decision-making. Each piece creates a unique 
-                sonic experience that never repeats exactly the same way twice.
-            </p>
-            <div class="tech-stack">
-                <span class="tech-tag">Ableton Live</span>
-                <span class="tech-tag">Max/MSP</span>
-                <span class="tech-tag">Custom Synths</span>
-                <span class="tech-tag">Field Recordings</span>
+            <div class="image-container">
+                <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//Organic%20Farming%20(2).png" alt="Organic Farming Platform">
+                <div class="image-overlay">
+                    <span class="image-label">Featured Project</span>
+                </div>
             </div>
-            <div class="project-actions">
-                <button class="action-btn">Listen Now</button>
-                <button class="action-btn secondary">View Process</button>
+        </section>
+        
+        <!-- New Image Card Section -->
+        <section class="image-card-section">
+            <div class="image-container">
+                <img id="supabaseImage" src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//Organic%20Farming%20(2).png" alt="Project Image">
+                <div class="image-overlay">
+                    <span class="image-label">Featured Project</span>
+                </div>
             </div>
-        </div>
-    </section>
+            <div class="image-description">
+                <h2>Innovative Sound Design</h2>
+                <p class="description-text">
+                    This project explores the intersection of music production and technological innovation. 
+                    Using custom-built synthesizers and advanced sound design techniques, I've created 
+                    immersive audio landscapes that challenge traditional concepts of musical structure.
+                </p>
+                <p class="description-text">
+                    The core of this work focuses on generative compositions that evolve based on 
+                    environmental inputs and algorithmic decision-making. Each piece creates a unique 
+                    sonic experience that never repeats exactly the same way twice.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Ableton Live</span>
+                    <span class="tech-tag">Max/MSP</span>
+                    <span class="tech-tag">Custom Synths</span>
+                    <span class="tech-tag">Field Recordings</span>
+                </div>
+                <div class="project-actions">
+                    <button class="action-btn">Listen Now</button>
+                    <button class="action-btn secondary">View Process</button>
+                </div>
+            </div>
+        </section>
     </div>
     
     <script>
