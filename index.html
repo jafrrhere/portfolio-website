@@ -7,16 +7,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900;400&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Base styles */
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
         
         body {
             background-color: #000000;
+            font-size: 16px;
         }
-        
+
+        /* Responsive typography */
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+        }
+
         /* Custom text selection color */
         ::selection {
             background: #e0e0e0;
@@ -75,18 +85,30 @@
             width: 100%;
         }
 
+        @media (max-width: 768px) {
+            .navbar {
+                top: 10px;
+                left: 10px;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .navbar a {
+                font-size: 14px;
+            }
+        }
+
         /* Image Card Section Styles */
         .image-card-section {
             display: flex;
             align-items: center;
             gap: 2rem;
-            padding: 1rem 1rem;
-            margin: 0.5rem 0;
+            padding: 1rem;
+            margin: 0.5rem auto;
+            max-width: 1200px;
+            width: 90%;
             background: rgba(0, 0, 0, 0.7);
             border-radius: 15px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .image-card-section.reversed {
@@ -205,22 +227,43 @@
             background: rgba(0, 255, 247, 0.1);
         }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .image-card-section {
                 flex-direction: column;
-                padding: 2rem 1rem;
+                padding: 1rem;
+                gap: 1rem;
             }
 
             .image-container {
                 width: 100%;
                 max-width: 100%;
+                aspect-ratio: 16/9;
             }
 
             .image-description {
-                width: 100%;
-                max-width: 100%;
                 padding: 1rem 0;
+            }
+
+            .image-description h2 {
+                font-size: 1.5rem;
+            }
+
+            .tech-stack {
+                gap: 0.3rem;
+            }
+
+            .tech-tag {
+                font-size: 0.8rem;
+                padding: 0.3rem 0.8rem;
+            }
+
+            .project-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .action-btn {
+                width: 100%;
             }
         }
 
@@ -263,7 +306,7 @@
         /* Terminal header styles */
         #new-terminal-header {
             background: rgba(35, 36, 40, 0.95);
-            padding: 8px 16px;
+            padding: 8px 12px;
             display: flex;
             align-items: center;
             position: relative;
@@ -367,14 +410,24 @@
         }
         .profile-card {
             position: absolute;
-            right: 10px;
-            top: 22px;
+            right: 25px;
+            top: 60px;
             z-index: 3;
+            width: 300px;
         }
-        @media (max-width: 700px) {
+        @media (max-width: 768px) {
             .profile-card {
-                top: 90px;
-                right: 10px;
+                position: relative;
+                right: auto;
+                top: 20px;
+                width: 90%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
             }
         }
 
@@ -398,6 +451,93 @@
         /* Re-enable pointer events for interactive elements */
         .navbar, .profile-card, .terminal-window, #new-terminal, .image-card-section, .action-btn {
             pointer-events: auto;
+        }
+
+        /* Center Text Responsive Styles */
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .center-text {
+            font-size: 3rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .center-text {
+                font-size: 2rem;
+            }
+        }
+
+        /* Skills Section Responsive Styles */
+        .skills {
+            padding: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .skill-row {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .skill-label {
+                font-size: 0.9rem;
+            }
+
+            .skill-bar {
+                width: 100%;
+            }
+        }
+
+        /* Terminal Header Responsive Styles */
+        @media (max-width: 768px) {
+            #new-terminal-header {
+                padding: 6px 10px;
+            }
+
+            .new-terminal-title {
+                font-size: 12px;
+            }
+
+            .new-dot {
+                width: 8px;
+                height: 8px;
+            }
+        }
+
+        /* Add smooth scrolling for better mobile experience */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Improve touch targets for mobile */
+        @media (max-width: 768px) {
+            .navbar a,
+            .action-btn,
+            .tech-tag {
+                min-height: 44px;
+                min-width: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        /* Add safe area insets for modern mobile devices */
+        @supports (padding: max(0px)) {
+            .navbar {
+                padding-left: max(30px, env(safe-area-inset-left));
+                padding-top: max(20px, env(safe-area-inset-top));
+            }
+
+            .terminal-window, #new-terminal {
+                padding-bottom: max(25px, env(safe-area-inset-bottom));
+                padding-left: max(25px, env(safe-area-inset-left));
+            }
         }
     </style>
 </head>
