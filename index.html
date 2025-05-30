@@ -62,27 +62,18 @@
             font-size: 16px;
             letter-spacing: 1px;
             position: relative;
-            transition: color 0.3s ease;
-            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 4px;
         }
         
         .navbar a:hover {
-            color: #00fff7;
+            background: #E0E0E0;
+            color: #000;
         }
         
         .navbar a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: -2px;
-            left: 0;
-            background-color: #01e875;
-            transition: width 0.3s ease;
-        }
-        
-        .navbar a:hover::after {
-            width: 100%;
+            display: none;
         }
 
         @media (max-width: 768px) {
