@@ -236,7 +236,7 @@ body {
 }
 
 .image-label {
-    color: #00ff7f;
+    color: #000000;
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -250,6 +250,8 @@ body {
 }
 
 .image-description h2 {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
     color: #ffffff;
     margin-bottom: 1.5rem;
     font-size: 2rem;
@@ -606,4 +608,76 @@ button,
 
     /* Removed about-image-content img styles */
 
+}
+
+/* Terminal styles for about.html */
+.terminal-content {
+    background-color: #1a1a1a; /* Dark background for terminal */
+    color: #e0e0e0; /* Light text color */
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 900px;
+    width: 90%;
+    margin: 100px auto; /* Center the terminal with some top margin */
+    box-shadow: 0 4px 20px rgba(0, 255, 127, 0.3);
+    overflow: hidden; /* Ensure typing effect doesn't overflow */
+    position: relative;
+    height: fit-content;
+}
+
+.terminal-content pre {
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.terminal-content code {
+    display: block;
+    line-height: 1.5;
+}
+
+/* Syntax Highlighting */
+.terminal-content .keyword {
+    color: #00fff7; /* Cyan for keywords like const */
+}
+
+.terminal-content .variable {
+    color: #8be9fd; /* Light blue for variables like aboutMe */
+}
+
+.terminal-content .property {
+    color: #f1fa8c; /* Yellow for properties like name, role, skills */
+}
+
+.terminal-content .string {
+    color: #f8f8f2; /* White for string values */
+}
+
+/* Typing effect */
+.terminal-content .typing {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
+    border-right: 2px solid #00fff7;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #00fff7 }
+}
+
+/* Ensure responsive behavior */
+@media (max-width: 768px) {
+    .terminal-content {
+        font-size: 14px;
+        padding: 15px;
+        margin-top: 80px;
+    }
 } 
