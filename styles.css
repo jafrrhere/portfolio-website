@@ -250,7 +250,7 @@ body {
 }
 
 .image-description h2 {
-    color: #00fff7;
+    color: #ffffff;
     margin-bottom: 1.5rem;
     font-size: 2rem;
 }
@@ -373,12 +373,12 @@ button,
 
 /* Navigation Menu Styles */
 .navbar {
-    position: absolute;
-    top: 30px;
-    left: 30px;
+    position: fixed;
+    top: 13px;
+    right: 20px;
     z-index: 1000;
     display: flex;
-    gap: 30px;
+    gap: 80px;
     background: rgba(0, 0, 0, 0.8);
     padding: 10px 20px;
     border-radius: 8px;
@@ -390,7 +390,7 @@ button,
     text-decoration: none;
     font-family: 'JetBrains Mono', monospace;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 12px;
     letter-spacing: 1px;
     position: relative;
     transition: all 0.3s ease;
@@ -494,4 +494,116 @@ button,
         font-size: 0.8rem;
         padding: 0.3rem 0.8rem;
     }
+}
+
+/* Add red circle */
+.red-circle {
+    position: absolute;
+    width: 9.5px;  /* diameter = 2 * radius */
+    height: 9.5px; /* diameter = 2 * radius */
+    background-color: #C70000;
+    border-radius: 50%;
+    top: 22px;
+    left: 30px;
+    z-index: 1000;
+}
+
+/* About Page Styles */
+.about-container {
+    position: relative;
+    top: 150px;
+    left: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin-top: 0; /* Remove top margin as position is handled by top */
+    margin-bottom: 50px;
+    padding: 0 40px;
+    color: #fff;
+}
+
+.about-text-content {
+    flex: 2;
+}
+
+.about-text-content h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60px;
+    font-weight: 400;
+    margin-bottom: 50px;
+    line-height: 1.3;
+}
+
+.about-text-content p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    max-width: 700px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.about-image-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.about-image-content img {
+    width: 280px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.social-links p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 5px 0;
+    text-align: right;
+}
+
+@media (max-width: 1024px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+        gap: 50px;
+        margin-top: 100px;
+        left: 0; /* Reset left on smaller screens */
+    }
+
+    .about-text-content h1 {
+        font-size: 60px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .about-text-content p {
+        max-width: 80%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Removed about-image-content and social-links styles */
+
+}
+
+@media (max-width: 768px) {
+    .about-text-content h1 {
+        font-size: 40px;
+    }
+
+    .about-text-content p {
+        font-size: 16px;
+        max-width: 90%;
+    }
+
+    /* Removed about-image-content img styles */
+
 } 

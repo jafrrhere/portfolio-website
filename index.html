@@ -343,7 +343,7 @@
         }
 
         /* Re-enable pointer events for interactive elements */
-        .navbar, .image-card-section, .action-btn {
+        .navbar, .image-card-section, .action-btn, .know-more {
             pointer-events: auto;
         }
 
@@ -396,18 +396,19 @@
     </style>
 </head>
 <body>
+    <div class="red-circle"></div>
     <div class="content-wrapper">
         <!-- Navigation Menu -->
         <nav class="navbar">
-            <a href="index.html">INDEX</a>
-            <a href="coding.html">CODING</a>
-            <a href="design.html">DESIGN</a>
-            <a href="about.html">ABOUT</a>
+            <a href="index.html">Index</a>
+            <a href="coding.html">Coding</a>
+            <a href="design.html">Design</a>
+            <a href="about.html">About</a>
         </nav>
         
         <div class="center">
             <h2 class="center-text" id="nameText"></h2>
-            <a href="about.html" class="know-more">→KNOW MORE←</a>
+            <a href="./about.html" class="know-more">→KNOW MORE←</a>
         </div>
         
         <!-- New Image Card Section -->
@@ -443,7 +444,10 @@
                 </div>
             </div>
         </section>
-        
+        <hr style="width: 97%; border: none; border-top: 1px solid #666666;">
+
+
+
         <!-- New Image Card Section -->
         <section class="image-card-section">
             <div class="image-container">
