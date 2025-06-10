@@ -1,10 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700,300italic,400italic,600italic,900,200);
 
-#terminal {
-    font-family: 'Courier New', Courier, monospace;
-    white-space: pre-wrap; /* preserves formatting */
-}
-
 html, body {
     height: 100%;
     margin: 0;
@@ -279,249 +274,6 @@ body {
     }
 }
 
-/* Keep terminal size constant on all screen sizes */
-@media (max-width: 700px) {
-    .terminal-window {
-        /* Remove transform that's causing size issues */
-        /* transform: scale(0.85);
-        transform-origin: bottom right; */
-        bottom: 20px;
-        left: 20px;
-    }
-}
-
-@media (max-width: 500px) {
-    .terminal-window {
-        /* Remove transform that's causing size issues */
-        /* transform: scale(0.7);
-        transform-origin: bottom right; */
-        bottom: 10px;
-        left: 10px;
-    }
-}
-
-.terminal-window {
-    position: fixed;
-    bottom: 25px;
-    left: 25px;
-    width: 650px;
-    min-width: 650px;
-    max-width: 650px;
-    background: #18191c;
-    border-radius: 6px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.7);
-    z-index: 10;
-    font-family: 'Fira Mono', 'Consolas', monospace;
-    overflow: hidden;
-    border: 1px solid #222;
-    transition: opacity 0.2s, visibility 0.2s;
-    cursor: default;
-    user-select: none; /* Prevent text selection during drag */
-    transform: none !important; /* Prevent transforms */
-    height: auto !important; /* Ensure consistent height */
-}
-
-.terminal-header {
-    display: flex;
-    align-items: center;
-    background: #232428;
-    padding: 8px 16px;
-    position: relative;
-    cursor: move; /* Show move cursor on header - make sure this is visible */
-    user-select: none; /* Prevent text selection while dragging */
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 6px;
-}
-
-.dot.red { background: #ff5f56; }
-.dot.yellow { background: #ffbd2e; }
-.dot.green { background: #27c93f; }
-
-.terminal-title {
-    margin-left: 12px;
-    color: #b0b3b8;
-    font-size: 1em;
-    flex: 1;
-}
-
-.terminal-status {
-    color: #b0b3b8;
-    font-size: 0.95em;
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    padding-right: 40px;
-}
-
-.terminal-body {
-    background: #18191c;
-    color: #d0ffd0;
-    font-size: 1.05em;
-    padding: 18px 18px 18px 18px;
-    min-height: 150px;
-    max-height: 180px;
-    height: 160px;
-    overflow-y: auto;
-    /* Ensure fixed height during drag */
-    box-sizing: border-box !important;
-}
-
-.terminal-line {
-    white-space: pre;
-    line-height: 1.3;
-}
-
-.terminal-prompt {
-    color: #00ff7f;
-}
-
-.terminal-cmd {
-    color: #fff;
-}
-
-.terminal-output {
-    color: #b0b3b8;
-}
-
-.terminal-dir {
-    color: #00fff7;
-}
-
-.terminal-success {
-    color: #00ff7f;
-}
-
-.terminal-file {
-    color: #00fff7;
-}
-
-.terminal-time {
-    color: #666;
-    margin-right: 8px;
-}
-
-.terminal-close {
-    position: absolute;
-    right: 12px;
-    top: 8px;
-    background: transparent;
-    border: none;
-    color: #b0b3b8;
-    font-size: 1.5em;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.terminal-close:hover {
-    color: #ff5f56;
-}
-
-/* Simple static terminal in bottom left */
-#new-terminal {
-    position: fixed;
-    left: 25px;
-    bottom: 25px;
-    width: 650px;
-    background: #18191c;
-    border-radius: 6px;
-    border: 1px solid #222;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.7);
-    z-index: 10;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-#new-terminal.minimized {
-    height: 34px; /* Just show the header when minimized */
-    overflow: hidden;
-}
-
-#new-terminal-header {
-    background: #232428;
-    padding: 8px 16px;
-    display: flex;
-    align-items: center;
-}
-
-#new-terminal-body {
-    padding: 18px;
-    font-family: 'Courier New', monospace;
-    font-size: 14px;
-    color: #d0ffd0;
-    height: 160px;
-    overflow-y: auto;
-    transition: height 0.3s ease;
-}
-
-.new-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 6px;
-}
-
-.new-dot.red { background: #ff5f56; }
-.new-dot.yellow { background: #ffbd2e; }
-.new-dot.green { background: #27c93f; }
-
-.new-terminal-title {
-    margin-left: 12px;
-    color: #b0b3b8;
-    font-size: 14px;
-    flex: 1;
-}
-
-.new-terminal-line {
-    margin-bottom: 6px;
-    white-space: pre;
-    line-height: 1.4;
-}
-
-.new-prompt {
-    color: #00ff7f;
-}
-
-.new-cmd {
-    color: #fff;
-}
-
-.new-output {
-    color: #b0b3b8;
-}
-
-.new-file {
-    color: #00fff7;
-}
-
-.new-time {
-    color: #666;
-    margin-right: 8px;
-}
-
-#new-terminal-close {
-    background: transparent;
-    border: none;
-    color: #b0b3b8;
-    font-size: 1.5em;
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-    line-height: 14px;
-    text-align: center;
-    padding: 0;
-}
-
-#new-terminal-close:hover {
-    color: #ffbd2e;
-}
-
 /* Image Card Section Styles */
 .image-card-section {
     display: flex;
@@ -666,44 +418,6 @@ body {
     }
 }
 
-/* Custom Terminal Scrollbars */
-.terminal-body::-webkit-scrollbar,
-#new-terminal-body::-webkit-scrollbar {
-    width: 1px;
-    height: 1px;
-    background-color: #18191C;
-}
-
-.terminal-body::-webkit-scrollbar-track,
-#new-terminal-body::-webkit-scrollbar-track {
-    background: #18191C;
-    border-radius: 0.3px;
-}
-
-.terminal-body::-webkit-scrollbar-thumb,
-#new-terminal-body::-webkit-scrollbar-thumb {
-    background: #000000;
-    border-radius: 0.3px;
-}
-
-.terminal-body::-webkit-scrollbar-thumb:hover,
-#new-terminal-body::-webkit-scrollbar-thumb:hover {
-    background: #111111;
-}
-
-/* Remove scrollbar buttons (arrows) */
-.terminal-body::-webkit-scrollbar-button,
-#new-terminal-body::-webkit-scrollbar-button {
-    display: none;
-}
-
-/* Firefox scrollbar styling */
-.terminal-body,
-#new-terminal-body {
-    scrollbar-width: thin;
-    scrollbar-color: #000000 #18191C;
-}
-
 /* Whole page scrollbar styling */
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
@@ -749,32 +463,30 @@ button,
 .deadlines-btn, 
 .tech-tag,
 .down-arrow,
-.profile-img,
-#terminalCloseBtn,
-#new-terminal-close {
+.profile-img {
     cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FFF" stroke="%23000" stroke-width="2" d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.85a.5.5 0 0 0-.85.35Z"></path></svg>'), pointer;
 }
 
 /* Navigation Menu Styles */
 .navbar {
     position: fixed;
-    top: 20px;
+    top: 0px;
     left: 30px;
     z-index: 100;
     display: flex;
-    gap: 65px;
+    gap: 30px;
 }
 
 .navbar a {
     color: #fff;
     text-decoration: none;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family:  'JetBrains Mono', monospace;
     font-weight: 400;
     font-size: 16px;
     letter-spacing: 1px;
     position: relative;
     transition: all 0.3s ease;
-    padding: 8px 16px;
+    padding: 0px 0px;
     border-radius: 4px;
 }
 

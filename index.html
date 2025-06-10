@@ -267,67 +267,6 @@
             }
         }
 
-        .terminal-window, #new-terminal {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            width: 650px;
-            max-width: calc(100vw - 50px);
-            background: rgba(24, 25, 28, 1);
-            border-radius: 6px;
-            border: 1px solid #222;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.7);
-            z-index: 9999;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        #new-terminal.minimized {
-            height: 34px !important;
-            overflow: hidden;
-        }
-
-        #new-terminal-body {
-            padding: 18px;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            color: #d0ffd0;
-            height: 160px;
-            overflow-y: auto;
-            transition: height 0.3s ease;
-            background: rgba(24, 25, 28, 1);
-        }
-
-        /* Ensure buttons stay below terminal */
-        .action-btn {
-            z-index: 1;
-        }
-
-        /* Terminal header styles */
-        #new-terminal-header {
-            background: rgba(35, 36, 40, 1);
-            padding: 8px 12px;
-            display: flex;
-            align-items: center;
-            position: relative;
-            z-index: 9999;
-        }
-
-        #new-terminal-close {
-            position: relative;
-            z-index: 9999;
-            background: transparent;
-            border: none;
-            color: #b0b3b8;
-            font-size: 1.5em;
-            cursor: pointer;
-            width: 20px;
-            height: 20px;
-            line-height: 14px;
-            text-align: center;
-            padding: 0;
-        }
-
         .carousel-section {
             margin: 2rem auto 0 auto;
             max-width: 1200px;
@@ -449,7 +388,7 @@
         }
 
         /* Re-enable pointer events for interactive elements */
-        .navbar, .profile-card, .terminal-window, #new-terminal, .image-card-section, .action-btn {
+        .navbar, .profile-card, .image-card-section, .action-btn {
             pointer-events: auto;
         }
 
@@ -493,22 +432,6 @@
             }
         }
 
-        /* Terminal Header Responsive Styles */
-        @media (max-width: 768px) {
-            #new-terminal-header {
-                padding: 6px 10px;
-            }
-
-            .new-terminal-title {
-                font-size: 12px;
-            }
-
-            .new-dot {
-                width: 8px;
-                height: 8px;
-            }
-        }
-
         /* Add smooth scrolling for better mobile experience */
         html {
             scroll-behavior: smooth;
@@ -533,74 +456,6 @@
                 padding-left: max(30px, env(safe-area-inset-left));
                 padding-top: max(20px, env(safe-area-inset-top));
             }
-
-            .terminal-window, #new-terminal {
-                padding-bottom: max(25px, env(safe-area-inset-bottom));
-                padding-left: max(25px, env(safe-area-inset-left));
-            }
-        }
-
-        @media (max-width: 768px) {
-            .terminal-window, #new-terminal {
-                bottom: 15px;
-                left: 15px;
-                width: calc(100vw - 30px);
-                max-width: none;
-            }
-
-            #new-terminal-body {
-                padding: 12px;
-                font-size: 12px;
-                height: 120px;
-            }
-
-            .terminal-header, #new-terminal-header {
-                padding: 6px 10px;
-            }
-
-            .terminal-title, .new-terminal-title {
-                font-size: 12px;
-            }
-
-            .dot, .new-dot {
-                width: 8px;
-                height: 8px;
-            }
-
-            .terminal-status {
-                font-size: 11px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .terminal-window, #new-terminal {
-                bottom: 10px;
-                left: 10px;
-                width: calc(100vw - 20px);
-            }
-
-            #new-terminal-body {
-                padding: 8px;
-                font-size: 11px;
-                height: 100px;
-            }
-
-            .terminal-header, #new-terminal-header {
-                padding: 4px 8px;
-            }
-
-            .terminal-title, .new-terminal-title {
-                font-size: 11px;
-            }
-
-            .dot, .new-dot {
-                width: 6px;
-                height: 6px;
-            }
-
-            .terminal-status {
-                font-size: 10px;
-            }
         }
     </style>
 </head>
@@ -608,10 +463,10 @@
     <div class="content-wrapper">
         <!-- Navigation Menu -->
         <nav class="navbar">
-            <a href="index.html">Index</a>
-            <a href="coding.html">Coding</a>
-            <a href="design.html">Design</a>
-            <a href="about.html">About</a>
+            <a href="index.html">INDEX</a>
+            <a href="coding.html">CODING</a>
+            <a href="design.html">DESIGN</a>
+            <a href="about.html">ABOUT</a>
         </nav>
         
         <div class="center">
@@ -644,54 +499,6 @@
                 </div>
             </div>
             <div class="active-projects" id="activeProjects">&#x1F4BB; ACTIVE PROJECTS</div>
-        </div>
-
-        <div class="terminal-window" id="terminalWindow">
-            <div class="terminal-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-                <span class="terminal-title">jafar@portfolio:~</span>
-                <span class="terminal-status">
-                    <span class="battery">🔋 77%</span>
-                    <span class="wifi">📶 51%</span>
-                    <span class="clock" id="terminalClock"></span>
-                </span>
-                <button class="terminal-close" id="terminalCloseBtn">&times;</button>
-            </div>
-            <div class="terminal-body" id="terminalBody">
-                <!-- Default terminal content in case JS fails -->
-                
-                <div class="terminal-line"><span class='terminal-prompt'>$</span> <span class='terminal-cmd'>whoami</span></div>
-                <div class="terminal-line"><span class='terminal-cmd'>> jafar.exe</span></div>
-                <div class="terminal-line"><span class='terminal-prompt'>$</span> <span class='terminal-cmd'>./intro.sh</span></div>
-                <div class="terminal-line"><span class='terminal-output'>🔍  Scanning system files...</span></div>
-                <div class="terminal-line"><span class='terminal-output'>💾  Loading personality modules...</span></div>
-                <div class="terminal-line"><span class='terminal-output'></span></div>
-                <div class="terminal-line"><span class='terminal-output'>> Name          : Jafar Tamboli</span></div>
-                <div class="terminal-line"><span class='terminal-output'>> Uptime        : 20+ years running with minimal downtime</span></div>
-                <div class="terminal-line"><span class='terminal-output'>> Course        : B.Tech CSE • Year 2</span></div>
-                <div class="terminal-line"><span class='terminal-output'>> Occupation    : Full-time student | Part-time designer/Programmer</span></div>
-                <div class="terminal-line"><span class='terminal-output'>> Codebase      : Python | C++ | HTML/CSS | Logic under construction</span></div>
-                <div class="terminal-line"><span class='terminal-output'>> Tools         : Photoshop, Illustrator, Figma, Canva</span></div>
-                <div class="terminal-line"><span class='terminal-output'>> RAM           : Likes to learn new things</span></div>
-                <div class="terminal-line"><span class='terminal-output'>> GPU           : Overheats while running DSA</span></div>
-                <div class="terminal-line"><span class='terminal-prompt'>/home/Jafar ></span></div>
-            </div>
-        </div>
-        
-        <!-- New Simple Terminal - Fixed Position -->
-        <div id="new-terminal">
-            <div id="new-terminal-header">
-                <span class="new-dot red"></span>
-                <span class="new-dot yellow"></span>
-                <span class="new-dot green"></span>
-                <span class="new-terminal-title">jafar@portfolio:~</span>
-                <button id="new-terminal-close">-</button>
-            </div>
-            <div id="new-terminal-body">
-                <!-- Terminal content will be added via JS typing animation -->
-            </div>
         </div>
         
         <!-- New Image Card Section -->
@@ -748,210 +555,9 @@
                     environmental inputs and algorithmic decision-making. Each piece creates a unique 
                     sonic experience that never repeats exactly the same way twice.
                 </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Ableton Live</span>
-                    <span class="tech-tag">Max/MSP</span>
-                    <span class="tech-tag">Custom Synths</span>
-                    <span class="tech-tag">Field Recordings</span>
-                </div>
-                <div class="project-actions">
-                    <button class="action-btn">Listen Now</button>
-                    <button class="action-btn secondary">View Process</button>
-                </div>
             </div>
         </section>
     </div>
-    
-    <script>
-        // Profile data
-        const profileData = {
-            name: "Jafar Tamboli",
-            role: "PROFESSIONAL EXCUSE-MAKER",
-            level: "27",
-            skills: {
-                excuse: 98,
-                procrastination: 95,
-                music: 82
-            },
-            projects: "ACTIVE PROJECTS"
-        };
-
-        // Initialize profile data
-        document.addEventListener('DOMContentLoaded', () => {
-            // Update profile data
-            document.getElementById('profileName').textContent = profileData.name;
-            document.getElementById('profileRole').textContent = profileData.role;
-            document.getElementById('profileLevel').textContent = `LVL ${profileData.level}`;
-                
-                // Update skills
-            document.getElementById('excuseSkill').style.width = `${profileData.skills.excuse}%`;
-            document.getElementById('excuseSkillValue').textContent = `${profileData.skills.excuse}%`;
-            
-            document.getElementById('procrastinationSkill').style.width = `${profileData.skills.procrastination}%`;
-            document.getElementById('procrastinationSkillValue').textContent = `${profileData.skills.procrastination}%`;
-            
-            document.getElementById('musicSkill').style.width = `${profileData.skills.music}%`;
-            document.getElementById('musicSkillValue').textContent = `${profileData.skills.music}%`;
-                
-                // Update active projects
-            document.getElementById('activeProjects').textContent = `💻 ${profileData.projects}`;
-    });
-    
-    // Terminal typing effect
-    const terminalLines = [
-        { time: '21:35:58', prompt: '$', cmd: 'whoami' },
-            { time: '21:35:59', cmd: '> jafar.exe' },
-        { time: '21:35:58', prompt: '$', cmd: './intro.sh' },
-            { time: '21:36:00', output: '🔍  Scanning system files...' },
-            { time: '21:36:04', output: '💾  Loading personality modules...' },
-            { time: '21:36:06', output: '' },
-            { time: '21:36:07', output: '> Name          : Jafar Tamboli' },
-            { time: '21:36:09', output: '> Uptime        : 20+ years running with minimal downtime' },
-            { time: '21:36:11', output: '> Course        : B.Tech CSE • Year 2' },
-            { time: '21:36:14', output: '> Occupation    : Full-time student | Part-time designer/Programmer' },
-            { time: '21:36:16', output: '> Codebase      : Python | C++ | HTML/CSS | Logic under construction' },
-            { time: '21:36:18', output: '> Tools         : Photoshop, Illustrator, Figma, Canva' },
-            { time: '21:36:20', output: '> RAM           : Likes to learn new things' },
-            { time: '21:36:22', output: '> GPU           : Overheats while running DSA' },
-            { time: '21:40:40', prompt: '/home/Jafar >', cmd: '' }
-        ];
-    </script>
-    
-    <!-- Add jQuery for reliable dragging -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-    
-    <script>
-        // Simple script to handle the new terminal only
-        $(document).ready(function() {
-            console.log('Setting up new terminal');
-            
-            // Initialize the new terminal and hide the old one
-            $('#terminalWindow').hide();
-            $('#new-terminal').show();
-            
-            // Terminal typing animation
-            const terminalContent = [
-                { type: 'command', text: '<span class="new-prompt">$</span> <span class="new-cmd">whoami</span>', delay: 300 },
-                { type: 'command', text: '<span class="new-prompt">$</span> <span class="new-cmd">./intro.sh</span>', delay: 300 },
-                { type: 'output', text: '<span class="new-output">🔍  Scanning system files...</span>', delay: 100 },
-                { type: 'output', text: '<span class="new-output">💾  Loading personality modules...</span>', delay: 100 },
-                { type: 'output', text: '<span class="new-output"></span>', delay: 100 },
-                { type: 'output', text: '<span class="new-output">> Name          : Jafar Tamboli</span>', delay: 50 },
-                { type: 'output', text: '<span class="new-output">> Uptime        : 20+ years running with minimal downtime</span>', delay: 50 },
-                { type: 'output', text: '<span class="new-output">> Course        : B.Tech CSE • Year 2</span>', delay: 50 },
-                { type: 'output', text: '<span class="new-output">> Occupation    : Full-time student | Part-time designer/Programmer</span>', delay: 50 },
-                { type: 'output', text: '<span class="new-output">> Codebase      : Python | C++ | HTML/CSS | Logic under construction</span>', delay: 50 },
-                { type: 'output', text: '<span class="new-output">> Tools         : Photoshop, Illustrator, Figma, Canva</span>', delay: 50 },
-                { type: 'output', text: '<span class="new-output">> RAM           : Likes to learn new things</span>', delay: 50 },
-                { type: 'output', text: '<span class="new-output">> GPU           : Overheats while running DSA</span>', delay: 50 },
-                { type: 'command', text: '<span class="new-prompt">/home/Jafar ></span>', delay: 400 }
-            ];
-            
-            const terminalBody = document.getElementById('new-terminal-body');
-            let currentLine = 0;
-            
-            // Type character by character for commands, instant for outputs
-            function typeTerminalContent() {
-                if (currentLine >= terminalContent.length) return;
-                
-                const lineData = terminalContent[currentLine];
-                const lineElement = document.createElement('div');
-                lineElement.className = 'new-terminal-line';
-                terminalBody.appendChild(lineElement);
-                
-                if (lineData.type === 'command') {
-                    // For commands, type character by character
-                    typeCommandCharByChar(lineElement, lineData.text, 0, lineData.delay);
-                } else {
-                    // For outputs, show immediately after a short delay
-                    setTimeout(() => {
-                        lineElement.innerHTML = lineData.text;
-                        currentLine++;
-                        terminalBody.scrollTop = terminalBody.scrollHeight;
-                        typeTerminalContent();
-                    }, lineData.delay);
-                }
-            }
-            
-            // Type command character by character
-            function typeCommandCharByChar(element, text, charIndex, delay) {
-                const typingSpeed = 60; // ms per character
-                
-                // Extract HTML tags and text content
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = text;
-                const plainText = tempDiv.textContent;
-                
-                // Find position of text content in the original HTML
-                let tagIndices = [];
-                let insideTag = false;
-                let textCount = 0;
-                
-                for (let i = 0; i < text.length; i++) {
-                    if (text[i] === '<') {
-                        insideTag = true;
-                    } else if (text[i] === '>') {
-                        insideTag = false;
-                    } else if (!insideTag) {
-                        tagIndices.push({ htmlIndex: i, textIndex: textCount });
-                        textCount++;
-                    }
-                }
-                
-                // If we're at the end of the string, move to next line
-                if (charIndex >= plainText.length) {
-                    currentLine++;
-                    terminalBody.scrollTop = terminalBody.scrollHeight;
-                    setTimeout(typeTerminalContent, delay);
-                    return;
-                }
-                
-                // Type just this character
-                const currentTextIndex = charIndex;
-                
-                // Find corresponding position in the HTML
-                let htmlIndex = text.indexOf(plainText[currentTextIndex]);
-                
-                for (const index of tagIndices) {
-                    if (index.textIndex === currentTextIndex) {
-                        htmlIndex = index.htmlIndex;
-                        break;
-                    }
-                }
-                
-                // Extract the portion of HTML up to this character
-                element.innerHTML = text.substring(0, htmlIndex + 1);
-                
-                // Add cursor effect
-                element.innerHTML += '<span class="cursor">|</span>';
-                
-                // Schedule the next character
-                setTimeout(() => {
-                    typeCommandCharByChar(element, text, charIndex + 1, delay);
-                }, typingSpeed);
-            }
-            
-            // Start typing animation
-            setTimeout(() => {
-                typeTerminalContent();
-            }, 500);
-            
-            // Close button for new terminal
-            $('#new-terminal-close').on('click', function() {
-                $('#new-terminal').toggleClass('minimized');
-                
-                // Change button text based on state
-                if ($('#new-terminal').hasClass('minimized')) {
-                    $(this).html('+');
-                } else {
-                    $(this).html('-');
-                }
-            });
-            
-            console.log('New terminal ready with typing animation');
-        });
-    </script>
     
     <!-- Name typing effect script -->
     <script>
@@ -978,126 +584,6 @@
             // Clear any existing text and start typing
             nameElement.textContent = '';
             typeWriter();
-        });
-    </script>
-    
-    <!-- Carousel JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const track = document.querySelector('.carousel-track');
-            const items = document.querySelectorAll('.carousel-item');
-            let currentIndex = 0;
-            let isDragging = false;
-            let startPos = 0;
-            let currentTranslate = 0;
-            let prevTranslate = 0;
-            
-            // Auto-scroll functionality
-            function autoScroll() {
-                currentIndex = (currentIndex + 1) % items.length;
-                updateCarousel();
-            }
-            
-            // Update carousel position
-            function updateCarousel() {
-                const itemWidth = items[0].offsetWidth;
-                const gap = 32; // 2rem gap
-                const translateX = -(currentIndex * (itemWidth + gap));
-                track.style.transform = `translateX(${translateX}px)`;
-            }
-            
-            // Touch event handlers
-            items.forEach((item, index) => {
-                item.addEventListener('touchstart', touchStart(index));
-                item.addEventListener('touchmove', touchMove);
-                item.addEventListener('touchend', touchEnd);
-                
-                // Mouse event handlers
-                item.addEventListener('mousedown', touchStart(index));
-                item.addEventListener('mousemove', touchMove);
-                item.addEventListener('mouseup', touchEnd);
-                item.addEventListener('mouseleave', touchEnd);
-            });
-            
-            // Prevent context menu on long press
-            window.oncontextmenu = function(event) {
-                if (event.target.closest('.carousel-item')) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                    return false;
-                }
-            }
-            
-            function touchStart(index) {
-                return function(event) {
-                    currentIndex = index;
-                    startPos = getPositionX(event);
-                    isDragging = true;
-                    track.style.cursor = 'grabbing';
-                }
-            }
-            
-            function touchMove(event) {
-                if (!isDragging) return;
-                
-                const currentPosition = getPositionX(event);
-                const diff = currentPosition - startPos;
-                const itemWidth = items[0].offsetWidth;
-                const gap = 32;
-                
-                // Calculate new position
-                currentTranslate = prevTranslate + diff;
-                
-                // Add resistance at edges
-                if (currentIndex === 0 && currentTranslate > 0) {
-                    currentTranslate = currentTranslate * 0.3;
-                }
-                if (currentIndex === items.length - 1 && currentTranslate < 0) {
-                    currentTranslate = currentTranslate * 0.3;
-                }
-                
-                track.style.transform = `translateX(${currentTranslate}px)`;
-            }
-            
-            function touchEnd() {
-                isDragging = false;
-                track.style.cursor = 'grab';
-                
-                const itemWidth = items[0].offsetWidth;
-                const gap = 32;
-                const moveBy = currentTranslate - prevTranslate;
-                
-                // Determine if we should snap to next/previous
-                if (Math.abs(moveBy) > itemWidth * 0.3) {
-                    if (moveBy < 0 && currentIndex < items.length - 1) {
-                        currentIndex++;
-                    } else if (moveBy > 0 && currentIndex > 0) {
-                        currentIndex--;
-                    }
-                }
-                
-                updateCarousel();
-                prevTranslate = currentTranslate;
-            }
-            
-            function getPositionX(event) {
-                return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
-            }
-            
-            // Initialize carousel
-            updateCarousel();
-            
-            // Start auto-scroll
-            let autoScrollInterval = setInterval(autoScroll, 5000);
-            
-            // Pause auto-scroll on hover/touch
-            track.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
-            track.addEventListener('mouseleave', () => {
-                autoScrollInterval = setInterval(autoScroll, 5000);
-            });
-            
-            // Handle window resize
-            window.addEventListener('resize', updateCarousel);
         });
     </script>
 </body>
