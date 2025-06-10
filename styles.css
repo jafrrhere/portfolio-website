@@ -51,11 +51,11 @@ body {
     height: 100vh;
     background-color: #000;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding-top: -100px; /* Move content up */
 }
 
 /* Add subtle animated accent effect */
@@ -65,13 +65,46 @@ body {
 
 .center-text {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 80px;
+    font-size: 70px;
     font-weight: 700;
     margin: 0;
     position: relative;
     z-index: 1;
     color: #fff;
-    transform: translateY(-100px); /* Move text up */
+}
+
+.know-more {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    color: #666;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    z-index: 1;
+    animation: fadeIn 2s ease-in;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+}
+
+.know-more::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #666;
+    transition: width 0.3s ease;
+}
+
+.know-more:hover::after {
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* Cursor styles for typing effect */
@@ -144,134 +177,6 @@ body {
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(15px); }
-}
-
-/* Profile Card */
-.profile-card {
-    max-width: 500px;
-    width: 170px;
-    background: #18191c;
-    border-radius: 3px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.4);
-    padding: 16px 12px;
-    position: absolute;
-    right: 25px;
-    top: 25px;
-    z-index: 2;
-    color: #fff;
-}
-
-.profile-card .security {
-    color: #00ff7f;
-    font-size: 0.9em;
-    font-weight: 500;
-    letter-spacing: 0.25px;
-}
-
-.profile-card .id {
-    float: right;
-    color: #b0b3b8;
-    font-size: 0.7em;
-}
-
-.profile-img {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 1px auto 1px auto;
-    display: block;
-    border: 1.5px solid #00fff7;
-}
-
-.profile-card .name {
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 0.8em;
-    font-weight: 900;
-    text-align: center;
-    margin: 5px 0 0 0;
-}
-
-.profile-card .role {
-    text-align: center;
-    font-size: 0.55em;
-    color: #b0b3b8;
-    margin-bottom: 5px;
-}
-
-.profile-card .badges {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    margin-bottom: 0.25px;
-}
-
-.badge {
-    padding: 0.5px 0.5px;
-    border-radius: 4px;
-    font-size: 0.65em;
-    font-weight: 100;
-    background: #222;
-    color: #00ff7f;
-}
-
-.badge.verified {
-    border-radius: 1.5px;
-    background: #aa9100;
-    color: #222;
-}
-
-.skills {
-    margin: 9px 0 0 0;
-}
-
-.skill-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 4px;
-}
-
-.skill-label {
-    font-size: 0.6em;
-    color: #b0b3b8;
-}
-
-.skill-bar {
-    flex: 1;
-    height: 1.5px;
-    background: #222;
-    border-radius: 2px;
-    margin: 0 2.5px;
-    overflow: hidden;
-}
-
-.skill-bar-inner {
-    height: 100%;
-    border-radius: 4px;
-}
-
-.skill-bar.excuse { background: linear-gradient(0deg, #00ff7f, #00fff7); }
-.skill-bar.procrastination { background: linear-gradient(90deg, #00fff7, #00ff7f); }
-.skill-bar.music { background: linear-gradient(90deg, #00aaff, #0055ff); }
-
-.profile-card .active-projects {
-    margin-top: 9px;
-    font-size: 0.7em;
-    color: #b0b3b8;
-    text-align: center;
-}
-
-@media (max-width: 900px) {
-    .hero-container {
-        flex-direction: column;
-    }
-    .profile-card {
-        position: static;
-        margin: 20px auto 0 auto;
-        width: 45vw;
-        max-width: 170px;
-    }
 }
 
 /* Image Card Section Styles */
@@ -462,25 +367,28 @@ button,
 .action-btn, 
 .deadlines-btn, 
 .tech-tag,
-.down-arrow,
-.profile-img {
+.down-arrow {
     cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FFF" stroke="%23000" stroke-width="2" d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.85a.5.5 0 0 0-.85.35Z"></path></svg>'), pointer;
 }
 
 /* Navigation Menu Styles */
 .navbar {
-    position: fixed;
-    top: 0px;
+    position: absolute;
+    top: 30px;
     left: 30px;
-    z-index: 100;
+    z-index: 1000;
     display: flex;
     gap: 30px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
 }
 
 .navbar a {
     color: #fff;
     text-decoration: none;
-    font-family:  'JetBrains Mono', monospace;
+    font-family: 'JetBrains Mono', monospace;
     font-weight: 400;
     font-size: 16px;
     letter-spacing: 1px;
@@ -553,6 +461,7 @@ button,
         left: 10px;
         gap: 20px;
         flex-wrap: wrap;
+        padding: 8px 15px;
     }
 
     .navbar a {
