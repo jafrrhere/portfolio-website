@@ -393,6 +393,28 @@
                 justify-content: center;
             }
         }
+
+        /* 16:9 Image Card Styles */
+        .fullwidth-image-card {
+            width: calc(100% - 40px);
+            margin: 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .fullwidth-image-card-inner {
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;
+        }
+        .fullwidth-image-card img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -411,65 +433,12 @@
             <a href="./about.html" class="know-more">→KNOW MORE←</a>
         </div>
         
-        <!-- New Image Card Section -->
-        <section class="image-card-section">
-            <div class="image-description">
-                <h2>Organic Farming Platform</h2>
-                <p class="description-text">
-                    A comprehensive digital platform connecting organic farmers with consumers, 
-                    featuring real-time market data, sustainable farming practices, and direct 
-                    farm-to-table delivery options. The platform aims to revolutionize how we 
-                    think about food production and distribution.
-                </p>
-                <p class="description-text">
-                    Built with modern web technologies and a focus on user experience, this 
-                    project demonstrates the power of technology in promoting sustainable 
-                    agriculture and supporting local farming communities.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">MongoDB</span>
-                    <span class="tech-tag">Google Maps API</span>
-                </div>
-                <div class="project-actions">
-                    <button class="action-btn">View Project</button>
-                    <button class="action-btn secondary">Learn More</button>
-                </div>
+        <!-- 16:9 Fullwidth Image Card -->
+        <div class="fullwidth-image-card">
+            <div class="fullwidth-image-card-inner">
+                <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//Red%20Minimalist%20Company%20Profile%20Presentation%20.png" alt="Fullwidth 16:9 Image">
             </div>
-            <div class="image-container">
-                <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//Organic%20Farming%20(2).png" alt="Organic Farming Platform">
-                <div class="image-overlay">
-                    <span class="image-label">Featured Project</span>
-                </div>
-            </div>
-        </section>
-        <hr style="width: 97%; border: none; border-top: 1px solid #666666;">
-
-
-
-        <!-- New Image Card Section -->
-        <section class="image-card-section">
-            <div class="image-container">
-                <img id="supabaseImage" src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//Organic%20Farming%20(2).png" alt="Project Image">
-                <div class="image-overlay">
-                    <span class="image-label">Featured Project</span>
-                </div>
-            </div>
-            <div class="image-description">
-                <h2>Innovative Sound Design</h2>
-                <p class="description-text">
-                    This project explores the intersection of music production and technological innovation. 
-                    Using custom-built synthesizers and advanced sound design techniques, I've created 
-                    immersive audio landscapes that challenge traditional concepts of musical structure.
-                </p>
-                <p class="description-text">
-                    The core of this work focuses on generative compositions that evolve based on 
-                    environmental inputs and algorithmic decision-making. Each piece creates a unique 
-                    sonic experience that never repeats exactly the same way twice.
-                </p>
-            </div>
-        </section>
+        </div>
     </div>
     
     <!-- Name typing effect script -->

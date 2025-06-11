@@ -183,9 +183,6 @@ body {
 .image-card-section {
     display: flex;
     align-items: center;
-    gap: 2rem;
-    padding: 1rem;
-    margin: 0.5rem auto;
     max-width: 1200px;
     width: 90%;
     background: rgba(0, 0, 0, 0.7);
@@ -206,6 +203,7 @@ body {
     justify-content: center;
     z-index: 3; /* Ensure it's above any background elements */
     max-width: 45%;
+    left:0px;
 }
 
 .image-container:hover {
@@ -214,6 +212,7 @@ body {
 
 .image-container img {
     width: 100%;
+    aspect-ratio: 16 / 9;
     height: auto;
     max-height: 100%;
     object-fit: contain;
@@ -614,7 +613,7 @@ button,
 .terminal-content {
     background-color: #1a1a1a; /* Dark background for terminal */
     color: #e0e0e0; /* Light text color */
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
     padding: 20px;
     border-radius: 8px;
