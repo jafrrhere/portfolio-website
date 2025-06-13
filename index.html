@@ -540,11 +540,102 @@
             color: #666;
             transform: translateY(-2px);
         }
+
+        /* Navigation Menu */
+        .navbar {
+            position: fixed;
+            top: 0;
+            right: 30px;
+            width: auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #666666;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            z-index: 1001;
+            pointer-events: auto;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                pointer-events: auto;
+            }
+
+            .navbar {
+                display: none;
+                position: fixed;
+                top: 0;
+                right: 30px;
+                width: auto;
+                background: rgba(0, 0, 0, 0.95);
+                padding: 60px 20px 20px 20px;
+                border-radius: 0 0 10px 10px;
+                pointer-events: auto;
+            }
+
+            .navbar.active {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 15px;
+            }
+
+            /* Hamburger Animation */
+            .hamburger.active .hamburger-line:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active .hamburger-line:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .hamburger-line:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+        }
     </style>
 </head>
 <body>
     <div class="red-circle"></div>
     <div class="content-wrapper">
+        <!-- Hamburger Menu -->
+        <div class="hamburger">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </div>
+
         <!-- Navigation Menu -->
         <nav class="navbar">
             <a href="index.html">Index</a>
@@ -586,7 +677,6 @@
     
     <!-- Name typing effect script -->
     <script>
-        // Name typing effect
         document.addEventListener('DOMContentLoaded', function() {
             const nameElement = document.getElementById('nameText');
             const fullName = "Jafar Tamboli.";
@@ -596,9 +686,8 @@
                 if (currentIndex < fullName.length) {
                     nameElement.textContent += fullName.charAt(currentIndex);
                     currentIndex++;
-                    setTimeout(typeWriter, 100); // Adjust typing speed here (100ms between each character)
+                    setTimeout(typeWriter, 100);
                 } else {
-                    // Add cursor after typing is complete
                     const cursor = document.createElement('span');
                     cursor.className = 'cursor';
                     cursor.textContent = '|';
@@ -606,9 +695,37 @@
                 }
             }
             
-            // Clear any existing text and start typing
             nameElement.textContent = '';
             typeWriter();
+
+            // Hamburger Menu Functionality
+            const hamburger = document.querySelector('.hamburger');
+            const navbar = document.querySelector('.navbar');
+            
+            if (hamburger && navbar) {
+                hamburger.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    navbar.classList.toggle('active');
+                });
+
+                // Close menu when clicking a link
+                const navLinks = document.querySelectorAll('.navbar a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navbar.classList.remove('active');
+                    });
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!hamburger.contains(event.target) && !navbar.contains(event.target)) {
+                        hamburger.classList.remove('active');
+                        navbar.classList.remove('active');
+                    }
+                });
+            }
         });
     </script>
 
