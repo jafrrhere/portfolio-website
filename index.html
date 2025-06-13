@@ -343,7 +343,7 @@
         }
 
         /* Re-enable pointer events for interactive elements */
-        .navbar, .image-card-section, .action-btn, .know-more {
+        .navbar, .image-card-section, .action-btn, .know-more, .see-more-coding, .see-more-design {
             pointer-events: auto;
         }
 
@@ -477,9 +477,10 @@
             font-family: 'Akatab Bold', sans-serif;
         }
         .see-more-coding {
-            display: inline-block;
+            display: block;
             margin-top: 18px;
-            margin-left: 25%; /* Position at 1/4 of the display */
+            margin-left: 30%;
+            padding-right: 25%;
             font-family: 'AdventPro medium', sans-serif;
             font-size: 1.1rem;
             color: #ffffff;
@@ -490,11 +491,15 @@
             background: transparent;
             transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
         .see-more-design {
-            display: inline-block;
+            display: block;
             margin-top: 18px;
-            margin-right: 25%; /* Position at 3/4 of the display */
+            margin-right: 30%;
+            text-align: right;
+            padding-right: 25%;
             font-family: 'AdventPro medium', sans-serif;
             font-size: 1.1rem;
             color: #ffffff;
@@ -505,9 +510,34 @@
             background: transparent;
             transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .see-more-coding::after, .see-more-design::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: fit-content;
+            height: 2px;
+            background-color: #666666;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+        .see-more-coding::after {
+            left: 30%;
+        }
+        .see-more-design::after {
+            right: 30%;
+            left: auto;
+        }
+        .see-more-coding:hover::after, .see-more-design:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
         }
         .see-more-coding:hover, .see-more-design:hover {
-            color: #000;
+            color: #666;
             transform: translateY(-2px);
         }
     </style>
@@ -543,13 +573,13 @@
                 <div class="sidebyside-image-card-inner">
                     <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Left 4:5 Image">
                 </div>
-                <a class="see-more-coding" href="https://www.figma.com/proto/Vo77qQKgytfZlanDPwkPcS/portfolio?node-id=2048-3&t=ltoY37Q6RnPgcH93-1" target="_blank">See more of Coding</a>
+                <a class="see-more-coding" href="coding.html">See more of Coding</a>
             </div>
             <div class="sidebyside-image-card right">
                 <div class="sidebyside-image-card-inner">
                     <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Right 4:5 Image">
                 </div>
-                <a class="see-more-design" href="https://www.figma.com/proto/Vo77qQKgytfZlanDPwkPcS/portfolio?node-id=2048-3&t=ltoY37Q6RnPgcH93-1" target="_blank">See more of Design</a>
+                <a class="see-more-design" href="design.html">See more of Design</a>
             </div>
         </div>
     </div>
@@ -581,5 +611,9 @@
             typeWriter();
         });
     </script>
+
+
+    <hr style="width: 97%; border: none; border-top: 1px solid #666666; margin-top: 100px;">
+
 </body>
 </html> 
