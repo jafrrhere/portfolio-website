@@ -671,9 +671,64 @@
                 transform: scaleX(1);
             }
         }
+
+        .index-about {
+            background-color: #101010;
+            width: 100%;
+            padding: 50px 0;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-image {
+            position: absolute;
+            width: auto;
+            height: auto;
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 0.1s ease;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .loading-image.active {
+            opacity: 1;
+        }
+
+        /* Hide main content initially */
+        .content-wrapper {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .content-wrapper.loaded {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//Red%20Minimalist%20Company%20Profile%20Presentation%20%20(3).png" alt="Loading 1" class="loading-image">
+        <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//Red%20Minimalist%20Company%20Profile%20Presentation%20%20(4).png" alt="Loading 2" class="loading-image">
+        <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//Red%20Minimalist%20Company%20Profile%20Presentation%20%20(5).png" alt="Loading 3" class="loading-image">
+    </div>
+
     <div class="red-circle"></div>
     <div class="content-wrapper">
         <!-- Hamburger Menu -->
@@ -725,6 +780,29 @@
     <!-- Name typing effect script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Loading screen functionality
+            const loadingScreen = document.querySelector('.loading-screen');
+            const loadingImages = document.querySelectorAll('.loading-image');
+            const contentWrapper = document.querySelector('.content-wrapper');
+            let currentImageIndex = 0;
+
+            // Show first image
+            loadingImages[0].classList.add('active');
+
+            // Change images every 267ms (0.8 seconds total for 3 images)
+            const imageInterval = setInterval(() => {
+                loadingImages[currentImageIndex].classList.remove('active');
+                currentImageIndex = (currentImageIndex + 1) % loadingImages.length;
+                loadingImages[currentImageIndex].classList.add('active');
+            }, 267);
+
+            // After 0.8 seconds, hide loading screen and show content
+            setTimeout(() => {
+                clearInterval(imageInterval);
+                loadingScreen.style.display = 'none';
+                contentWrapper.classList.add('loaded');
+            }, 800);
+
             const nameElement = document.getElementById('nameText');
             const fullName = "Jafar Tamboli.";
             let currentIndex = 0;
@@ -813,8 +891,10 @@
     <hr class="bottom-hr">
     
 
-    <div>
-        
+    <div class="index-about">
+        <h1>I'd love to work together.</h1>
+        <p style="margin-left: 20px; font-family: 'Outfit', sans-serif;">tambolijafar24@gmail.com<span style="display: block;margin-top: 1px;"><br>@jafrrhere</span></p>
+
     </div>
 </body>
 </html> 
