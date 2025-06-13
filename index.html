@@ -776,7 +776,7 @@
 
             // Animated HR Intersection Observer
             const hr = document.querySelector('.animated-hr');
-            const bottomHr = document.querySelector('.bottom-hr');
+            const bottomHrs = document.querySelectorAll('.bottom-hr');
             
             if (hr) {
                 const observer = new IntersectionObserver(entries => {
@@ -790,23 +790,31 @@
                 observer.observe(hr);
             }
 
-            if (bottomHr) {
+            if (bottomHrs.length > 0) {
                 const bottomObserver = new IntersectionObserver(entries => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            bottomHr.classList.add('animate');
+                            entry.target.classList.add('animate');
                         }
                     });
                 });
 
-                bottomObserver.observe(bottomHr);
+                bottomHrs.forEach(hr => {
+                    bottomObserver.observe(hr);
+                });
             }
         });
     </script>
 
     <hr class="bottom-hr">
     <div>
-        <h1>jafar</h1>
+        <h1><span class="highlight">J</span>afar</h1>
+    </div>
+    <hr class="bottom-hr">
+    
+
+    <div>
+        
     </div>
 </body>
 </html> 
