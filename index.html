@@ -624,6 +624,53 @@
                 transform: rotate(-45deg) translate(7px, -6px);
             }
         }
+
+        /* Animated Horizontal Line */
+        .animated-hr {
+            width: 0;
+            height: 2.1px;
+            border: none;
+            background-color: #D9D9D9;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .animated-hr.animate {
+            animation: growLine 1s ease-out forwards;
+        }
+
+        @keyframes growLine {
+            from {
+                width: 0;
+            }
+            to {
+                width: 12%;
+            }
+        }
+
+        /* Bottom line animation */
+        .bottom-hr {
+            width: 97%;
+            height: 1px;
+            border: none;
+            background-color: #666666;
+            margin-top: 100px;
+            transform-origin: left;
+            transform: scaleX(0);
+        }
+
+        .bottom-hr.animate {
+            animation: growBottomLine 1s ease-out forwards;
+        }
+
+        @keyframes growBottomLine {
+            from {
+                transform: scaleX(0);
+            }
+            to {
+                transform: scaleX(1);
+            }
+        }
     </style>
 </head>
 <body>
@@ -648,7 +695,7 @@
             <h2 class="center-text" id="nameText"></h2>
             <a href="./about.html" class="know-more">→ Know More ←</a>
         </div>
-        <hr style="width: 12%; border: none; border-top: 2.1px solid #D9D9D9;">
+        <hr class="animated-hr">
         <p></p>
 
         <!-- 16:9 Fullwidth Image Card -->
@@ -726,11 +773,40 @@
                     }
                 });
             }
+
+            // Animated HR Intersection Observer
+            const hr = document.querySelector('.animated-hr');
+            const bottomHr = document.querySelector('.bottom-hr');
+            
+            if (hr) {
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            hr.classList.add('animate');
+                        }
+                    });
+                });
+
+                observer.observe(hr);
+            }
+
+            if (bottomHr) {
+                const bottomObserver = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            bottomHr.classList.add('animate');
+                        }
+                    });
+                });
+
+                bottomObserver.observe(bottomHr);
+            }
         });
     </script>
 
-
-    <hr style="width: 97%; border: none; border-top: 1px solid #666666; margin-top: 100px;">
-
+    <hr class="bottom-hr">
+    <div>
+        <h1>jafar</h1>
+    </div>
 </body>
 </html> 
