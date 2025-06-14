@@ -157,9 +157,7 @@ body {
     cursor: pointer;
     text-decoration: none;
     position: relative;
-    display: block;
-    text-align: center;
-    width: 100%;
+    display: inline-block;
 }
 
 .know-more::after {
@@ -773,3 +771,9 @@ h1{
     color: #C70000; /* or any color you like */
     font-size: 50px;
   }
+
+@media (max-width: 768px) {
+    .know-more {
+        margin-left: 40px;
+    }
+}
