@@ -774,6 +774,6 @@ h1{
 
 @media (max-width: 768px) {
     .know-more {
-        margin-left: 40px;
+        margin-left: 10%;
     }
 }
