@@ -64,13 +64,27 @@ body {
 }
 
 .center-text {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 70px;
-    font-weight: 700;
+    font-family: "Repro Variable";
+    font-variation-settings: "wght" 400, "slnt" 0;
+    font-weight: 400;
+    font-size: 8.12rem;
     margin: 0;
     position: relative;
     z-index: 1;
-    color: #fff;
+    background: linear-gradient(135deg, #ffffff, #5E5E5E, #ffffff);
+    background-clip: text;
+    color: transparent;
+    background-size: 200% 100%;
+    animation: shimmer 5s linear infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 .know-more {

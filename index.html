@@ -557,13 +557,31 @@
         .navbar a {
             color: #fff;
             text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 400;
-            transition: color 0.3s ease;
+            font-family: 'Akatab Bold', sans-serif;
+            font-weight: 200;
+            transition: color 0.2s ease;
+            position: relative;
+            background: transparent;
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #666666;
+            transition: width 0.3s ease;
+        }
+
+        .navbar a:hover::after {
+            width: 100%;
         }
 
         .navbar a:hover {
             color: #666666;
+            background: transparent;
         }
 
         /* Hamburger Menu */
@@ -636,7 +654,7 @@
         }
 
         .animated-hr.animate {
-            animation: growLine 1s ease-out forwards;
+            animation: growLine 0.3s ease-out forwards;
         }
 
         @keyframes growLine {
@@ -660,7 +678,7 @@
         }
 
         .bottom-hr.animate {
-            animation: growBottomLine 1s ease-out forwards;
+            animation: growBottomLine 0.9s ease-out forwards;
         }
 
         @keyframes growBottomLine {
@@ -772,7 +790,8 @@
         <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//1711.png" alt="Loading 1" class="loading-image">
         <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//1811.png" alt="Loading 2" class="loading-image">
         <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//19.png" alt="Loading 3" class="loading-image">
-        <hr style="position: absolute; bottom: 0px; width: 97%; border: none; border-top: 5px solid #d7d7d7;">
+        <hr style="width: 97%; border: none; border-top: 0.7px solid #666666;">
+        <hr style="position: absolute; bottom: 0px; width: 20%; border: none; border-radius: 999px; border-top: 3px solid #d5d4d4;">
     </div>
 
     <div class="red-circle"></div>
@@ -810,7 +829,7 @@
         <div class="sidebyside-image-cards">
             <div class="sidebyside-image-card left">
                 <div class="sidebyside-image-card-inner">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Left 4:5 Image">
+                    <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//Copy%20of%20Grey%20White%20Minimalist%20Real%20Estate%20Flayer%20(5).png" alt="Left 4:5 Image">
                 </div>
                 <a class="see-more-coding" href="coding.html">See more of Coding</a>
             </div>
