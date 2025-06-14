@@ -1,4 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700,300italic,400italic,600italic,900,200);
+@font-face {
+    font-family: 'Repro Variable';
+    src: url('fonts/ReproVariable.woff2') format('woff2-variations');
+    font-weight: 400;
+    font-style: normal;
+}
 
 html, body {
     height: 100%;
@@ -64,10 +70,10 @@ body {
 }
 
 .center-text {
-    font-family: "Repro Variable";
-    font-variation-settings: "wght" 400, "slnt" 0;
+    font-family: 'Repro Variable', sans-serif;
+    font-size: 8rem !important;
     font-weight: 400;
-    font-size: 8.12rem;
+    font-variation-settings: 'wght' 400, 'slnt' 0;
     margin: 0;
     position: relative;
     z-index: 1;
@@ -84,6 +90,25 @@ body {
     }
     100% {
         background-position: -200% 0;
+    }
+}
+
+/* Update media queries to respect the font size */
+@media (max-width: 768px) {
+    .center-text {
+        font-size: 6rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .center-text {
+        font-size: 4rem !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .center-text {
+        font-size: 3rem !important;
     }
 }
 
