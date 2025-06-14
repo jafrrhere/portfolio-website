@@ -690,6 +690,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .loading-screen.move-up {
+            opacity: 0;
+            transform: translateY(-100%);
+            pointer-events: none;
         }
 
         .loading-image {
@@ -713,11 +722,13 @@
         /* Hide main content initially */
         .content-wrapper {
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
         .content-wrapper.loaded {
             opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -799,8 +810,13 @@
             // After 0.8 seconds, hide loading screen and show content
             setTimeout(() => {
                 clearInterval(imageInterval);
-                loadingScreen.style.display = 'none';
+                loadingScreen.classList.add('move-up');
                 contentWrapper.classList.add('loaded');
+                
+                // Remove loading screen from DOM after transition
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
             }, 800);
 
             const nameElement = document.getElementById('nameText');
