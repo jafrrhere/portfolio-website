@@ -730,6 +730,35 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        .center-text {
+            color: #fff;
+            font-size: 4rem;
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .center {
+                align-items: center;
+                padding-left: 20px;
+            }
+            .center-text {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .center-text {
+                font-size: 5rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .center-text {
+                font-size: 2.8rem;
+            }
+        }
     </style>
 </head>
 <body>
