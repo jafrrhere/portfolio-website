@@ -745,6 +745,7 @@
             }
             .center-text {
                 text-align: left;
+                white-space: normal;
             }
         }
 
@@ -850,12 +851,16 @@
             }, 800);
 
             const nameElement = document.getElementById('nameText');
-            const fullName = "Jafar Tamboli.";
+            const fullName = window.innerWidth <= 768 ? "Jafar \nTamboli." : "Jafar Tamboli.";
             let currentIndex = 0;
             
             function typeWriter() {
                 if (currentIndex < fullName.length) {
-                    nameElement.textContent += fullName.charAt(currentIndex);
+                    if (fullName.charAt(currentIndex) === '\n') {
+                        nameElement.innerHTML += '<br>';
+                    } else {
+                        nameElement.textContent += fullName.charAt(currentIndex);
+                    }
                     currentIndex++;
                     setTimeout(typeWriter, 100);
                 } else {
