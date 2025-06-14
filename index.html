@@ -874,16 +874,12 @@
             }, 800);
 
             const nameElement = document.getElementById('nameText');
-            const fullName = window.innerWidth <= 768 ? "Jafar \nTamboli." : "Jafar Tamboli.";
+            const fullName = "Jafar Tamboli.";
             let currentIndex = 0;
             
             function typeWriter() {
                 if (currentIndex < fullName.length) {
-                    if (fullName.charAt(currentIndex) === '\n') {
-                        nameElement.innerHTML += '<br>';
-                    } else {
-                        nameElement.textContent += fullName.charAt(currentIndex);
-                    }
+                    nameElement.textContent += fullName.charAt(currentIndex);
                     currentIndex++;
                     setTimeout(typeWriter, 100);
                 } else {
