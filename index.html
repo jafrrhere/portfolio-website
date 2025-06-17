@@ -475,6 +475,9 @@
         }
         .know-more {
             font-family: 'Akatab Bold', sans-serif;
+            text-align: center;
+            display: block;
+            margin: 0 auto;
         }
         .see-more-coding {
             display: block;
@@ -545,12 +548,13 @@
         .navbar {
             position: fixed;
             top: 0;
-            right: 30px;
+            left: 50%;
+            transform: translateX(-50%);
             width: auto;
             padding: 1rem;
             display: flex;
-            justify-content: flex-end;
-            gap: 2rem;
+            justify-content: center;
+            gap: 7rem;
             z-index: 1000;
         }
 
@@ -615,6 +619,8 @@
                 position: fixed;
                 top: 0;
                 right: 30px;
+                left: auto;
+                transform: none;
                 width: auto;
                 background: rgba(0, 0, 0, 0.95);
                 padding: 60px 20px 20px 20px;
@@ -766,8 +772,9 @@
                 white-space: normal;
             }
             .know-more {
-                align-self: flex-start;
-                margin-left: 0;
+                text-align: left;
+                margin-left: 20px;
+                margin-right: 20px;
             }
         }
 
@@ -780,6 +787,96 @@
         @media (max-width: 400px) {
             .center-text {
                 font-size: 2.8rem;
+            }
+        }
+
+        /* Experience Grid Styles */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .experience-card {
+            position: relative;
+            background: linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%);
+            border-radius: 1.75rem;
+            padding: 1px;
+            overflow: hidden;
+        }
+
+        .card-glow {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(#CBACF9 40%, transparent 60%);
+            opacity: 0.8;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .card-content {
+            position: relative;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.75rem;
+            height: 100%;
+        }
+
+        .card-inner {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 2rem;
+            gap: 1rem;
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .card-text {
+            flex: 1;
+        }
+
+        .card-text h2 {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-text p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .experience-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .card-inner {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem;
+            }
+
+            .card-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .card-text h2 {
+                font-size: 1.25rem;
             }
         }
     </style>
@@ -813,7 +910,7 @@
         
         <div class="center">
             <h2 class="center-text" id="nameText"></h2>
-            <a href="./about.html" class="know-more">→ Know More ←</a>
+            <a href="./about.html" class="know-more">I'm a CSE student who brings ideas to life through code and design.<br> I focus on building smart, user-friendly digital experiences that actually work.</a>
         </div>
         <hr class="animated-hr">
         <p></p>
@@ -829,7 +926,7 @@
         <div class="sidebyside-image-cards">
             <div class="sidebyside-image-card left">
                 <div class="sidebyside-image-card-inner">
-                    <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//Copy%20of%20Grey%20White%20Minimalist%20Real%20Estate%20Flayer%20(5).png" alt="Left 4:5 Image">
+                    <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/gif//Copy%20of%20Grey%20White%20Minimalist%20Real%20Estate%20Flayer%20(1).gif" alt="Left 4:5 Image">
                 </div>
                 <a class="see-more-coding" href="coding.html">See more of Coding</a>
             </div>
@@ -959,7 +1056,61 @@
         <h1><span class="highlight">J</span>afar</h1>
     </div>
     <hr class="bottom-hr">
-    
+
+    <!-- Experience Grid Section -->
+    <div class="experience-grid">
+        <div class="experience-card">
+            <div class="card-glow"></div>
+            <div class="card-content">
+                <div class="card-inner">
+                    <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//exp1.svg" alt="Experience 1" class="card-icon">
+                    <div class="card-text">
+                        <h2>Frontend Engineer Intern</h2>
+                        <p>Assisted in the development of a web-based platform using React.js, enhancing interactivity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="experience-card">
+            <div class="card-glow"></div>
+            <div class="card-content">
+                <div class="card-inner">
+                    <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//exp2.svg" alt="Experience 2" class="card-icon">
+                    <div class="card-text">
+                        <h2>Mobile App Dev - JSM Tech</h2>
+                        <p>Designed and developed mobile app for both iOS & Android platforms using React Native.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="experience-card">
+            <div class="card-glow"></div>
+            <div class="card-content">
+                <div class="card-inner">
+                    <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//exp3.svg" alt="Experience 3" class="card-icon">
+                    <div class="card-text">
+                        <h2>Freelance App Dev Project</h2>
+                        <p>Led the dev of a mobile app for a client, from initial concept to deployment on app stores.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="experience-card">
+            <div class="card-glow"></div>
+            <div class="card-content">
+                <div class="card-inner">
+                    <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//exp4.svg" alt="Experience 4" class="card-icon">
+                    <div class="card-text">
+                        <h2>Lead Frontend Developer</h2>
+                        <p>Developed and maintained user-facing features using modern frontend technologies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="index-about">
         <h1>I'd love to work together.</h1>
