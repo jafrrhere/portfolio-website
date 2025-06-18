@@ -18,12 +18,13 @@
         .navbar {
             position: fixed;
             top: 0;
-            right: 30px;
+            left: 50%;
+            transform: translateX(-50%);
             width: auto;
             padding: 1rem;
             display: flex;
-            justify-content: flex-end;
-            gap: 2rem;
+            justify-content: center;
+            gap: 7rem;
             z-index: 1000;
         }
 
@@ -67,6 +68,7 @@
             right: 30px;
             z-index: 1001;
             pointer-events: auto;
+            -webkit-tap-highlight-color: #666666;
         }
 
         .hamburger-line {
@@ -88,6 +90,8 @@
                 position: fixed;
                 top: 0;
                 right: 30px;
+                left: auto;
+                transform: none;
                 width: auto;
                 background: rgba(0, 0, 0, 0.95);
                 padding: 60px 20px 20px 20px;
@@ -182,45 +186,12 @@
             <a href="about.html">About</a>
         </nav>
 
-        <hr class="animated-hr">
 
         <div class="center">
             <h2 class="center-text glitch" data-text="Coding Projects">Coding Projects</h2>
         </div>
 
-        <!-- Add your coding projects content here -->
-        <section class="image-card-section">
-            <div class="image-description">
-                <h2>Python Projects</h2>
-                <p class="description-text">
-                    A collection of Python projects showcasing various applications and algorithms.
-                    From data analysis to web development, these projects demonstrate my journey
-                    in learning and mastering Python programming.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Data Analysis</span>
-                    <span class="tech-tag">Web Development</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="image-card-section">
-            <div class="image-description">
-                <h2>C++ Projects</h2>
-                <p class="description-text">
-                    Various C++ projects focusing on data structures, algorithms, and system programming.
-                    These projects highlight my understanding of core computer science concepts and
-                    efficient programming practices.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">C++</span>
-                    <span class="tech-tag">DSA</span>
-                    <span class="tech-tag">System Programming</span>
-                </div>
-            </div>
-        </section>
-    </div>
+        
     
     <script>
         // Hamburger Menu Functionality
@@ -280,5 +251,159 @@
             observer.observe(bottomHr);
         }
     </script>
+
+<div>
+  <div class="card">
+    <div class="mac-header">
+      <span class="red"></span>
+      <span class="yellow"></span>
+      <span class="green"></span>
+    </div>
+    <span class="card-title">Mac-Style Code Preview</span>
+    <p class="card-description">
+      A glimpse of your code in a clean and Mac-like window. Click to explore!
+    </p>
+    <span class="card-tag">TAG JS</span> <span class="card-tag">TAG JS</span>
+    <div class="code-editor">
+      <pre><code>&lt;h1&gt; Hello World &lt;/h1&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<!-- Tech Stack Section -->
+<h2 style="margin-top: 40px; color: #fff; font-family: 'Montserrat', sans-serif;">💻 Tech Stack:</h2>
+<div style="margin-bottom: 30px;">
+  <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
+  <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"/>
+  <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5"/>
+  <img src="https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel"/>
+  <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React"/>
+  <img src="https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white" alt="Vite"/>
+  <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="TailwindCSS"/>
+  <img src="https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white" alt="Figma"/>
+  <img src="https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white" alt="Firebase"/>
+  <img src="https://img.shields.io/badge/Adobe%20Audition-9999FF.svg?style=for-the-badge&logo=Adobe%20Audition&logoColor=white" alt="Adobe Audition"/>
+  <img src="https://img.shields.io/badge/adobe%20photoshop-%2331A8FF.svg?style=for-the-badge&logo=adobe%20photoshop&logoColor=white" alt="Adobe Photoshop"/>
+  <img src="https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white" alt="Notion"/>
+</div>
+
+<style>
+.card {
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #0d1117;
+    border-radius: 10px;
+    background-color: #000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
+    position: relative;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      "Open Sans",
+      "Helvetica Neue",
+      sans-serif;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .mac-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .mac-header span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  
+  .mac-header .red {
+    background-color: #ff5f57;
+  }
+  
+  .mac-header .yellow {
+    background-color: #ffbd2e;
+  }
+  
+  .mac-header .green {
+    background-color: #28c941;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 10px;
+    color: #e6e6ef;
+  }
+  
+  .card-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  .card .card-tag {
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 5px;
+    background-color: #0d1117;
+    padding: 4px;
+    margin-block-end: 12px;
+    color: #dcdcdc;
+  }
+  .code-editor {
+    background-color: #0d1117;
+    color: #dcdcdc;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      "Open Sans",
+      "Helvetica Neue",
+      monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    border-radius: 5px;
+    padding: 15px;
+    overflow: auto;
+    height: 150px;
+    border: 1px solid #333;
+  }
+  
+  .code-editor::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .code-editor::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+  }
+  
+  .code-editor pre code {
+    white-space: pre-wrap;
+    display: block;
+  }
+</style>  
 </body>
 </html> 
