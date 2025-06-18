@@ -67,6 +67,29 @@ A modern, interactive portfolio website featuring smooth animations and responsi
 - Responsive layout for mobile
 - CSS class: `.profile-card`
 
+### BButton
+A stylish button component with animated hover effects and border decorations. Created by faizanullah1999 from Uiverse.io.
+
+#### Usage
+```html
+<div class="button-borders">
+  <button class="primary-button">BUTTON</button>
+</div>
+```
+
+#### Features
+- Animated background on hover
+- Decorative borders
+- Custom corner accents
+- Smooth transitions
+
+#### Dependencies
+- Font: 'Ropa Sans' (optional)
+- CSS file: bbutton.css
+
+#### Note
+This button style is available for use but should only be implemented when specifically requested.
+
 ## Responsive Design
 - Mobile-first approach
 - Breakpoints at 768px and 900px

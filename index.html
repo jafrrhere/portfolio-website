@@ -759,6 +759,7 @@
             color: #fff;
             font-size: 4rem;
             margin: 0;
+            margin-top: 8rem;
             white-space: nowrap;
         }
 
@@ -806,16 +807,6 @@
             border-radius: 1.75rem;
             padding: 1px;
             overflow: hidden;
-        }
-
-        .card-glow {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            background: radial-gradient(#CBACF9 40%, transparent 60%);
-            opacity: 0.8;
-            border-radius: 50%;
-            pointer-events: none;
         }
 
         .card-content {
@@ -879,6 +870,30 @@
                 font-size: 1.25rem;
             }
         }
+
+        /* Social Icons Styles */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 6rem;
+            margin-top: 7rem;
+        }
+
+        .social-icon {
+            width: 16.8px;
+            height: 16.8px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .social-icons {
+                gap: 5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -911,6 +926,11 @@
         <div class="center">
             <h2 class="center-text" id="nameText"></h2>
             <a href="./about.html" class="know-more">I'm a CSE student who brings ideas to life through code and design.<br> I focus on building smart, user-friendly digital experiences that actually work.</a>
+            <div class="social-icons">
+                <a href="https://github.com/jafrrhere" target="_blank"><img src="images/git.png" alt="GitHub" class="social-icon"></a>
+                <a href="https://linkedin.com/in/jafrrhere" target="_blank"><img src="images/link.png" alt="LinkedIn" class="social-icon"></a>
+                <a href="https://instagram.com/jafrrhere" target="_blank"><img src="images/insta.png" alt="Instagram" class="social-icon"></a>
+            </div>
         </div>
         <hr class="animated-hr">
         <p></p>
@@ -1060,7 +1080,6 @@
     <!-- Experience Grid Section -->
     <div class="experience-grid">
         <div class="experience-card">
-            <div class="card-glow"></div>
             <div class="card-content">
                 <div class="card-inner">
                     <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//exp1.svg" alt="Experience 1" class="card-icon">
@@ -1073,7 +1092,6 @@
         </div>
 
         <div class="experience-card">
-            <div class="card-glow"></div>
             <div class="card-content">
                 <div class="card-inner">
                     <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//exp2.svg" alt="Experience 2" class="card-icon">
@@ -1086,7 +1104,6 @@
         </div>
 
         <div class="experience-card">
-            <div class="card-glow"></div>
             <div class="card-content">
                 <div class="card-inner">
                     <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//exp3.svg" alt="Experience 3" class="card-icon">
@@ -1099,7 +1116,6 @@
         </div>
 
         <div class="experience-card">
-            <div class="card-glow"></div>
             <div class="card-content">
                 <div class="card-inner">
                     <img src="https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//exp4.svg" alt="Experience 4" class="card-icon">
