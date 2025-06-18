@@ -920,6 +920,34 @@
             gap: 9rem;
         }
 
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .cards-container {
+                gap: 2rem;
+                margin: 4rem auto;
+                padding: 0 0.5rem;
+            }
+
+            .cards-row {
+                flex-direction: column;
+                gap: 2rem;
+                width: 100%;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 280px;
+                height: auto;
+                min-height: 254px;
+            }
+
+            .card-photo {
+                width: 100%;
+                max-width: 201.6px;
+                height: 113.4px;
+            }
+        }
+
         /* Card Styles */
         .card {
             --font-color: #ffffff;
