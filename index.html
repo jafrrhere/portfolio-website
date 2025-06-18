@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jafar Tamboli - Professional Excuse-Maker</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900;400&family=Roboto:wght@300;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900;400&family=Roboto:wght@300;400;700&family=JetBrains+Mono:wght@400;700&family=Ropa+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Base styles */
@@ -902,6 +902,167 @@
                 gap: 5rem;
             }
         }
+
+        /* Card Container Styles */
+        .cards-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5rem;
+            margin: 8rem auto;
+            max-width: 1000px;
+            padding: 0 1rem;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: center;
+            gap: 9rem;
+        }
+
+        /* Card Styles */
+        .card {
+            --font-color: #ffffff;
+            --font-color-sub: #ffffff;
+            --bg-color: transparent;
+            --main-color: #ffffff;
+            --border-color: #ffffff;
+            --shadow-color: #FF4655;
+            width: 200px;
+            height: 254px;
+            background: var(--bg-color);
+            border: 2px solid var(--border-color);
+            box-shadow: 6px 6px var(--shadow-color);
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-photo {
+            width: 201.6px;
+            height: 113.4px;
+            border-radius: 4px;
+            background-image: url('https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//1711.png');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 1rem;
+            border: 2px solid var(--border-color);
+        }
+
+        .card-title {
+            text-align: center;
+            color: var(--font-color);
+            font-size: 20px;
+            font-weight: 400;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0.5rem 0;
+        }
+
+        .card-title span {
+            font-size: 15px;
+            color: var(--font-color-sub);
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        /* From Uiverse.io by faizanullah1999 */
+        .primary-button {
+            font-family: 'Ropa Sans', sans-serif;
+            color: white;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 0.05rem;
+            border: 1px solid #0E1822;
+            padding: 0.8rem 2.1rem;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 531.28 200'%3E%3Cdefs%3E%3Cstyle%3E .shape %7B fill: %23FF4655 /* fill: %230E1822; */ %7D %3C/style%3E%3C/defs%3E%3Cg id='Layer_2' data-name='Layer 2'%3E%3Cg id='Layer_1-2' data-name='Layer 1'%3E%3Cpolygon class='shape' points='415.81 200 0 200 115.47 0 531.28 0 415.81 200' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+            background-color: #0E1822;
+            background-size: 200%;
+            background-position: 200%;
+            background-repeat: no-repeat;
+            transition: 0.3s ease-in-out;
+            transition-property: background-position, border, color;
+            position: relative;
+            z-index: 2;
+            pointer-events: auto;
+        }
+
+        .primary-button:hover {
+            border: 1px solid #FF4655;
+            color: white;
+            background-position: 40%;
+        }
+
+        .primary-button:before {
+            content: "";
+            position: absolute;
+            background-color: #0E1822;
+            width: 0.2rem;
+            height: 0.2rem;
+            top: -1px;
+            left: -1px;
+            transition: background-color 0.15s ease-in-out;
+        }
+
+        .primary-button:hover:before {
+            background-color: white;
+        }
+
+        .primary-button:hover:after {
+            background-color: white;
+        }
+
+        .primary-button:after {
+            content: "";
+            position: absolute;
+            background-color: #FF4655;
+            width: 0.3rem;
+            height: 0.3rem;
+            bottom: -1px;
+            right: -1px;
+            transition: background-color 0.15s ease-in-out;
+        }
+
+        .button-borders {
+            position: relative;
+            width: fit-content;
+            height: fit-content;
+            margin-top: auto;
+            z-index: 2;
+            pointer-events: auto;
+        }
+
+        .button-borders:before {
+            content: "";
+            position: absolute;
+            width: calc(100% + 0.5em);
+            height: 50%;
+            left: -0.3em;
+            top: -0.3em;
+            border: 1px solid #0E1822;
+            border-bottom: 0px;
+        }
+
+        .button-borders:after {
+            content: "";
+            position: absolute;
+            width: calc(100% + 0.5em);
+            height: 50%;
+            left: -0.3em;
+            bottom: -0.3em;
+            border: 1px solid #0E1822;
+            border-top: 0px;
+            z-index: 0;
+        }
+
+        .shape {
+            fill: #0E1822;
+        }
     </style>
 </head>
 <body>
@@ -942,6 +1103,70 @@
         </div>
         <hr class="animated-hr">
         <p></p>
+
+        <!-- Cards Container -->
+        <div class="cards-container">
+            <!-- First Row -->
+            <div class="cards-row">
+                <!-- First Card -->
+                <div class="card">
+                    <div class="card-photo"></div>
+                    <div class="card-title">JAFAR TAMBOLI <br>
+                        <span>Fullstack dev &amp; UX UI</span>
+                    </div>
+                    <div class="button-borders">
+                        <button class="primary-button">BUTTON</button>
+                    </div>
+                </div>
+
+                <!-- Second Card -->
+                <div class="card">
+                    <div class="card-photo"></div>
+                    <div class="card-title">JAFAR TAMBOLI <br>
+                        <span>Fullstack dev &amp; UX UI</span>
+                    </div>
+                    <div class="button-borders">
+                        <button class="primary-button">BUTTON</button>
+                    </div>
+                </div>
+
+                <!-- Third Card -->
+                <div class="card">
+                    <div class="card-photo"></div>
+                    <div class="card-title">JAFAR TAMBOLI <br>
+                        <span>Fullstack dev &amp; UX UI</span>
+                    </div>
+                    <div class="button-borders">
+                        <button class="primary-button">BUTTON</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Row -->
+            <div class="cards-row">
+                <!-- Fourth Card -->
+                <div class="card">
+                    <div class="card-photo"></div>
+                    <div class="card-title">JAFAR TAMBOLI <br>
+                        <span>Fullstack dev &amp; UX UI</span>
+                    </div>
+                    <div class="button-borders">
+                        <button class="primary-button">BUTTON</button>
+                    </div>
+                </div>
+
+                <!-- Fifth Card -->
+                <div class="card">
+                    <div class="card-photo"></div>
+                    <div class="card-title">JAFAR TAMBOLI <br>
+                        <span>Fullstack dev &amp; UX UI</span>
+                    </div>
+                    <div class="button-borders">
+                        <button class="primary-button">BUTTON</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- 16:9 Fullwidth Image Card -->
         <div class="fullwidth-image-card">
