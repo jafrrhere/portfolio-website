@@ -18,12 +18,13 @@
         .navbar {
             position: fixed;
             top: 0;
-            right: 30px;
+            left: 50%;
+            transform: translateX(-50%);
             width: auto;
             padding: 1rem;
             display: flex;
-            justify-content: flex-end;
-            gap: 2rem;
+            justify-content: center;
+            gap: 7rem;
             z-index: 1000;
         }
 
@@ -67,6 +68,7 @@
             right: 30px;
             z-index: 1001;
             pointer-events: auto;
+            -webkit-tap-highlight-color: #666666;
         }
 
         .hamburger-line {
@@ -88,6 +90,8 @@
                 position: fixed;
                 top: 0;
                 right: 30px;
+                left: auto;
+                transform: none;
                 width: auto;
                 background: rgba(0, 0, 0, 0.95);
                 padding: 60px 20px 20px 20px;
@@ -162,6 +166,174 @@
                 transform: scaleX(1);
             }
         }
+
+        .coding-cards-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5rem;
+            margin: 8rem auto;
+            max-width: 1000px;
+            padding: 0 1rem;
+        }
+        .coding-cards-row {
+            display: flex;
+            justify-content: center;
+            gap: 9rem;
+        }
+        .coding-card {
+            --font-color: #ffffff;
+            --font-color-sub: #ffffff;
+            --bg-color: transparent;
+            --main-color: #ffffff;
+            --border-color: #ffffff;
+            --shadow-color: #FF4655;
+            width: 200px;
+            height: 254px;
+            background: var(--bg-color);
+            border: 2px solid var(--border-color);
+            box-shadow: 6px 6px var(--shadow-color);
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        .coding-card-photo {
+            width: 201.6px;
+            height: 113.4px;
+            border-radius: 4px;
+            background-image: url('https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//1711.png');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 1rem;
+            border: 2px solid var(--border-color);
+        }
+        .coding-card-title {
+            text-align: center;
+            color: var(--font-color);
+            font-size: 20px;
+            font-weight: 400;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0.5rem 0;
+        }
+        .coding-card-title span {
+            font-size: 15px;
+            color: var(--font-color-sub);
+            display: block;
+            margin-top: 0.5rem;
+        }
+        .button-borders {
+            position: relative;
+            width: fit-content;
+            height: fit-content;
+            margin-top: auto;
+            z-index: 2;
+            pointer-events: auto;
+        }
+        .primary-button {
+            font-family: 'Ropa Sans', sans-serif;
+            color: white;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 0.05rem;
+            border: 1px solid #0E1822;
+            padding: 0.8rem 2.1rem;
+            background-color: #0E1822;
+            background-size: 200%;
+            background-position: 200%;
+            background-repeat: no-repeat;
+            transition: 0.3s ease-in-out;
+            transition-property: background-position, border, color;
+            position: relative;
+            z-index: 2;
+            pointer-events: auto;
+        }
+        .primary-button:hover {
+            border: 1px solid #FF4655;
+            color: white;
+            background-position: 40%;
+        }
+        .primary-button:before {
+            content: "";
+            position: absolute;
+            background-color: #0E1822;
+            width: 0.2rem;
+            height: 0.2rem;
+            top: -1px;
+            left: -1px;
+            transition: background-color 0.15s ease-in-out;
+        }
+        .primary-button:hover:before {
+            background-color: white;
+        }
+        .primary-button:hover:after {
+            background-color: white;
+        }
+        .primary-button:after {
+            content: "";
+            position: absolute;
+            background-color: #FF4655;
+            width: 0.3rem;
+            height: 0.3rem;
+            bottom: -1px;
+            right: -1px;
+            transition: background-color 0.15s ease-in-out;
+        }
+        .button-borders:before {
+            content: "";
+            position: absolute;
+            width: calc(100% + 0.5em);
+            height: 50%;
+            left: -0.3em;
+            top: -0.3em;
+            border: 1px solid #0E1822;
+            border-bottom: 0px;
+        }
+        .button-borders:after {
+            content: "";
+            position: absolute;
+            width: calc(100% + 0.5em);
+            height: 50%;
+            left: -0.3em;
+            bottom: -0.3em;
+            border: 1px solid #0E1822;
+            border-top: 0px;
+            z-index: 0;
+        }
+        @media (max-width: 768px) {
+            .coding-cards-container {
+                margin: 4rem auto;
+                padding: 0;
+                width: 100%;
+            }
+            .coding-cards-row {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+                width: 100%;
+            }
+            .coding-card {
+                width: 280px;
+                height: 254px;
+                margin: 0;
+            }
+            .coding-card-photo {
+                width: 201.6px;
+                height: 113.4px;
+            }
+            .coding-cards-container > .coding-cards-row:last-child {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -182,42 +354,60 @@
             <a href="about.html">About</a>
         </nav>
 
-        <div class="center">
-            <h2 class="center-text glitch" data-text="Design Projects">Design Projects</h2>
+       
+
+        <!-- Cards Container -->
+        <div class="coding-cards-container">
+            <!-- First Row -->
+            <div class="coding-cards-row">
+                <div class="coding-card">
+                    <div class="coding-card-photo"></div>
+                    <div class="coding-card-title">UI/UX Design <br><span>Web & Mobile Interfaces</span></div>
+                    <div class="button-borders">
+                        <button class="primary-button">BUTTON</button>
+                    </div>
+                </div>
+                <div class="coding-card">
+                    <div class="coding-card-photo"></div>
+                    <div class="coding-card-title">Branding Identity <br><span>Logo & Visual Design</span></div>
+                    <div class="button-borders">
+                        <button class="primary-button">BUTTON</button>
+                    </div>
+                </div>
+                <div class="coding-card">
+                    <div class="coding-card-photo"></div>
+                    <div class="coding-card-title">Digital Artwork <br><span>Creative Illustrations</span></div>
+                    <div class="button-borders">
+                        <button class="primary-button">BUTTON</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Row -->
+            <div class="coding-cards-row">
+                <div class="coding-card">
+                    <div class="coding-card-photo"></div>
+                    <div class="coding-card-title">Graphic Design <br><span>Print & Digital Media</span></div>
+                    <div class="button-borders">
+                        <button class="primary-button">BUTTON</button>
+                    </div>
+                </div>
+                <div class="coding-card">
+                    <div class="coding-card-photo"></div>
+                    <div class="coding-card-title">Motion Graphics <br><span>Animated Designs</span></div>
+                    <div class="button-borders">
+                        <button class="primary-button">BUTTON</button>
+                    </div>
+                </div>
+                <div class="coding-card">
+                    <div class="coding-card-photo"></div>
+                    <div class="coding-card-title">Packaging Design <br><span>Product Branding</span></div>
+                    <div class="button-borders">
+                        <button class="primary-button">BUTTON</button>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- Add your design projects content here -->
-        <section class="image-card-section">
-            <div class="image-description">
-                <h2>UI/UX Design</h2>
-                <p class="description-text">
-                    A showcase of my UI/UX design projects, including web interfaces, mobile apps,
-                    and interactive prototypes. These designs focus on creating intuitive and
-                    engaging user experiences.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Figma</span>
-                    <span class="tech-tag">UI Design</span>
-                    <span class="tech-tag">Prototyping</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="image-card-section">
-            <div class="image-description">
-                <h2>Graphic Design</h2>
-                <p class="description-text">
-                    Collection of graphic design work including logos, branding materials,
-                    and digital artwork. These projects demonstrate my skills in visual
-                    communication and creative design.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Photoshop</span>
-                    <span class="tech-tag">Illustrator</span>
-                    <span class="tech-tag">Branding</span>
-                </div>
-            </div>
-        </section>
     </div>
     
     <script>
