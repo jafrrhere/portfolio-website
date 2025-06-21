@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         @font-face {
-            font-family: 'Akatab Bold';
-            src: url('fonts/Akatab-Bold.ttf') format('truetype');
+            font-family: 'Akatab';
+            src: url('./fonts/Akatab-Bold.ttf') format('truetype');
             font-weight: bold;
             font-style: normal;
+            font-display: swap;
         }
 
         /* Navigation Menu */
@@ -89,8 +90,8 @@
             .navbar {
                 display: none;
                 position: fixed;
-                top: 0 !important;
-                right: 30px !important;
+                top: 0;
+                right: 30px;
                 left: auto;
                 transform: none;
                 width: auto;
@@ -98,18 +99,14 @@
                 padding: 60px 20px 20px 20px;
                 border-radius: 0 0 10px 10px;
                 pointer-events: auto;
-                gap: 15px;
             }
 
             .navbar.active {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-end;
-                gap: 15px;
-            }
-
-            .navbar a {
-                font-size: 14px;
+                gap: 40px;
+                margin-top: 20px;
             }
 
             /* Hamburger Animation */
@@ -135,43 +132,6 @@
             margin-top: 40px;
             margin-bottom: 40px;
         }
-
-        .animated-hr.animate {
-            animation: growLine 0.3s ease-out forwards;
-        }
-
-        @keyframes growLine {
-            from {
-                width: 0;
-            }
-            to {
-                width: 12%;
-            }
-        }
-
-        /* Bottom line animation */
-        .bottom-hr {
-            width: 97%;
-            height: 1px;
-            border: none;
-            background-color: #666666;
-            margin-top: 100px;
-            transform-origin: left;
-            transform: scaleX(0);
-        }
-
-        .bottom-hr.animate {
-            animation: growBottomLine 0.9s ease-out forwards;
-        }
-
-        @keyframes growBottomLine {
-            from {
-                transform: scaleX(0);
-            }
-            to {
-                transform: scaleX(1);
-            }
-        }
     </style>
 </head>
 <body>
@@ -191,8 +151,9 @@
             <a href="design.html">Design</a>
             <a href="about.html">About</a>
         </nav>
-        <div>
-            <p1 style="color: #ffffff; font-family: 'Changa', sans-serif; font-size: 3rem; margin-left: 25px;">A Designer</p1>
+
+        <div style="color: #ffffff; font-family: 'Changa', sans-serif; font-size: 3rem; margin-top: 100px; margin-left: 60px;">
+            Nice to meet you
         </div>
     </div>
 
@@ -225,36 +186,7 @@
                 }
             });
         }
-
-        // Animated HR Intersection Observer
-        const hr = document.querySelector('.animated-hr');
-        if (hr) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        hr.classList.add('animate');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            observer.observe(hr);
-        }
-
-        // Bottom HR Animation
-        const bottomHr = document.querySelector('.bottom-hr');
-        if (bottomHr) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        bottomHr.classList.add('animate');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            observer.observe(bottomHr);
-        }
     </script>
-
 
 </body>
 </html> 
