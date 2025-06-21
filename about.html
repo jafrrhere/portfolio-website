@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jafar Tamboli - About Me</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900;400&family=Roboto:wght@300;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Changa&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         @font-face {
@@ -171,31 +172,6 @@
                 transform: scaleX(1);
             }
         }
-
-        .terminal {
-            color: #ffffff;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 400;
-            position: absolute;
-            top: 100px;
-            left: 100px;
-            max-width: 800px;
-        }
-        .terminal-line {
-            white-space: pre-wrap;
-            line-height: 1.5;
-        }
-        .cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1.2em;
-            background-color: #ffffff;
-            animation: blink 1s infinite;
-            vertical-align: middle;
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
     </style>
 </head>
 <body>
@@ -215,9 +191,8 @@
             <a href="design.html">Design</a>
             <a href="about.html">About</a>
         </nav>
-
-        <div class="terminal">
-            <div id="terminal-content"></div>
+        <div>
+            <p1 style="color: #ffffff; font-family: 'Changa', sans-serif; font-size: 3rem; margin-left: 25px;">A Designer</p1>
         </div>
     </div>
 
@@ -278,61 +253,8 @@
 
             observer.observe(bottomHr);
         }
-
-        // Terminal typing effect
-        const terminalContent = document.getElementById('terminal-content');
-        const text = [
-            { text: '> whoami', delay: 50 },
-            { text: 'Jafar Tamboli', delay: 50 },
-            { text: '> cat about.ts', delay: 50 },
-            { text: 'interface Developer {', delay: 50 },
-            { text: '    name: string;', delay: 50 },
-            { text: '    role: string;', delay: 50 },
-            { text: '    skills: string[];', delay: 50 },
-            { text: '}', delay: 50 },
-            { text: 'const me: Developer = {', delay: 50 },
-            { text: '    name: "Jafar Tamboli",', delay: 50 },
-            { text: '    role: "Full Stack Developer",', delay: 50 },
-            { text: '    skills: [', delay: 50 },
-            { text: '        "TypeScript",', delay: 50 },
-            { text: '        "React",', delay: 50 },
-            { text: '        "Node.js",', delay: 50 },
-            { text: '        "Python"', delay: 50 },
-            { text: '    ]', delay: 50 },
-            { text: '};', delay: 50 }
-        ];
-
-        let currentLine = 0;
-        let currentChar = 0;
-        let isDeleting = false;
-        let typingDelay = 100;
-
-        function typeText() {
-            const currentText = text[currentLine].text;
-            
-            if (isDeleting) {
-                terminalContent.textContent = currentText.substring(0, currentChar - 1);
-                currentChar--;
-                typingDelay = 50;
-            } else {
-                terminalContent.textContent = currentText.substring(0, currentChar + 1);
-                currentChar++;
-                typingDelay = 100;
-            }
-
-            if (!isDeleting && currentChar === currentText.length) {
-                isDeleting = true;
-                typingDelay = 2000;
-            } else if (isDeleting && currentChar === 0) {
-                isDeleting = false;
-                currentLine = (currentLine + 1) % text.length;
-                typingDelay = 500;
-            }
-
-            setTimeout(typeText, typingDelay);
-        }
-
-        typeText();
     </script>
+
+
 </body>
 </html> 
