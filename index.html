@@ -355,7 +355,7 @@
         }
 
         /* Re-enable pointer events for interactive elements */
-        .navbar, .image-card-section, .action-btn, .know-more, .see-more-coding, .see-more-design {
+        .navbar, .image-card-section, .action-btn, .know-more, .see-more-coding, .see-more-design, .fancy-button {
             pointer-events: auto;
         }
 
@@ -493,6 +493,26 @@
             position: relative;
             overflow: hidden;
         }
+        .see-more-coding::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 30%;
+            width: fit-content;
+            height: 2px;
+            background-color: #666666;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+        .see-more-coding:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        .see-more-coding:hover {
+            color: #666;
+            transform: translateY(-2px);
+        }
         .see-more-design {
             display: block;
             margin-top: 18px;
@@ -511,11 +531,11 @@
             position: relative;
             overflow: hidden;
         }
-        .see-more-coding::after, .see-more-design::after {
+        .see-more-design::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 30%;
             width: fit-content;
             height: 2px;
             background-color: #666666;
@@ -523,18 +543,11 @@
             transform-origin: right;
             transition: transform 0.3s ease;
         }
-        .see-more-coding::after {
-            left: 30%;
-        }
-        .see-more-design::after {
-            right: 30%;
-            left: auto;
-        }
-        .see-more-coding:hover::after, .see-more-design:hover::after {
+        .see-more-design:hover::after {
             transform: scaleX(1);
             transform-origin: left;
         }
-        .see-more-coding:hover, .see-more-design:hover {
+        .see-more-design:hover {
             color: #666;
             transform: translateY(-2px);
         }
@@ -1100,6 +1113,114 @@
         .shape {
             fill: #0E1822;
         }
+
+        .fancy-button {
+         background-color: transparent;
+         border: 2px solid #ffffff;
+         border-radius: 0;
+         box-sizing: border-box;
+         color: #000000;
+         cursor: pointer;
+         display: inline-block;
+         font-weight: 700;
+         letter-spacing: 0.05em;
+         margin: 20px 0;
+         outline: none;
+         overflow: visible;
+         padding: 1.1875em 1.9em;
+         position: relative;
+         text-align: center;
+         text-decoration: none;
+         text-transform: none;
+         transition: all 0.3s ease-in-out;
+         user-select: none;
+         font-size: 12.35px;
+        }
+
+        .fancy-button::before {
+         content: " ";
+         width: 1.484375rem;
+         height: 2px;
+         background: rgb(255, 255, 255);
+         top: 50%;
+         left: 1.425em;
+         position: absolute;
+         transform: translateY(-50%);
+         transform-origin: center;
+         transition: background 0.3s linear, width 0.3s linear;
+        }
+
+        .fancy-button .text {
+         font-size: 1.06875em;
+         line-height: 1.33333em;
+         padding-left: 1.9em;
+         display: block;
+         text-align: left;
+         transition: all 0.3s ease-in-out;
+         text-transform: uppercase;
+         text-decoration: none;
+         color: rgb(255, 255, 255);
+        }
+
+        .fancy-button .top-key {
+         height: 2px;
+         width: 1.484375rem;
+         top: -2px;
+         left: 0.59375rem;
+         position: absolute;
+         background: #000000;
+         transition: width 0.5s ease-out, left 0.3s ease-out;
+        }
+
+        .fancy-button .bottom-key-1 {
+         height: 2px;
+         width: 1.484375rem;
+         right: 1.78125rem;
+         bottom: -2px;
+         position: absolute;
+         background: #000000;
+         transition: width 0.5s ease-out, right 0.3s ease-out;
+        }
+
+        .fancy-button .bottom-key-2 {
+         height: 2px;
+         width: 0.59375rem;
+         right: 0.59375rem;
+         bottom: -2px;
+         position: absolute;
+         background: #000000;
+         transition: width 0.5s ease-out, right 0.3s ease-out;
+        }
+
+        .fancy-button:hover {
+         color: rgb(0, 0, 0) !important;
+         background: rgb(255, 255, 255) !important;
+        }
+
+        .fancy-button:hover::before {
+         width: 0.9375rem !important;
+         background: rgb(0, 0, 0) !important;
+        }
+
+        .fancy-button:hover .text {
+         color: rgb(0, 0, 0) !important;
+         padding-left: 1.5em !important;
+        }
+
+        .fancy-button:hover .top-key {
+         left: -2px !important;
+         width: 0 !important;
+        }
+
+        .fancy-button:hover .bottom-key-1 {
+         right: 0 !important;
+         width: 0 !important;
+        }
+
+        .fancy-button:hover .bottom-key-2 {
+         right: 0 !important;
+         width: 0 !important;
+        }
     </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HTHY38SMFZ"></script>
@@ -1206,32 +1327,12 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Second Row -->
-            <div class="cards-row">
-                <!-- Fourth Card -->
-                <div class="card">
-                    <div class="card-photo"></div>
-                    <div class="card-title">JAFAR TAMBOLI <br>
-                        <span>Fullstack dev &amp; UX UI</span>
-                    </div>
-                    <div class="button-borders">
-                        <button class="primary-button">BUTTON</button>
-                    </div>
-                </div>
-
-                <!-- Fifth Card -->
-                <div class="card">
-                    <div class="card-photo"></div>
-                    <div class="card-title">JAFAR TAMBOLI <br>
-                        <span>Fullstack dev &amp; UX UI</span>
-                    </div>
-                    <div class="button-borders">
-                        <button class="primary-button">BUTTON</button>
-                    </div>
-                </div>
-            </div>
-            <a class="see-more-design" href="coding.html">See more of Coding</a>
+            <a class="fancy-button" href="coding.html">
+                <span class="top-key"></span>
+                <span class="text">See more of Coding</span>
+                <span class="bottom-key-1"></span>
+                <span class="bottom-key-2"></span>
+            </a>
 
         </div>
 
@@ -1258,7 +1359,12 @@
         </div>
 
     </div>
-    <a class="see-more-design" href="design.html">See more of Design</a>
+    <a class="fancy-button" href="coding.html">
+        <span class="top-key"></span>
+        <span class="text">See more of Design</span>
+        <span class="bottom-key-1"></span>
+        <span class="bottom-key-2"></span>
+    </a>
 
     <!-- Name typing effect script -->
     <script>
