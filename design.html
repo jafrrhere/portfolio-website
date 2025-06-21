@@ -88,8 +88,8 @@
             .navbar {
                 display: none;
                 position: fixed;
-                top: 0;
-                right: 30px;
+                top: 0 !important;
+                right: 30px !important;
                 left: auto;
                 transform: none;
                 width: auto;
@@ -97,6 +97,7 @@
                 padding: 60px 20px 20px 20px;
                 border-radius: 0 0 10px 10px;
                 pointer-events: auto;
+                gap: 15px;
             }
 
             .navbar.active {
@@ -104,6 +105,10 @@
                 flex-direction: column;
                 align-items: flex-end;
                 gap: 15px;
+            }
+
+            .navbar a {
+                font-size: 14px;
             }
 
             /* Hamburger Animation */

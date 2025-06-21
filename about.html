@@ -18,12 +18,13 @@
         .navbar {
             position: fixed;
             top: 0;
-            right: 30px;
+            left: 50%;
+            transform: translateX(-50%);
             width: auto;
             padding: 1rem;
             display: flex;
-            justify-content: flex-end;
-            gap: 2rem;
+            justify-content: center;
+            gap: 7rem;
             z-index: 1000;
         }
 
@@ -67,6 +68,7 @@
             right: 30px;
             z-index: 1001;
             pointer-events: auto;
+            -webkit-tap-highlight-color: #666666;
         }
 
         .hamburger-line {
@@ -86,13 +88,16 @@
             .navbar {
                 display: none;
                 position: fixed;
-                top: 0;
-                right: 30px;
+                top: 0 !important;
+                right: 30px !important;
+                left: auto;
+                transform: none;
                 width: auto;
                 background: rgba(0, 0, 0, 0.95);
                 padding: 60px 20px 20px 20px;
                 border-radius: 0 0 10px 10px;
                 pointer-events: auto;
+                gap: 15px;
             }
 
             .navbar.active {
@@ -100,6 +105,10 @@
                 flex-direction: column;
                 align-items: flex-end;
                 gap: 15px;
+            }
+
+            .navbar a {
+                font-size: 14px;
             }
 
             /* Hamburger Animation */
@@ -206,8 +215,6 @@
             <a href="design.html">Design</a>
             <a href="about.html">About</a>
         </nav>
-
-        <hr class="animated-hr">
 
         <div class="terminal">
             <div id="terminal-content"></div>
