@@ -719,14 +719,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #191919;
+            background-color: #0a0a0a;
             z-index: 9999;
             display: flex;
             justify-content: center;
             align-items: center;
             opacity: 1;
             transform: translateY(0);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transition: opacity 0.5s linear, transform 0.5s linear;
         }
 
         .loading-screen.move-up {
@@ -743,7 +743,7 @@
             max-height: 80%;
             object-fit: contain;
             opacity: 0;
-            transition: opacity 0.1s ease;
+            transition: linear ;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
