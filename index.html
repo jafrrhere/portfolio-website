@@ -765,45 +765,39 @@
             transform: translateY(0);
         }
 
-        .center-align-container {
-            width: 100%;
-            box-sizing: border-box;
-            padding-left: 60px;
-        }
-        @media (max-width: 768px) {
-            .center-align-container {
-                padding-left: 20px;
-            }
-        }
-        .whoami-title {
-            color: #666666;
-            font-family: 'Changa', sans-serif;
-            font-size: 20px;
-            margin: 0;
-            padding: 0;
-            margin-bottom: 8px;
-            display: block;
-            line-height: 1;
-            text-align: center;
-        }
         .center-text {
             color: #fff;
             font-size: 4rem;
             margin: 0;
-            margin-top: 0;
+            margin-top: 8rem;
             white-space: nowrap;
-            padding: 0;
-            line-height: 1;
-            text-align: center;
         }
+
         @media (max-width: 768px) {
-            .whoami-title {
-                text-align: left;
+            .center {
+                align-items: center;
+                padding-left: 20px;
             }
             .center-text {
                 text-align: left;
-                font-size: 3.5rem;
                 white-space: normal;
+            }
+            .know-more {
+                text-align: left;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .center-text {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .center-text {
+                font-size: 2.8rem;
             }
         }
 
@@ -874,6 +868,7 @@
             .card-inner {
                 flex-direction: column;
                 text-align: center;
+                padding: 1.5rem;
             }
 
             .card-icon {
@@ -924,7 +919,7 @@
             flex-direction: column;
             align-items: center;
             gap: 2rem;
-            margin: 2rem auto;
+            margin: 2.5rem auto;
             max-width: 1000px;
             padding: 0 1rem;
         }
@@ -932,7 +927,7 @@
         .cards-row {
             display: flex;
             justify-content: center;
-            gap: 5rem;
+            gap: 9rem;
         }
 
         /* Mobile Responsive Styles */
@@ -952,14 +947,14 @@
             }
 
             .card {
-                width: 300px;
-                height: 381px;
+                width: 280px;
+                height: 254px;
                 margin: 0;
             }
 
             .card-photo {
-                width: 302.4px;
-                height: 170.1px;
+                width: 201.6px;
+                height: 113.4px;
             }
 
             /* Hide second row on mobile */
@@ -984,8 +979,8 @@
             --main-color: #ffffff;
             --border-color: #ffffff;
             --shadow-color: #C70200;
-            width: 300px;
-            height: 381px;
+            width: 200px;
+            height: 254px;
             background: var(--bg-color);
             border: 2px solid var(--border-color);
             box-shadow: 6px 6px var(--shadow-color);
@@ -994,19 +989,19 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding: 1.5rem;
+            padding: 1rem;
             position: relative;
             z-index: 1;
         }
 
         .card-photo {
-            width: 302.4px;
-            height: 170.1px;
+            width: 201.6px;
+            height: 113.4px;
             border-radius: 4px;
             background-image: url('https://hdyloqcphgwfyuyvchvi.supabase.co/storage/v1/object/public/project-images//1711.png');
             background-size: cover;
             background-position: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             border: 2px solid var(--border-color);
         }
 
@@ -1254,7 +1249,7 @@
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
             line-height: 1.4;
-            font-size: 20px;
+            font-size: 26px;
             font-weight: 600;
             margin-left: 60px;
             padding-left: 0;
@@ -1301,6 +1296,7 @@
         <hr style="position: absolute; bottom: 0px; width: 20%; border: none; border-radius: 999px; border-top: 3px solid #d5d4d4;">
     </div>
 
+    <div class="red-circle"></div>
     <div class="content-wrapper">
         <!-- Hamburger Menu -->
         <div class="hamburger">
@@ -1318,11 +1314,8 @@
         </nav>
         
         <div class="center">
-            <div class="center-align-container">
-                <div class="whoami-title"><span style="color: #3a0000; font-weight: bolder;">Hello,</span> I am</div>
-                <h2 class="center-text" id="nameText"></h2>
-            </div>
-            <div><a href="./about.html" class="know-more">a creative developer and designer</a></div>
+            <h2 class="center-text" id="nameText"></h2>
+            <a href="./about.html" class="know-more">a creative developer and designer</a>
             <div class="social-icons">
                 <a href="https://github.com/jafrrhere" target="_blank"><img src="images/git.png" alt="GitHub" class="social-icon"></a>
                 <a href="https://linkedin.com/in/jafrrhere" target="_blank"><img src="images/link.png" alt="LinkedIn" class="social-icon"></a>
@@ -1331,20 +1324,11 @@
         </div>
         <hr class="animated-hr">
         <p></p>
-            <div>
-                
-                <br>
-                <img src="images/qq.png" alt="qq" style="margin-left: 25px; margin-top: 28px; width: 2rem; height: auto; display: block;" />
-                <div class="main-text" style="width:20rem; font-weight: 100;">
-                    I create clean, user-friendly designs and build responsive websites that work beautifully.<br> 
-                    <span style="color: #666666;">Still learning, always creating.</span>
-                  </div>
-                          <br>
-            </div>
-        <br>
+        
 
 
     <div>
+        <p1 style="color: #666666; font-family: 'Changa', sans-serif; font-size: 20px; margin-left: 25px;">I do<span style="color: #880000; font-weight: bolder;"> ..</span></p1>
         <div style="width: 100vw; max-width: 100%; display: flex; justify-content: center; align-items: center; margin: 30px 0; margin-top: 0px ;">
             <img src="images/123.gif" alt="Animated GIF" style="width: 100vw; max-width: 100%; height: auto; display: block; object-fit: cover;" />
         </div>
@@ -1394,9 +1378,18 @@
                     </div>
                 </div>
             </div>
+            <div style="display: flex; justify-content: center; margin: 20px 0;">
+                <a href="coding.html" style="color: #666666; font-family: 'Changa', sans-serif; font-size: 15px; text-decoration: none; transition: color 0.3s ease;">See more of Coding</a>
+            </div>
 
         </div>
 
+        <hr class="bottom-hr">
+
+
+        <p style="color: #ffffff; font-family: 'Changa', sans-serif; font-size: 1.8rem; text-align: center; letter-spacing: 4px; margin: 0; margin-top: 3rem; margin-bottom: 3rem;">
+            Designing Projects
+          </p>
         <!-- 16:9 Fullwidth Image Card -->
         <div class="fullwidth-image-card">
             
@@ -1538,7 +1531,22 @@
     </script>
 
 
+<hr class="bottom-hr">
+<br>
+    <div>
+        
+        <p1 class="section-title">who am I <span style="color: #880000; font-weight: bolder;">??</span></p1>
+        <br>
+        <img src="images/qq.png" alt="qq" style="margin-left: 25px; margin-top: 28px; width: 2rem; height: auto; display: block;" />
+        <div class="main-text" style="width:20rem; font-weight: 100;">
+            I create clean, user-friendly designs and build responsive websites that work beautifully.<br> 
+            <span style="color: #666666;">Still learning, always creating.</span>
+          </div>
+                  <br>
+        <a href="about.html" class="know-more-link">know more </a>
 
+
+</div>
 <hr class="bottom-hr">
 <div>
         <br>
