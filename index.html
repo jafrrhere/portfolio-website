@@ -765,39 +765,41 @@
             transform: translateY(0);
         }
 
+        .center-left-align {
+            width: 100%;
+            box-sizing: border-box;
+            padding-left: 60px;
+        }
+        @media (max-width: 768px) {
+            .center-left-align {
+                padding-left: 20px;
+            }
+        }
+        .whoami-title {
+            color: #666666;
+            font-family: 'Changa', sans-serif;
+            font-size: 20px;
+            margin: 0;
+            padding: 0;
+            margin-bottom: -1px;
+            display: block;
+            line-height: 1;
+        }
         .center-text {
             color: #fff;
             font-size: 4rem;
             margin: 0;
-            margin-top: 8rem;
+            margin-top: 0;
             white-space: nowrap;
+            padding: 0;
+            text-align: left;
+            line-height: 1;
         }
-
         @media (max-width: 768px) {
-            .center {
-                align-items: center;
-                padding-left: 20px;
-            }
-            .center-text {
-                text-align: left;
-                white-space: normal;
-            }
-            .know-more {
-                text-align: left;
-                margin-left: 20px;
-                margin-right: 20px;
-            }
-        }
-
-        @media (max-width: 576px) {
             .center-text {
                 font-size: 3.5rem;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .center-text {
-                font-size: 2.8rem;
+                white-space: normal;
+                margin-top: 2rem;
             }
         }
 
@@ -1312,7 +1314,10 @@
         </nav>
         
         <div class="center">
-            <h2 class="center-text" id="nameText"></h2>
+            <div class="center-left-align">
+                <div class="whoami-title"><span style="color: #880000; font-weight: bolder;">Hello</span>, I am</div>
+                <h2 class="center-text" id="nameText"></h2>
+            </div>
             <a href="./about.html" class="know-more">a creative developer and designer</a>
             <div class="social-icons">
                 <a href="https://github.com/jafrrhere" target="_blank"><img src="images/git.png" alt="GitHub" class="social-icon"></a>
