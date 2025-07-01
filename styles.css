@@ -184,13 +184,13 @@ body {
 .cursor {
     display: inline-block;
     margin-left: 2px;
-    animation: cursor-blink 0.7s infinite, shimmer 3s linear infinite;
+    animation: cursor-blink 0.7s infinite, shimmer 2.4s linear infinite;
     color: transparent;
     font-weight: 100;
     transform: scaleX(0.5);
     position: relative;
     top: -2px;
-    background: linear-gradient(120deg, #ffffff, #4f4f4f, #ffffff);
+    background: linear-gradient(120deg, #ffffff, #333333, #8a8a8a);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
