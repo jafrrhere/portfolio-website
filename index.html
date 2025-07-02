@@ -352,7 +352,7 @@
             position: relative;
             z-index: 1;
             min-height: 100vh;
-            pointer-events: none;
+            /* pointer-events: none; */
         }
 
         /* Re-enable pointer events for interactive elements */
@@ -367,6 +367,8 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            /* Remove background-color to allow video to show */
+            background-color: transparent !important;
         }
 
         /* Skills Section Responsive Styles */
@@ -1276,6 +1278,33 @@
                 padding-left: 63px;
             }
         }
+
+        /* Background Video Styles */
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            /* pointer-events: none; */
+        }
+        .center, .center * {
+            position: relative;
+            z-index: 2;
+            pointer-events: auto;
+        }
+        .center {
+            /* Remove background-color to allow video to show */
+            background-color: transparent !important;
+        }
     </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HTHY38SMFZ"></script>
@@ -1297,6 +1326,11 @@
     </div>
 
     <div class="content-wrapper">
+        <!-- Background Video -->
+        <video id="background-video" autoplay loop muted playsinline poster="images/1.png">
+            <source src="images/bc.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         <!-- Hamburger Menu -->
         <div class="hamburger">
             <div class="hamburger-line"></div>
