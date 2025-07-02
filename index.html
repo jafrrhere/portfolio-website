@@ -1253,7 +1253,7 @@
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
             line-height: 1.4;
-            font-size: 20px;
+            font-size: 35px;
             font-weight: 600;
             margin-left: 60px;
             padding-left: 0;
@@ -1273,6 +1273,7 @@
             .main-text {
                 margin-left: 0;
                 padding-left: 60px;
+                font-size: 20px;
             }
             
             .know-more-link {
@@ -1311,10 +1312,10 @@
 .about-flex {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
-  display: flex;
-  justify-content: space-between;
-  align-items: left;
-  gap: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    gap: 2rem;
 }
 
 .about-image img {
@@ -1337,6 +1338,22 @@
     margin-right: auto;
   }
 }
+
+
+.responsive-text {
+      font-size: 35px;
+      width:80vw;
+      font-weight: 100;
+    }
+
+    /* Smaller font size for mobile screens */
+    @media (max-width: 768px) {
+      .responsive-text {
+        font-size: 20px;
+        width:80vw;
+        font-weight: 100;
+      }
+    }
 
 </style>
     <!-- Google tag (gtag.js) -->
