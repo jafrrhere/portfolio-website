@@ -1455,6 +1455,17 @@
     <!-- Name typing effect script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Set background video speed to 0.5x
+            const bgVideo = document.getElementById('background-video');
+            if (bgVideo) {
+                bgVideo.addEventListener('loadedmetadata', function() {
+                    bgVideo.playbackRate = 0.4;
+                });
+                // In case the video is already loaded
+                if (bgVideo.readyState >= 1) {
+                    bgVideo.playbackRate = 0.4;
+                }
+            }
             // Loading screen functionality
             const loadingScreen = document.querySelector('.loading-screen');
             const loadingImages = document.querySelectorAll('.loading-image');
