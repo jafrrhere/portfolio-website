@@ -1305,7 +1305,34 @@
             /* Remove background-color to allow video to show */
             background-color: transparent !important;
         }
-    </style>
+    
+.about-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0rem 0;
+  gap: 2rem;
+}
+
+.about-image img {
+  width: 360px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .about-flex {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .about-image img {
+    width: 240px;
+  }
+}
+
+</style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HTHY38SMFZ"></script>
     <script>
@@ -1361,10 +1388,14 @@
             <p1 class="section-title">who am I <span style="color: #880000; font-weight: bolder;">??</span></p1>
             <br>
             <img src="images/qq.png" alt="qq" style="margin-left: 25px; margin-top: 28px; width: 2rem; height: auto; display: block;" />
-            <div class="main-text" style="width:21rem; font-weight: 100;">
+            <div class="about-flex"><div class="main-text" style="width:21rem; font-weight: 100;">
                 I create clean, user-friendly designs and build responsive websites that work beautifully.<br> 
                 <span style="color: #666666;">Still learning, always creating.</span>
-              </div>
+        </div>
+<div class="about-image" style="margin-right: 60px;">
+  <img src="images/profile.png" alt="Your Image">
+</div>
+</div>
                       <br>    
     
 
