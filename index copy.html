@@ -648,19 +648,6 @@
                 align-items: flex-end;
                 gap: 15px;
             }
-
-            /* Hamburger Animation */
-            .hamburger.active .hamburger-line:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-
-            .hamburger.active .hamburger-line:nth-child(2) {
-                opacity: 0;
-            }
-
-            .hamburger.active .hamburger-line:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
-            }
         }
 
         /* Animated Horizontal Line */
@@ -1357,12 +1344,14 @@ z-index: 1;
             <source src="images/bc.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <!-- Hamburger Menu -->
+
         <div class="hamburger">
-            <div class="hamburger-line"></div>
-            <div class="hamburger-line"></div>
-            <div class="hamburger-line"></div>
-        </div>
+            <div class="navbar.active">
+                <a href="index.html">Index</a>
+                <a href="coding.html">Projects</a>
+                <a href="about.html">About</a>
+            </div>
+</div>
 
         <!-- Navigation Menu -->
         <nav class="navbar">
@@ -1764,34 +1753,8 @@ Promise.all(loadingImages.map(loadImage)).then(() => {
             nameElement.textContent = '';
             typeWriter();
 
-            // Hamburger Menu Functionality
-            const hamburger = document.querySelector('.hamburger');
-            const navbar = document.querySelector('.navbar');
-            
-            if (hamburger && navbar) {
-                hamburger.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    this.classList.toggle('active');
-                    navbar.classList.toggle('active');
-                });
-
-                // Close menu when clicking a link
-                const navLinks = document.querySelectorAll('.navbar a');
-                navLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        hamburger.classList.remove('active');
-                        navbar.classList.remove('active');
-                    });
-                });
-
-                // Close menu when clicking outside
-                document.addEventListener('click', function(event) {
-                    if (!hamburger.contains(event.target) && !navbar.contains(event.target)) {
-                        hamburger.classList.remove('active');
-                        navbar.classList.remove('active');
-                    }
-                });
-            }
+           
+                
 
             // Animated HR Intersection Observer
             const hr = document.querySelector('.animated-hr');
