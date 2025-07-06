@@ -692,7 +692,7 @@
             height: 1px;
             border: none;
             background-color: #666666;
-            margin-top: 100px;
+            margin-top: 0px;
             transform-origin: left;
             transform: scaleX(0);
         }
@@ -773,7 +773,7 @@
             color: #fff;
             font-size: 4rem;
             margin: 0;
-            margin-top: 14vw;
+            margin-top: 11vw;
             white-space: nowrap;
         }
 
@@ -892,7 +892,7 @@
             display: flex;
             justify-content: center;
             gap: 6rem;
-            margin-top: 7rem;
+            margin-top: 4rem;
             pointer-events: auto;
         }
 
@@ -983,22 +983,27 @@
             --font-color-sub: #ffffff;
             --bg-color: transparent;
             --main-color: #ffffff;
-            --border-color: #ffffff;
-            --shadow-color: #C70200;
+            --border-color: #000000;
+            --shadow-color: #666666; /* White with transparency */
+
+            
+            
             width: 340px;
-            height: 500px;
-            background: var(--bg-color);
-            border: 2px solid var(--border-color);
-            box-shadow: 6px 6px var(--shadow-color);
-            border-radius: 1px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 0.5rem;
-            position: relative;
-            z-index: 1;
-        }
+height: 500px;
+background: var(--bg-color);
+border: 1px solid var(--border-color); /* Clean white border */
+box-shadow: 6px 6px var(--shadow-color); /* White shadow offset */
+border-radius: 1px;
+display: flex;
+flex-direction: column;
+align-items: left;
+justify-content: flex-start;
+padding: 0.5rem;
+position: relative;
+z-index: 1;
+
+
+}
 
         .card-photo {
             width: 340px;
@@ -1010,12 +1015,12 @@
         }
 
         .card-title {
-            text-align: center;
+            text-align: left;
             color: var(--font-color);
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 400;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            margin: 0.5rem 0;
+            margin: 15px;
         }
 
         .card-title span {
@@ -1081,38 +1086,6 @@
             bottom: -1px;
             right: -1px;
             transition: background-color 0.15s ease-in-out;
-        }
-
-        .button-borders {
-            position: relative;
-            width: fit-content;
-            height: fit-content;
-            margin-top: auto;
-            z-index: 2;
-            pointer-events: auto;
-        }
-
-        .button-borders:before {
-            content: "";
-            position: absolute;
-            width: calc(100% + 0.5em);
-            height: 50%;
-            left: -0.3em;
-            top: -0.3em;
-            border: 1px solid #0E1822;
-            border-bottom: 0px;
-        }
-
-        .button-borders:after {
-            content: "";
-            position: absolute;
-            width: calc(100% + 0.5em);
-            height: 50%;
-            left: -0.3em;
-            bottom: -0.3em;
-            border: 1px solid #0E1822;
-            border-top: 0px;
-            z-index: 0;
         }
 
         .shape {
@@ -1242,7 +1215,7 @@
 
         /* Section title styling */
         .section-title {
-            color: #666666;
+            color: #a0a0a0;
             font-family: 'Changa', sans-serif;
             font-size: 18px;
             margin-left: 25px;
@@ -1370,16 +1343,17 @@
 <body>
     <!-- Loading Screen -->
     <div class="loading-screen">
-        <img src="images/1.png" alt="Loading 1" class="loading-image">
-        <img src="images/2.png" alt="Loading 2" class="loading-image">
-        <img src="images/3.png" alt="Loading 3" class="loading-image">
+        <img src="images/1.png" alt="Loading 1" class="loading-image" loading="eager" />
+        <img src="images/2.png" alt="Loading 2" class="loading-image" loading="eager" />
+        <img src="images/3.png" alt="Loading 3" class="loading-image" loading="eager" />
+        
         <hr style="width: 97%; border: none; border-top: 0.7px solid #ffffff;">
         <hr style="position: absolute; bottom: 0px; width: 20%; border: none; border-radius: 999px; border-top: 3px solid #d5d4d4;">
     </div>
 
     <div class="content-wrapper">
         <!-- Background Video -->
-        <video id="background-video" autoplay loop muted playsinline poster="images/1.png">
+        <video id="background-video" autoplay loop muted playsinline poster="images/vbg.png">
             <source src="images/bc.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -1393,8 +1367,7 @@
         <!-- Navigation Menu -->
         <nav class="navbar">
             <a href="index.html">Index</a>
-            <a href="coding.html">Coding</a>
-            <a href="design.html">Design</a>
+            <a href="coding.html">Projects</a>
             <a href="about.html">About</a>
         </nav>
         
@@ -1412,26 +1385,33 @@
             
             <p1 class="section-title">who am I <span style="color: #880000; font-weight: bolder;">??</span></p1>
             <br>
-            <img src="images/qq.png" alt="qq" style="margin-left: 25px; margin-top: 28px; width: 2rem; height: auto; display: block;" />
+            <img src="images/qq.png" alt="qq" style="margin-left: 25px; margin-top: 50px; width: 2rem; height: auto; display: block;" />
             <div class="about-flex"><div class="main-text" style="width:80vw; font-weight: 100;">
                 I create clean, user-friendly designs and build responsive websites that work beautifully.<br> 
                 <span style="color: #666666;">Still learning, always creating.</span>
         </div>
-<div class="about-image" style="margin-bottom: 30px;">
+<div class="about-image" style="margin-bottom: 40px;">
   <img src="images/profile.png" alt="profile image">
 </div>
 
 
 </div>
-<hr class="bottom-hr" style="margin-top: 0px;">
 
-<div style="width: 100vw; max-width: 100%; display: flex; justify-content: center; align-items: center; margin-top: 20px ;">
+<div style="width: 100vw; max-width: 100%; display: flex; justify-content: center; align-items: center; margin-top: 20px ; margin-bottom: 0px;">
     <img src="images/123.gif" alt="Animated GIF" style="width: 100vw; max-width: 100%; height: auto; display: block; object-fit: cover;" />
 </div>
 
 
-<div class="section-title" style="margin-top: 40px;">Designing<span style="color: #880000; font-weight: bolder;"> !!</span></div>
 
+
+
+
+<div style="background-color: #ffffff; margin-top: 0px; padding-top: 0px;">
+    <br>
+
+    <div style="background-color: #000000;  width: 153px;">
+        <div class="section-title" style="margin-top: 25px; ">* Designing<span style="color: #880000; font-weight: bolder;"> !!</span></div>
+    </div>
 
 <br>
 <br>
@@ -1440,21 +1420,28 @@
 
 
 <div style="
-    color: #ffffff;
+    color: #000000;
     font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
+    font-size: clamp(1.375rem, 5vw, 2rem);
     width: 80vw;
-    font-weight: 100;
+    font-weight: 400;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     display: block;
 ">
-    I value simple content structure, clean design patterns, and thoughtful interactions.<br><br><br>
-    <span style="color: #838282;">-Things I enjoy designing-<br><br>UX/UI<br>Web<br>Apps<br>Logos
+    I value simple content structure, clean design patterns, and thoughtful interactions.</div> <br><br><br>
+    <div style="
+    color: #666666;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.575rem, 5vw, 2rem);
+    width: 80vw;
+    font-weight: 100;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: block;">-Things I enjoy designing-<br><br>UX/UI<br>Web<br>Apps<br>Logos</div>
 
-    </span>
-</div>
 
 
 
@@ -1466,16 +1453,18 @@
     <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind"><span>Tailwind</span><strong>80%</strong></div>
     <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"><span>Git</span><strong>75%</strong></div>
     <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"><span>Figma</span><strong>90%</strong></div>
-    <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><span>JavaScript</span><strong>75%</strong></div>
-    <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript"><span>TypeScript</span><strong>70%</strong></div>
+    <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><span>JS</span><strong>75%</strong></div>
+    <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript"><span>TS</span><strong>70%</strong></div>
     <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"><span>React</span><strong>65%</strong></div>
   </section>
 
   <!-- secont skills section -->
 
+  <hr class="bottom-hr">
 
-  <div class="section-title" style="margin-top: 40px;">Designing<span style="color: #880000; font-weight: bolder;"> !!</span></div>
-
+    <div style="background-color: #000000;  width: 153px;">
+        <div class="section-title" style="margin-top: 40px;">* Developing<span style="color: #880000; font-weight: bolder;"> !!</span></div>
+    </div>
 
 <br>
 <br>
@@ -1484,21 +1473,29 @@
 
 
 <div style="
-    color: #ffffff;
+    color: #000000;
     font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
+    font-size: clamp(1.375rem, 5vw, 2rem);
+    width: 80vw;
+    font-weight: 400;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+">
+    I like to code things from scratch, and enjoy bringing ideas to life in the browser.</div><br><br><br>
+
+<div style="
+    color: #666666;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.575rem, 5vw, 2rem);
     width: 80vw;
     font-weight: 100;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    display: block;
-">
-    I like to code things from scratch, and enjoy bringing ideas to life in the browser.<br><br><br>
-    <span style="color: #838282;">-Tech I do-<br><br>clean maintainable code<br>responsive UI<br>bring designs to life<br>animations
-
-    </span>
-</div>
+    display: block;">-Tech I do-<br><br>clean maintainable code<br>responsive UI<br>bring designs to life<br>animations</div>
 
 
 
@@ -1510,20 +1507,26 @@
     <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind"><span>Tailwind</span><strong>80%</strong></div>
     <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"><span>Git</span><strong>75%</strong></div>
     <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"><span>Figma</span><strong>90%</strong></div>
-    <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><span>JavaScript</span><strong>75%</strong></div>
-    <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript"><span>TypeScript</span><strong>70%</strong></div>
+    <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><span>JS</span><strong>75%</strong></div>
+    <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript"><span>TS</span><strong>70%</strong></div>
     <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"><span>React</span><strong>65%</strong></div>
   </section>
 
-  
-  
+
+  </div>
+
+
+
+
+
+
   <style>
     .neo-badges {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 1.2rem;
       max-width: 900px;
-      margin: 4rem auto;
+      margin: 1rem auto;
       margin-bottom: 0%;
       padding: 2rem;
       font-family: 'JetBrains Mono', monospace;
@@ -1587,7 +1590,10 @@
 
 
     <div>
-        
+        <br>
+        <br>
+        <br>
+        <br>
         <img src="images/zzz.png" alt="UI/UX & Dev Poster" class="responsive-img">
 
 
@@ -1603,10 +1609,21 @@
           </style>
         </div>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
         <hr class="bottom-hr">
-        <div class="section-title" style="margin-top: 40px;">Projects<span style="color: #880000; font-weight: bolder;">!!</span></div>
-
+        <br>
+        <br>
+        
+       
+        <div style="background-color: #ffffff;  width: 153px;">
+            <p1 style="color: #2f2f2f; font-family: 'Changa', sans-serif; font-size: 18px; margin-left: 25px;">* Projects<span style="color: #880000; font-weight: bolder;"> --</span></p1>
+            </div>
 
         </div>
         
@@ -1616,35 +1633,29 @@
             <div class="cards-row">
                 <!-- First Card -->
                 <div class="card">
-                    <div class="card-photo" style="background-image: url('images/p1.jpg');"></div>
-                    <div class="card-title">Bubble Rush <br>
-                        <span>Fullstack dev &amp; UX UI</span>
+                    <div class="card-photo" style="background-image: url('images/p1.png');"></div>
+                    <div class="card-title">Ron Malhotra<br>Webinar website
+                        <div style="color: #666666; font-size: 20px; font-weight: 300;">Fullstack dev &amp; UX UI</div>
                     </div>
-                    <div class="button-borders">
-                        <button class="primary-button">BUTTON</button>
-                    </div>
+                   
                 </div>
 
                 <!-- Second Card -->
                 <div class="card">
-                    <div class="card-photo"></div>
+                    <div class="card-photo" style="background-image: url('images/p2.jpg');"></div>
                     <div class="card-title">JAFAR TAMBOLI <br>
-                        <span>Fullstack dev &amp; UX UI</span>
+                        <div style="color: #666666; font-size: 20px; font-weight: 300;">Fullstack dev &amp; UX UI</div>
                     </div>
-                    <div class="button-borders">
-                        <button class="primary-button">BUTTON</button>
-                    </div>
+                    
                 </div>
 
                 <!-- Third Card -->
                 <div class="card">
                     <div class="card-photo"></div>
                     <div class="card-title">JAFAR TAMBOLI <br>
-                        <span>Fullstack dev &amp; UX UI</span>
+                        <div style="color: #666666; font-size: 20px; font-weight: 300;">Fullstack dev &amp; UX UI</div>
                     </div>
-                    <div class="button-borders">
-                        <button class="primary-button">BUTTON</button>
-                    </div>
+                    
                 </div>
             </div>
             
@@ -1700,33 +1711,38 @@
                     bgVideo.playbackRate = 0.4;
                 }
             }
-            // Loading screen functionality
             const loadingScreen = document.querySelector('.loading-screen');
-            const loadingImages = document.querySelectorAll('.loading-image');
-            const contentWrapper = document.querySelector('.content-wrapper');
-            let currentImageIndex = 0;
+const loadingImages = Array.from(document.querySelectorAll('.loading-image'));
+const contentWrapper = document.querySelector('.content-wrapper');
 
-            // Show first image
-            loadingImages[0].classList.add('active');
+let currentImageIndex = 0;
+loadingImages[0].classList.add('active');
 
-            // Change images every 267ms (0.8 seconds total for 3 images)
-            const imageInterval = setInterval(() => {
-                loadingImages[currentImageIndex].classList.remove('active');
-                currentImageIndex = (currentImageIndex + 1) % loadingImages.length;
-                loadingImages[currentImageIndex].classList.add('active');
-            }, 267);
+const imageCycle = setInterval(() => {
+  loadingImages.forEach(img => img.classList.remove('active'));
+  currentImageIndex = (currentImageIndex + 1) % loadingImages.length;
+  loadingImages[currentImageIndex].classList.add('active');
+}, 400);
 
-            // After 0.8 seconds, hide loading screen and show content
-            setTimeout(() => {
-                clearInterval(imageInterval);
-                loadingScreen.classList.add('move-up');
-                contentWrapper.classList.add('loaded');
-                
-                // Remove loading screen from DOM after transition
-                setTimeout(() => {
-                    loadingScreen.style.display = 'none';
-                }, 500);
-            }, 800);
+function loadImage(img) {
+  return new Promise((resolve, reject) => {
+    if (img.complete) return resolve();
+    img.onload = () => resolve();
+    img.onerror = () => reject();
+  });
+}
+
+Promise.all(loadingImages.map(loadImage)).then(() => {
+  setTimeout(() => {
+    clearInterval(imageCycle);
+    loadingScreen.classList.add('move-up');
+    contentWrapper.classList.add('loaded');
+    setTimeout(() => {
+      loadingScreen.style.display = 'none';
+    }, 500);
+  }, 1100); // buffer for smoothness
+});
+
 
             const nameElement = document.getElementById('nameText');
             const fullName = "Jafar Tamboli.";
@@ -1816,7 +1832,9 @@
 <div>
         <br>
         <br>
-        <p1 style="color: #666666; font-family: 'Changa', sans-serif; font-size: 18px; margin-left: 25px;">contact<span style="color: #880000; font-weight: bolder;"> ..</span></p1>
+        <div style="background-color: #ffffff;  width: 153px;">
+        <p1 style="color: #2f2f2f; font-family: 'Changa', sans-serif; font-size: 18px; margin-left: 25px;">* contact<span style="color: #880000; font-weight: bolder;"> ..</span></p1>
+        </div>
         <br>
         <br>
         <div style="color: #ffffff; font-family: 'Montserrat', sans-serif; font-size: 26px; margin-left: 60px;">I'd love to work together.</div>
