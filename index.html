@@ -1370,9 +1370,10 @@
 <body>
     <!-- Loading Screen -->
     <div class="loading-screen">
-        <img src="images/1.png" alt="Loading 1" class="loading-image">
-        <img src="images/2.png" alt="Loading 2" class="loading-image">
-        <img src="images/3.png" alt="Loading 3" class="loading-image">
+        <img src="images/1.png" alt="Loading 1" class="loading-image" loading="eager" />
+        <img src="images/2.png" alt="Loading 2" class="loading-image" loading="eager" />
+        <img src="images/3.png" alt="Loading 3" class="loading-image" loading="eager" />
+        
         <hr style="width: 97%; border: none; border-top: 0.7px solid #ffffff;">
         <hr style="position: absolute; bottom: 0px; width: 20%; border: none; border-radius: 999px; border-top: 3px solid #d5d4d4;">
     </div>
@@ -1701,33 +1702,38 @@
                     bgVideo.playbackRate = 0.4;
                 }
             }
-            // Loading screen functionality
             const loadingScreen = document.querySelector('.loading-screen');
-            const loadingImages = document.querySelectorAll('.loading-image');
-            const contentWrapper = document.querySelector('.content-wrapper');
-            let currentImageIndex = 0;
+const loadingImages = Array.from(document.querySelectorAll('.loading-image'));
+const contentWrapper = document.querySelector('.content-wrapper');
 
-            // Show first image
-            loadingImages[0].classList.add('active');
+let currentImageIndex = 0;
+loadingImages[0].classList.add('active');
 
-            // Change images every 267ms (0.8 seconds total for 3 images)
-            const imageInterval = setInterval(() => {
-                loadingImages[currentImageIndex].classList.remove('active');
-                currentImageIndex = (currentImageIndex + 1) % loadingImages.length;
-                loadingImages[currentImageIndex].classList.add('active');
-            }, 267);
+const imageCycle = setInterval(() => {
+  loadingImages.forEach(img => img.classList.remove('active'));
+  currentImageIndex = (currentImageIndex + 1) % loadingImages.length;
+  loadingImages[currentImageIndex].classList.add('active');
+}, 400);
 
-            // After 0.8 seconds, hide loading screen and show content
-            setTimeout(() => {
-                clearInterval(imageInterval);
-                loadingScreen.classList.add('move-up');
-                contentWrapper.classList.add('loaded');
-                
-                // Remove loading screen from DOM after transition
-                setTimeout(() => {
-                    loadingScreen.style.display = 'none';
-                }, 500);
-            }, 800);
+function loadImage(img) {
+  return new Promise((resolve, reject) => {
+    if (img.complete) return resolve();
+    img.onload = () => resolve();
+    img.onerror = () => reject();
+  });
+}
+
+Promise.all(loadingImages.map(loadImage)).then(() => {
+  setTimeout(() => {
+    clearInterval(imageCycle);
+    loadingScreen.classList.add('move-up');
+    contentWrapper.classList.add('loaded');
+    setTimeout(() => {
+      loadingScreen.style.display = 'none';
+    }, 500);
+  }, 1100); // buffer for smoothness
+});
+
 
             const nameElement = document.getElementById('nameText');
             const fullName = "Jafar Tamboli.";
