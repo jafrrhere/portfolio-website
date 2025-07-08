@@ -1390,9 +1390,11 @@ z-index: 1;
         </div>
         
         <div>
-            <hr style="">
-            <div style="background-color: #666666;  width: 153px;">
-            <div class="section-title" style="color: #ffffff;">* who am I <span style="color: #880000; font-weight: bolder;">??</span></div>
+            <hr class="bottom-hr">
+            <br>
+
+            <div style="background-color: #ffffff;  width: 153px;">
+            <div class="section-title" style="color: #2f2f2f;">* who am I <span style="color: #880000; font-weight: bolder;">??</span></div>
             </div>
             
             <br>
@@ -1715,11 +1717,11 @@ z-index: 1;
             const bgVideo = document.getElementById('background-video');
             if (bgVideo) {
                 bgVideo.addEventListener('loadedmetadata', function() {
-                    bgVideo.playbackRate = 0.45;
+                    bgVideo.playbackRate = 0.4;
                 });
                 // In case the video is already loaded
                 if (bgVideo.readyState >= 1) {
-                    bgVideo.playbackRate = 0.45;
+                    bgVideo.playbackRate = 0.4;
                 }
             }
             const loadingScreen = document.querySelector('.loading-screen');
