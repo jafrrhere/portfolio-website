@@ -1719,11 +1719,11 @@
             const bgVideo = document.getElementById('background-video');
             if (bgVideo) {
                 bgVideo.addEventListener('loadedmetadata', function() {
-                    bgVideo.playbackRate = 0.65 ;
+                    bgVideo.playbackRate = 0.7 ;
                 });
                 // In case the video is already loaded
                 if (bgVideo.readyState >= 1) {
-                    bgVideo.playbackRate = 0.65;
+                    bgVideo.playbackRate = 0.7;
                 }
             }
             const loadingScreen = document.querySelector('.loading-screen');
